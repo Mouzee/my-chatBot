@@ -1,0 +1,393 @@
+{
+  "welcome": {
+    "greeting": "Welcome to my interactive portfolio! I'd be glad to share more about my work and experience with you. May I know your name?",
+    "namePrompt": "Enter your name...",
+    "nameError": "Please enter at least 2 characters",
+    "niceMeet": "Nice to meet you, {{name}}! Are you a recruiter, potential client, or looking to collaborate?"
+  },
+  "categories": {
+    "recruiter": "Recruiter / Employer 💼",
+    "client": "Client / Business 💼",
+    "collaborator": "Collaborator / Partner 🤝",
+    "selectPrompt": "Great! Here are some questions you might have. Feel free to explore any that interest you:"
+  },
+  "actions": {
+    "submit": "Submit name",
+    "restart": "Restart Conversation",
+    "done": "I'm done for now",
+    "doneMessage": "I'm done exploring questions",
+    "thanksMessage": "Thanks for exploring my portfolio! Feel free to restart or reach out anytime.",
+    "anotherQuestion": "Would you like to explore another question?",
+    "allExplored": "You've explored all the questions! Would you like to start over or check out my work?"
+  },
+  "cta": {
+    "recruiter": "Download my CV",
+    "client": "Start a Project Together",
+    "collaborator": "Collaborate on GitHub"
+  },
+  "header": {
+    "title": "Portfolio Assistant",
+    "subtitle": "Learn about my work & experience"
+  },
+  "hero": {
+    "badge": "Interactive Portfolio",
+    "title": "Explore My",
+    "titleHighlight": "Work & Skills",
+    "description": "Chat with my AI assistant to learn about my experience, projects, and expertise in UI/UX design and front-end development.",
+    "feature1": "Interactive Experience",
+    "feature2": "Instant Insights",
+    "feature3": "Personalized Journey"
+  },
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "skills": "Skills",
+    "contact": "Contact",
+    "experience": "Experience"
+  },
+  "pages": {
+    "about": {
+      "title": "About Me",
+      "subtitle": "Passionate designer and developer creating meaningful digital experiences",
+      "experience": {
+        "title": "5+ Years Experience",
+        "description": "Working across healthcare, banking, government, and e-commerce sectors with diverse teams and technologies."
+      },
+      "mission": {
+        "title": "My Mission",
+        "description": "To bridge the gap between design and development, creating intuitive interfaces that users love."
+      },
+      "passion": {
+        "title": "What I Love",
+        "description": "Exploring new technologies, solving complex problems, and bringing creative ideas to life through code."
+      }
+    },
+    "projects": {
+      "title": "My Projects",
+      "subtitle": "A showcase of my recent work and creative solutions",
+      "viewDemo": "View Demo",
+      "viewCode": "View Code",
+      "items": [
+        {
+          "title": "HR Management Dashboard",
+          "description": "A comprehensive HR solution built with Next.js and Shadcn UI, featuring employee management, attendance tracking, and performance analytics.",
+          "tags": ["Next.js", "Shadcn UI", "TypeScript", "Supabase"],
+          "category": "Web Application",
+          "year": "2024",
+          "image": "/placeholder.svg?height=400&width=600"
+        },
+        {
+          "title": "Healthcare Regulatory Portal",
+          "description": "Government health regulatory platform with license management, inspection scheduling, and compliance tracking for healthcare facilities.",
+          "tags": ["Angular", "Bootstrap", "REST API", "PostgreSQL"],
+          "category": "Government",
+          "year": "2023",
+          "image": "/placeholder.svg?height=400&width=600"
+        },
+        {
+          "title": "Booking & Appointment System",
+          "description": "Real-time booking platform with calendar integration, automated reminders, and payment processing for service-based businesses.",
+          "tags": ["React", "TailwindCSS", "Stripe", "Firebase"],
+          "category": "SaaS",
+          "year": "2024",
+          "image": "/placeholder.svg?height=400&width=600"
+        },
+        {
+          "title": "E-commerce Fashion Store",
+          "description": "Modern online store with product catalog, shopping cart, wishlist, and secure checkout with multiple payment options.",
+          "tags": ["Next.js", "Stripe", "Framer Motion", "Vercel"],
+          "category": "E-commerce",
+          "year": "2023",
+          "image": "/placeholder.svg?height=400&width=600"
+        },
+        {
+          "title": "Military Digital Solutions",
+          "description": "Secure digital platform for military operations including personnel management, equipment tracking, and mission planning.",
+          "tags": ["Angular", "TypeScript", "Node.js", "MongoDB"],
+          "category": "Government",
+          "year": "2023",
+          "image": "/placeholder.svg?height=400&width=600"
+        },
+        {
+          "title": "Social Media Analytics",
+          "description": "Analytics dashboard for social media managers with real-time metrics, engagement tracking, and automated reporting.",
+          "tags": ["React", "D3.js", "TailwindCSS", "Express"],
+          "category": "Analytics",
+          "year": "2024",
+          "image": "/placeholder.svg?height=400&width=600"
+        },
+        {
+          "title": "Banking Mobile App",
+          "description": "Secure mobile banking application with account management, transfers, bill payments, and investment tracking.",
+          "tags": ["React Native", "Redux", "REST API", "Biometrics"],
+          "category": "FinTech",
+          "year": "2023",
+          "image": "/placeholder.svg?height=400&width=600"
+        },
+        {
+          "title": "Creative Agency Portfolio",
+          "description": "Stunning portfolio website for a creative agency showcasing their work with smooth animations and interactive elements.",
+          "tags": ["Next.js", "Framer Motion", "GSAP", "Sanity CMS"],
+          "category": "Portfolio",
+          "year": "2024",
+          "image": "/placeholder.svg?height=400&width=600"
+        },
+        {
+          "title": "Attendance Management System",
+          "description": "Government attendance system with biometric integration, real-time tracking, leave management, and comprehensive reporting.",
+          "tags": ["Angular", "Bootstrap", "WebSocket", "SQL Server"],
+          "category": "Government",
+          "year": "2023",
+          "image": "/placeholder.svg?height=400&width=600"
+        }
+      ]
+    },
+    "contact": {
+      "title": "Get In Touch",
+      "subtitle": "Let's discuss your next project or collaboration opportunity",
+      "info": {
+        "title": "Contact Information",
+        "email": "hello@portfolio.com",
+        "phone": "+1 (555) 123-4567",
+        "location": "San Francisco, CA"
+      },
+      "form": {
+        "name": "Your Name",
+        "email": "Your Email",
+        "message": "Your Message",
+        "send": "Send Message",
+        "success": "Message sent successfully!",
+        "error": "Failed to send message. Please try again."
+      },
+      "social": {
+        "title": "Follow Me",
+        "linkedin": "LinkedIn",
+        "github": "GitHub",
+        "twitter": "Twitter",
+        "dribbble": "Dribbble"
+      }
+    },
+    "blog": {
+      "title": "Blog & Insights",
+      "subtitle": "Thoughts on design, development, and technology",
+      "readMore": "Read More",
+      "readTime": "{{minutes}} min read",
+      "items": [
+        {
+          "title": "Building Scalable Design Systems",
+          "excerpt": "Learn how to create and maintain design systems that grow with your product and team.",
+          "date": "2024-01-15",
+          "category": "Design",
+          "readTime": 8
+        },
+        {
+          "title": "Next.js 14: What's New",
+          "excerpt": "Exploring the latest features and improvements in Next.js 14 and how they impact development.",
+          "date": "2024-01-10",
+          "category": "Development",
+          "readTime": 6
+        },
+        {
+          "title": "The Future of Web Design",
+          "excerpt": "Trends and predictions for web design in 2024 and beyond, from AI to immersive experiences.",
+          "date": "2024-01-05",
+          "category": "Design",
+          "readTime": 10
+        }
+      ]
+    },
+    "experience": {
+      "title": "Changelog from My Journey",
+      "subtitle": "A timeline of my professional growth and key milestones",
+      "badge": "Career Timeline",
+      "timeline": [
+        {
+          "title": "Senior UI/UX Designer & Frontend Developer",
+          "company": "Mouzee.Tech Startup",
+          "period": "2023 - Present",
+          "description": "Leading design and development initiatives for innovative digital products, focusing on user-centered design and modern web technologies.",
+          "achievements": [
+            "Built 15+ production-ready web applications using Next.js and React",
+            "Established design system and component library used across multiple projects",
+            "Mentored junior designers and developers in best practices"
+          ],
+          "tags": ["Next.js", "React", "Figma", "Leadership", "Design Systems"]
+        },
+        {
+          "title": "UI/UX Designer & Frontend Developer",
+          "company": "Government Digital Services",
+          "period": "2021 - 2023",
+          "description": "Designed and developed critical government portals including healthcare regulatory systems, military solutions, and attendance management platforms.",
+          "achievements": [
+            "Delivered healthcare regulatory portal serving 500+ facilities",
+            "Implemented biometric attendance system for 10,000+ government employees",
+            "Achieved 98% user satisfaction rating on military digital solutions"
+          ],
+          "tags": ["Angular", "Bootstrap", "Government", "Security", "Accessibility"]
+        },
+        {
+          "title": "Frontend Developer",
+          "company": "Banking & FinTech Solutions",
+          "period": "2020 - 2021",
+          "description": "Developed secure banking applications and financial dashboards with focus on performance, security, and user experience.",
+          "achievements": [
+            "Built mobile banking app with 50,000+ active users",
+            "Reduced page load time by 60% through optimization",
+            "Implemented secure authentication with biometric integration"
+          ],
+          "tags": ["React Native", "Security", "Performance", "Mobile", "FinTech"]
+        },
+        {
+          "title": "UI/UX Designer",
+          "company": "Creative Design Agency",
+          "period": "2019 - 2020",
+          "description": "Created compelling brand identities and user interfaces for diverse clients across e-commerce, healthcare, and service industries.",
+          "achievements": [
+            "Designed 30+ brand identities and style guides",
+            "Increased client conversion rates by average of 40%",
+            "Won 'Best UI Design' award at regional design competition"
+          ],
+          "tags": ["Figma", "Adobe Suite", "Branding", "UI Design", "Prototyping"]
+        },
+        {
+          "title": "Junior Designer & Developer",
+          "company": "Freelance & Learning",
+          "period": "2018 - 2019",
+          "description": "Started my journey in web design and development, building websites for small businesses and continuously learning new technologies.",
+          "achievements": [
+            "Completed 20+ freelance projects successfully",
+            "Mastered HTML, CSS, JavaScript, and responsive design",
+            "Built personal portfolio that attracted first agency job"
+          ],
+          "tags": ["HTML", "CSS", "JavaScript", "WordPress", "Freelance"]
+        }
+      ]
+    }
+  },
+  "skills": {
+    "title": "My Skills",
+    "subtitle": "Technologies and tools I work with",
+    "categories": {
+      "frontend": "Frontend Development",
+      "design": "UI/UX Design",
+      "backend": "Backend & Tools",
+      "creative": "Creative Tools"
+    },
+    "items": {
+      "react": { "name": "React & Next.js", "experience": "3+ years" },
+      "typescript": { "name": "TypeScript", "experience": "2+ years" },
+      "tailwind": { "name": "Tailwind CSS", "experience": "3+ years" },
+      "figma": { "name": "Figma", "experience": "4+ years" },
+      "angular": { "name": "Angular", "experience": "2+ years" },
+      "nodejs": { "name": "Node.js", "experience": "2+ years" },
+      "git": { "name": "Git & GitHub", "experience": "3+ years" },
+      "adobe": { "name": "Adobe Suite", "experience": "5+ years" },
+      "shadcn": { "name": "Shadcn UI", "experience": "1+ year" },
+      "framer": { "name": "Framer Motion", "experience": "2+ years" },
+      "sketch": { "name": "Sketch", "experience": "3+ years" },
+      "vite": { "name": "Vite", "experience": "1+ year" }
+    }
+  },
+  "progress": {
+    "explored": "{{count}} of {{total}} explored"
+  },
+  "faq": {
+    "recruiter": [
+      {
+        "id": "rec-1",
+        "question": "What is your expertise?",
+        "answer": "I specialize in UI/UX Design & Front-end Development, with hands-on experience in Next.js, Vite, Angular, React, Shadcn UI, TailwindCSS, Bootstrap, along with creative tools like Figma, Sketch, Adobe Suite, and AI Prompting."
+      },
+      {
+        "id": "rec-2",
+        "question": "What industries have you worked in?",
+        "answer": "I've designed and developed solutions for Healthcare, Banking, Social Apps, HR Solutions, Government & Military domains, Booking systems, Service portals, E-commerce, and Creative Branding projects."
+      },
+      {
+        "id": "rec-3",
+        "question": "Do you have experience with collaborative projects?",
+        "answer": "Yes. I've worked in design agencies, startups, and government regulators, collaborating closely with developers, analysts, product owners, and stakeholders."
+      },
+      {
+        "id": "rec-4",
+        "question": "What are your core skills?",
+        "answer": "My key strengths include UI/UX Design, Branding, Front-end Development, Interactive Prototyping, Responsive Layouts, Component Libraries, and CMS Websites."
+      },
+      {
+        "id": "rec-5",
+        "question": "Can you share some main projects?",
+        "answer": "A few highlights: HR Management Dashboard (Next.js + Shadcn), Booking & Appointment System, Government Health Regulatory Portal, Government Attendance System with Live Actions, Police & Military Digital Solutions, E-commerce & Business Websites, Interactive Landing Pages & Personal Portfolio."
+      },
+      {
+        "id": "rec-6",
+        "question": "How can I contact you?",
+        "answer": "You can reach me via my Portfolio Website, LinkedIn, Email, or WhatsApp. I'm also happy to share my CV upon request."
+      }
+    ],
+    "client": [
+      {
+        "id": "cli-1",
+        "question": "What services do you provide?",
+        "answer": "I help businesses with UI/UX design, prototyping, branding, and front-end development to turn concepts into functional, user-friendly products."
+      },
+      {
+        "id": "cli-2",
+        "question": "Can you customize dashboards or booking systems?",
+        "answer": "Absolutely. I create custom dashboards, booking platforms, attendance portals, and workflow tools tailored to your business needs."
+      },
+      {
+        "id": "cli-3",
+        "question": "Do you also work with branding and identity?",
+        "answer": "Yes. I provide branding, logo design, and UI style guides, ensuring your product identity aligns with your audience."
+      },
+      {
+        "id": "cli-4",
+        "question": "What's your design and development process?",
+        "answer": "My workflow: Requirements & Research → Wireframes → Figma Prototypes / Branding Concepts → Front-end Build (Next.js / Shadcn / TailwindCSS)."
+      },
+      {
+        "id": "cli-5",
+        "question": "Do you work on XR/AR/VR projects?",
+        "answer": "Yes! I have explored XR (AR/VR/MR) and plan to feature more immersive experiences in my portfolio."
+      },
+      {
+        "id": "cli-6",
+        "question": "How can we start working together?",
+        "answer": "Reach me via Portfolio Website, LinkedIn, or WhatsApp. I'm open to freelance, contract, or project-based work."
+      }
+    ],
+    "collaborator": [
+      {
+        "id": "col-1",
+        "question": "What's your tech stack?",
+        "answer": "I mainly use Next.js, React, TypeScript, TailwindCSS, Shadcn UI, Framer Motion, and design tools like Figma & Adobe Suite."
+      },
+      {
+        "id": "col-2",
+        "question": "Do you work on open-source or side projects?",
+        "answer": "Yes! I enjoy building tools, UI kits, dashboards, and experimental portfolio projects."
+      },
+      {
+        "id": "col-3",
+        "question": "Are you involved in any startups?",
+        "answer": "Yes, I'm part of Mouzee.Tech, a startup team focused on digital products, UI/UX design, and branding."
+      },
+      {
+        "id": "col-4",
+        "question": "What skills do you bring to a team?",
+        "answer": "I bridge the design-to-code gap, offering UI/UX prototyping, front-end coding, and creative branding."
+      },
+      {
+        "id": "col-5",
+        "question": "Do you collaborate remotely?",
+        "answer": "Yes, I'm flexible with remote collaboration, async workflows, and modern team tools."
+      },
+      {
+        "id": "col-6",
+        "question": "Where can I connect with you?",
+        "answer": "Let's connect via Portfolio Website, GitHub, or LinkedIn. I'm always open to interesting collaborations!"
+      }
+    ]
+  }
+}
