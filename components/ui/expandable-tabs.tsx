@@ -7,6 +7,12 @@ import { cn } from "@/lib/utils"
 import type { LucideIcon } from "lucide-react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip"
 
 interface Tab {
   title: string
@@ -51,7 +57,11 @@ const spanVariants = {
 
 const transition = { delay: 0.1, type: "spring", bounce: 0, duration: 0.6 }
 
-export function ExpandableTabs({ tabs, className, activeColor = "text-primary" }: ExpandableTabsProps) {
+export function ExpandableTabs({
+  tabs,
+  className,
+  activeColor = "text-primary",
+}: ExpandableTabsProps) {
   const pathname = usePathname()
   const [selected, setSelected] = React.useState<number | null>(null)
   const outsideClickRef = React.useRef(null)
@@ -64,59 +74,75 @@ export function ExpandableTabs({ tabs, className, activeColor = "text-primary" }
     setSelected(index)
   }
 
-  const Separator = () => <div className="mx-1 h-[24px] w-[1.2px] bg-border" aria-hidden="true" />
+  const Separator = () => (
+    <div
+      className="mx-1 h-[24px] w-[1.2px] bg-border"
+      aria-hidden="true"
+    />
+  )
 
   return (
-    <div
-      ref={outsideClickRef}
-      className={cn(
-        "flex flex-wrap items-center gap-2 rounded-2xl border bg-background/80 backdrop-blur-sm p-1 shadow-lg",
-        className,
-      )}
-    >
-      {tabs.map((tab, index) => {
-        if (tab.type === "separator") {
-          return <Separator key={`separator-${index}`} />
-        }
+    <TooltipProvider delayDuration={150}>
+      <div
+        ref={outsideClickRef}
+        className={cn(
+          "flex flex-wrap items-center gap-2 rounded-2xl border bg-background/80 backdrop-blur-sm p-1 shadow-lg",
+          className
+        )}
+      >
+        {tabs.map((tab, index) => {
+          if (tab.type === "separator") {
+            return <Separator key={`separator-${index}`} />
+          }
 
-        const Icon = tab.icon
-        const isActive = pathname === tab.href
+          const Icon = tab.icon
+          const isActive = pathname === tab.href
 
-        return (
-          <Link key={tab.title} href={tab.href}>
-            <motion.button
-              variants={buttonVariants}
-              initial={false}
-              animate="animate"
-              custom={selected === index || isActive}
-              onClick={() => handleSelect(index)}
-              transition={transition}
-              className={cn(
-                "relative flex items-center rounded-xl px-4 py-2 text-sm font-medium transition-colors duration-300",
-                selected === index || isActive
-                  ? cn("bg-muted", activeColor)
-                  : "text-muted-foreground hover:bg-muted hover:text-foreground",
-              )}
-            >
-              <Icon size={20} />
-              <AnimatePresence initial={false}>
-                {(selected === index || isActive) && (
-                  <motion.span
-                    variants={spanVariants}
-                    initial="initial"
+          return (
+            <Tooltip key={tab.title}>
+              <TooltipTrigger asChild>
+                <Link href={tab.href}>
+                  <motion.button
+                    variants={buttonVariants}
+                    initial={false}
                     animate="animate"
-                    exit="exit"
+                    custom={selected === index || isActive}
+                    onClick={() => handleSelect(index)}
                     transition={transition}
-                    className="overflow-hidden"
+                    className={cn(
+                      "relative flex items-center rounded-xl px-4 py-2 text-sm font-medium transition-colors duration-300",
+                      selected === index || isActive
+                        ? cn("bg-muted", activeColor)
+                        : "text-muted-foreground hover:bg-muted hover:text-foreground"
+                    )}
                   >
-                    {tab.title}
-                  </motion.span>
-                )}
-              </AnimatePresence>
-            </motion.button>
-          </Link>
-        )
-      })}
-    </div>
+                    <Icon size={20} />
+                    <AnimatePresence initial={false}>
+                      {(selected === index || isActive) && (
+                        <motion.span
+                          variants={spanVariants}
+                          initial="initial"
+                          animate="animate"
+                          exit="exit"
+                          transition={transition}
+                          className="overflow-hidden"
+                        >
+                          {tab.title}
+                        </motion.span>
+                      )}
+                    </AnimatePresence>
+                  </motion.button>
+                </Link>
+              </TooltipTrigger>
+
+              {/* Tooltip Text */}
+              <TooltipContent side="top" className="text-xs font-medium">
+                {tab.title}
+              </TooltipContent>
+            </Tooltip>
+          )
+        })}
+      </div>
+    </TooltipProvider>
   )
 }

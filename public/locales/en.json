@@ -47,22 +47,33 @@
     "experience": "Experience"
   },
   "pages": {
-    "about": {
-      "title": "About Me",
-      "subtitle": "Passionate designer and developer creating meaningful digital experiences",
-      "experience": {
-        "title": "5+ Years Experience",
-        "description": "Working across healthcare, banking, government, and e-commerce sectors with diverse teams and technologies."
-      },
-      "mission": {
-        "title": "My Mission",
-        "description": "To bridge the gap between design and development, creating intuitive interfaces that users love."
-      },
-      "passion": {
-        "title": "What I Love",
-        "description": "Exploring new technologies, solving complex problems, and bringing creative ideas to life through code."
-      }
-    },
+    
+
+        "about": {
+          "title": "About Me",
+          "subtitle": "Passionate designer and developer creating meaningful digital experiences.",
+          "experience": {
+            "title": "5+ Years Experience",
+            "description": "Working across healthcare, banking, government, and e-commerce sectors with diverse teams and technologies."
+          },
+          "mission": {
+            "title": "My Mission",
+            "description": "To bridge the gap between design and development, creating intuitive interfaces that users love."
+          },
+          "passion": {
+            "title": "What I Love",
+            "description": "Exploring new technologies, solving complex problems, and bringing creative ideas to life through code."
+          },
+          "longDescription1": "With over 12+ years of experience in web development and design, I've worked on projects ranging from small business websites to large-scale applications. My approach combines technical expertise with creative problem-solving to deliver solutions that not only look great but perform exceptionally well.",
+          "longDescription2": "I'm passionate about creating accessible, user-friendly interfaces that provide seamless experiences across all devices. When I'm not coding, you can find me exploring new design trends, contributing to open-source projects, or experimenting with emerging technologies.",
+          "stats": {
+            "experience": "Years Experience",
+            "projects": "Projects Completed",
+            "clients": "Happy Clients",
+            "awards": "Awards Won"
+          }
+        },
+
     "projects": {
       "title": "My Projects",
       "subtitle": "A showcase of my recent work and creative solutions",
@@ -148,9 +159,9 @@
       "subtitle": "Let's discuss your next project or collaboration opportunity",
       "info": {
         "title": "Contact Information",
-        "email": "hello@portfolio.com",
-        "phone": "+1 (555) 123-4567",
-        "location": "San Francisco, CA"
+        "email": "shafeekali.ktdi@gmail.com",
+        "phone": "+971 (0) 5016 76892, 05891 64565",
+        "location": "Abu Dhabi, United Arab Emirates"
       },
       "form": {
         "name": "Your Name",
@@ -275,17 +286,18 @@
       "creative": "Creative Tools"
     },
     "items": {
+      "bootstrap": { "name": "Bootstrap", "experience": "7+ years" },
       "react": { "name": "React & Next.js", "experience": "3+ years" },
       "typescript": { "name": "TypeScript", "experience": "2+ years" },
       "tailwind": { "name": "Tailwind CSS", "experience": "3+ years" },
-      "figma": { "name": "Figma", "experience": "4+ years" },
+      "figma": { "name": "Figma", "experience": "6+ years" },
       "angular": { "name": "Angular", "experience": "2+ years" },
-      "nodejs": { "name": "Node.js", "experience": "2+ years" },
-      "git": { "name": "Git & GitHub", "experience": "3+ years" },
-      "adobe": { "name": "Adobe Suite", "experience": "5+ years" },
+      "nodejs": { "name": "Node.js", "experience": "1+ years" },
+      "git": { "name": "Git & GitHub", "experience": "5+ years" },
+      "adobe": { "name": "Adobe Suite", "experience": "10+ years" },
       "shadcn": { "name": "Shadcn UI", "experience": "1+ year" },
-      "framer": { "name": "Framer Motion", "experience": "2+ years" },
-      "sketch": { "name": "Sketch", "experience": "3+ years" },
+      "framer": { "name": "Framer Motion", "experience": "1+ years" },
+      "sketch": { "name": "Miro", "experience": "2+ years" },
       "vite": { "name": "Vite", "experience": "1+ year" }
     }
   },
