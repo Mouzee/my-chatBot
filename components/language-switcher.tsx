@@ -3,17 +3,15 @@
 import { Languages } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { motion } from "framer-motion"
-import { useTranslation } from "react-i18next"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
+import { changeLanguage, type SupportedLanguage } from "@/lib/i18n"
+import { useI18n } from "@/lib/i18n-utils"
 
 export function LanguageSwitcher() {
-  const { i18n, t } = useTranslation()
+  const { t, currentLanguage } = useI18n()
 
-  const changeLanguage = (lng: string) => {
-    i18n.changeLanguage(lng)
-    // Update document direction for RTL support
-    document.documentElement.dir = lng === "ar" ? "rtl" : "ltr"
-    document.documentElement.lang = lng
+  const handleLanguageChange = (lng: SupportedLanguage) => {
+    changeLanguage(lng)
   }
 
   return (
@@ -31,10 +29,10 @@ export function LanguageSwitcher() {
         </motion.div>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="min-w-[120px]">
-        <DropdownMenuItem onClick={() => changeLanguage("en")} className={i18n.language === "en" ? "bg-accent" : ""}>
+        <DropdownMenuItem onClick={() => handleLanguageChange("en")} className={currentLanguage === "en" ? "bg-accent" : ""}>
           {t("ui.language.english")}
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => changeLanguage("ar")} className={i18n.language === "ar" ? "bg-accent" : ""}>
+        <DropdownMenuItem onClick={() => handleLanguageChange("ar")} className={currentLanguage === "ar" ? "bg-accent" : ""}>
           {t("ui.language.arabic")}
         </DropdownMenuItem>
       </DropdownMenuContent>
