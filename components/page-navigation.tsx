@@ -38,7 +38,7 @@ export function PageNavigation({ className = "" }: PageNavigationProps) {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.4 }}
-        className={`sticky bottom-0 z-40 w-full border-t border-border/30 bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60 ${className}`}
+        className={`fixed bottom-0 left-0 right-0 z-40 w-full border-t border-border/30 bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60 ${className}`}
       >
         <div className="mx-auto w-full max-w-screen-md px-4 py-4">
           <ExpandableTabs tabs={navigationTabs} activeColor="text-primary" />

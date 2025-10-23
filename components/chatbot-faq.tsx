@@ -3,6 +3,7 @@
 import type React from "react"
 import { useState, useRef, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
+import { useScrollArea } from "@/hooks/use-scroll-area"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card } from "@/components/ui/card"
@@ -23,7 +24,7 @@ interface Message {
 export function ChatbotFAQ() {
   const { t } = useTranslation()
   const [stage, setStage] = useState<Stage>("name")
-  const [userName, setUserName] = useState("")
+  const [, setUserName] = useState("")
   const [nameInput, setNameInput] = useState("")
   const [selectedCategory, setSelectedCategory] = useState<CategoryType | null>(null)
   const [answeredQuestions, setAnsweredQuestions] = useState<Set<string>>(new Set())
@@ -38,12 +39,16 @@ export function ChatbotFAQ() {
 
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const chatContainerRef = useRef<HTMLDivElement>(null)
+  const { scrollAreaRef, scrollToElement } = useScrollArea({
+    autoScroll: true,
+    scrollBehavior: 'smooth'
+  })
 
   useEffect(() => {
     if (messagesEndRef.current) {
-      messagesEndRef.current.scrollIntoView({ behavior: "smooth" })
+      scrollToElement(messagesEndRef.current)
     }
-  }, [messages])
+  }, [messages, scrollToElement])
 
   const addMessage = (content: string, type: "bot" | "user") => {
     const newMessage: Message = {
@@ -152,7 +157,7 @@ export function ChatbotFAQ() {
   const answeredCount = answeredQuestions.size
 
   return (
-    <Card className="flex w-full max-w-2xl flex-col overflow-hidden backdrop-blur-xl bg-surface/70 border-2 border-border/60 shadow-xl transition-all duration-300 hover:shadow-2xl hover:border-primary/30 leading-4 h-[800px]">
+    <Card className="flex w-full max-w-2xl flex-col overflow-hidden backdrop-blur-xl bg-surface/70 border-2 border-border/60 shadow-xl transition-all duration-300 hover:shadow-2xl hover:border-primary/30 leading-4 h-[70vh] max-h-[600px]">
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -173,7 +178,7 @@ export function ChatbotFAQ() {
         </div>
       </motion.div>
 
-      <ScrollArea className="flex-1 backdrop-blur-sm bg-background/30">
+      <ScrollArea ref={scrollAreaRef} showScrollIndicator={true} className="flex-1 backdrop-blur-sm bg-background/30 hover:bg-background/40 transition-colors duration-200">
         <div ref={chatContainerRef} className="space-y-4 px-6 py-2" role="log" aria-label="Chat messages">
           <AnimatePresence mode="popLayout">
             {messages.map((message) => (
