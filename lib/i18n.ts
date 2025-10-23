@@ -8,22 +8,22 @@ import arTranslations from "../public/locales/ar.json"
 
 // Configuration
 const i18nConfig = {
-  resources: {
-    en: {
-      translation: enTranslations,
+    resources: {
+      en: {
+        translation: enTranslations,
+      },
+      ar: {
+        translation: arTranslations,
+      },
     },
-    ar: {
-      translation: arTranslations,
-    },
-  },
-  fallbackLng: "en",
+    fallbackLng: "en",
   debug: process.env.NODE_ENV === "development",
-  interpolation: {
+    interpolation: {
     escapeValue: false, // React already escapes values
-  },
-  detection: {
+    },
+    detection: {
     order: ["localStorage", "navigator", "htmlTag"],
-    caches: ["localStorage"],
+      caches: ["localStorage"],
     lookupLocalStorage: "i18nextLng",
   },
   react: {
