@@ -4,7 +4,7 @@ import { ChatbotFAQ } from "@/components/chatbot-faq"
 import { AnimatedBackground } from "@/components/animated-background"
 import { PageNavigation } from "@/components/page-navigation"
 import { motion } from "framer-motion"
-import { Bot, Sparkles, MessageCircle, Zap, Eye } from "lucide-react"
+import { Bot, Sparkles, MessageCircle, Eye, Zap, Target, Award, Heart, BrainCog, Lightbulb, LayoutGrid, PenTool, Code2, MonitorSmartphone, BadgeCheck } from "lucide-react"
 import { useTranslation } from "react-i18next"
 import { useState, useEffect } from "react"
 
@@ -63,22 +63,57 @@ export default function Home() {
                     whileHover={{ scale: 1.05, y: -2 }}
                     className="flex items-center gap-2 px-4 py-2 bg-secondary/50 rounded-full border border-border/50 hover:border-accent/50 hover:shadow-md transition-all duration-200"
                   >
-                    <MessageCircle className="w-4 h-4 text-accent" />
+                    <BadgeCheck className="w-4 h-4 text-accent" />
                     <span className="text-sm text-muted-foreground">{t("hero.feature1")}</span>
                   </motion.div>
                   <motion.div
                     whileHover={{ scale: 1.05, y: -2 }}
                     className="flex items-center gap-2 px-4 py-2 bg-secondary/50 rounded-full border border-border/50 hover:border-accent/50 hover:shadow-md transition-all duration-200"
                   >
-                    <Zap className="w-4 h-4 text-accent" />
+                    <Sparkles className="w-4 h-4 text-accent" />
                     <span className="text-sm text-muted-foreground">{t("hero.feature2")}</span>
                   </motion.div>
                   <motion.div
                     whileHover={{ scale: 1.05, y: -2 }}
                     className="flex items-center gap-2 px-4 py-2 bg-secondary/50 rounded-full border border-border/50 hover:border-accent/50 hover:shadow-md transition-all duration-200"
                   >
-                    <Sparkles className="w-4 h-4 text-accent" />
+                    <Lightbulb className="w-4 h-4 text-accent" />
                     <span className="text-sm text-muted-foreground">{t("hero.feature3")}</span>
+                  </motion.div>
+                  <motion.div
+                    whileHover={{ scale: 1.05, y: -2 }}
+                    className="flex items-center gap-2 px-4 py-2 bg-secondary/50 rounded-full border border-border/50 hover:border-accent/50 hover:shadow-md transition-all duration-200"
+                  >
+                    <LayoutGrid className="w-4 h-4 text-accent" />
+                    <span className="text-sm text-muted-foreground">{t("hero.feature4")}</span>
+                  </motion.div>
+                  <motion.div
+                    whileHover={{ scale: 1.05, y: -2 }}
+                    className="flex items-center gap-2 px-4 py-2 bg-secondary/50 rounded-full border border-border/50 hover:border-accent/50 hover:shadow-md transition-all duration-200"
+                  >
+                    <PenTool className="w-4 h-4 text-accent" />
+                    <span className="text-sm text-muted-foreground">{t("hero.feature5")}</span>
+                  </motion.div>
+                  <motion.div
+                    whileHover={{ scale: 1.05, y: -2 }}
+                    className="flex items-center gap-2 px-4 py-2 bg-secondary/50 rounded-full border border-border/50 hover:border-accent/50 hover:shadow-md transition-all duration-200"
+                  >
+                    <Code2 className="w-4 h-4 text-accent" />
+                    <span className="text-sm text-muted-foreground">{t("hero.feature6")}</span>
+                  </motion.div>
+                  <motion.div
+                    whileHover={{ scale: 1.05, y: -2 }}
+                    className="flex items-center gap-2 px-4 py-2 bg-secondary/50 rounded-full border border-border/50 hover:border-accent/50 hover:shadow-md transition-all duration-200"
+                  >
+                    <MonitorSmartphone className="w-4 h-4 text-accent" />
+                    <span className="text-sm text-muted-foreground">{t("hero.feature7")}</span>
+                  </motion.div>
+                  <motion.div
+                    whileHover={{ scale: 1.05, y: -2 }}
+                    className="flex items-center gap-2 px-4 py-2 bg-secondary/50 rounded-full border border-border/50 hover:border-accent/50 hover:shadow-md transition-all duration-200"
+                  >
+                    <BrainCog  className="w-4 h-4 text-accent" />
+                    <span className="text-sm text-muted-foreground">{t("hero.feature8")}</span>
                   </motion.div>
                 </motion.div>
 
