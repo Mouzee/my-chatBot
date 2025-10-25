@@ -27,6 +27,10 @@ export default function Home() {
     setVisitorCount(newCount)
   }, [])
 
+  // Add a JSX element somewhere in your render, e.g., in the Hero section or footer (not shown here),
+  // to localise the "Visitors" label:
+  // <span>{visitorCount} {t("hero.footer.visitors")}</span>
+
   return (
     <>
       <AnimatedBackground />
@@ -90,7 +94,7 @@ export default function Home() {
                 >
                   <Eye className="w-4 h-4 text-accent" />
                   <span>
-                    {t("footer.visitors")}:{" "}
+                    {t("hero.footer.visitors")}:{" "}
                     <span className="font-semibold text-foreground">{visitorCount.toLocaleString()}</span>
                   </span>
                 </motion.div>
