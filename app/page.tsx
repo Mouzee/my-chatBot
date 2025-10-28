@@ -4,7 +4,7 @@ import { ChatbotFAQ } from "@/components/chatbot-faq"
 import { AnimatedBackground } from "@/components/animated-background"
 import { PageNavigation } from "@/components/page-navigation"
 import { motion } from "framer-motion"
-import { Bot, Sparkles, MessageCircle, Eye, Zap, Target, Award, Heart, BrainCog, Lightbulb, LayoutGrid, PenTool, Code2, MonitorSmartphone, BadgeCheck } from "lucide-react"
+import { Bot, Sparkles, Eye, BrainCog, Lightbulb, LayoutGrid, PenTool, Code2, MonitorSmartphone, BadgeCheck } from "lucide-react"
 import { useTranslation } from "react-i18next"
 import { useState, useEffect } from "react"
 

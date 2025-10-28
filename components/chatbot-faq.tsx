@@ -23,7 +23,7 @@ interface Message {
 export function ChatbotFAQ() {
   const { t } = useTranslation()
   const [stage, setStage] = useState<Stage>("name")
-  const [userName, setUserName] = useState("")
+  const [, setUserName] = useState("")
   const [nameInput, setNameInput] = useState("")
   const [selectedCategory, setSelectedCategory] = useState<CategoryType | null>(null)
   const [answeredQuestions, setAnsweredQuestions] = useState<Set<string>>(new Set())
@@ -152,7 +152,7 @@ export function ChatbotFAQ() {
   const answeredCount = answeredQuestions.size
 
   return (
-    <Card className="flex w-full max-w-2xl flex-col overflow-hidden backdrop-blur-xl bg-surface/70 py-0 border-2 border-border/60 shadow-xl transition-all duration-300 hover:shadow-2xl hover:border-primary/30 leading-4 h-[800px]">
+    <Card className="flex w-full max-w-2xl flex-col overflow-hidden backdrop-blur-xl bg-surface/70 py-0 border-2 border-border/60 shadow-xl transition-all duration-300 hover:shadow-2xl hover:border-primary/30 leading-4 h-[70vh] max-h-[600px] min-h-[400px]">
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
