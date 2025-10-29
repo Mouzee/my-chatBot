@@ -4,7 +4,7 @@ import { ChatbotFAQ } from "@/components/chatbot-faq"
 import { AnimatedBackground } from "@/components/animated-background"
 import { PageNavigation } from "@/components/page-navigation"
 import { motion } from "framer-motion"
-import { Bot, Sparkles, MessageCircle, Eye, Zap, Target, Award, Heart, BrainCog, Lightbulb, LayoutGrid, PenTool, Code2, MonitorSmartphone, BadgeCheck } from "lucide-react"
+import { Bot, Sparkles, Eye, BrainCog, Lightbulb, LayoutGrid, PenTool, Code2, MonitorSmartphone, BadgeCheck } from "lucide-react"
 import { useTranslation } from "react-i18next"
 import { useState, useEffect } from "react"
 
@@ -26,6 +26,10 @@ export default function Home() {
     // Update state
     setVisitorCount(newCount)
   }, [])
+
+  // Add a JSX element somewhere in your render, e.g., in the Hero section or footer (not shown here),
+  // to localise the "Visitors" label:
+  // <span>{visitorCount} {t("hero.footer.visitors")}</span>
 
   return (
     <>
@@ -125,7 +129,7 @@ export default function Home() {
                 >
                   <Eye className="w-4 h-4 text-accent" />
                   <span>
-                    {t("footer.visitors")}:{" "}
+                    {t("hero.footer.visitors")}:{" "}
                     <span className="font-semibold text-foreground">{visitorCount.toLocaleString()}</span>
                   </span>
                 </motion.div>
