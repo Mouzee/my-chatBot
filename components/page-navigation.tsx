@@ -22,8 +22,8 @@ export function PageNavigation({ className = "" }: PageNavigationProps) {
     { title: t("navigation.projects"), icon: Briefcase, href: "/projects" },
     { title: t("navigation.skills"), icon: Code, href: "/skills" },
     { type: "separator" as const },
-    { title: t("navigation.contact"), icon: Mail, href: "/contact" },
     { title: t("navigation.experience"), icon: Clock, href: "/experience" },
+    { title: t("navigation.contact"), icon: Mail, href: "/contact" },
   ]
 
   return (

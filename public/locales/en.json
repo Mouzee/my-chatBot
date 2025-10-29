@@ -6,9 +6,9 @@
     "niceMeet": "Nice to meet you, {{name}}! Are you a recruiter, potential client, or looking to collaborate?"
   },
   "categories": {
-    "recruiter": "Recruiter / Employer 💼",
-    "client": "Client / Business 💼",
-    "collaborator": "Collaborator / Partner 🤝",
+    "recruiter": "For Hairing 💼",
+    "client": "For Business 💼",
+    "collaborator": "For Collaborator 🤝",
     "selectPrompt": "Great! Here are some questions you might have. Feel free to explore any that interest you:"
   },
   "actions": {
@@ -48,8 +48,8 @@
     "about": "About",
     "projects": "Projects",
     "skills": "Skills",
-    "contact": "Contact",
-    "experience": "Experience"
+    "experience": "Experience",
+    "contact": "Contact"
   },
   "pages": {
     
