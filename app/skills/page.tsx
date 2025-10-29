@@ -4,12 +4,13 @@ import { AnimatedBackground } from "@/components/animated-background"
 import { PageNavigation } from "@/components/page-navigation"
 import { Card, CardContent } from "@/components/ui/card"
 import { motion } from "framer-motion"
-import { Code, Palette, Layout, Terminal, Figma, Sparkles } from "lucide-react"
+import { Code, Palette, Layout, Terminal, Figma, Sparkles, CodeXml, LassoSelect, WandSparkles } from "lucide-react"
 import { useTranslation } from "react-i18next"
 
 export default function SkillsPage() {
   const { t } = useTranslation()
 
+  // Updated skillsData from en.json "skills.items"
   const skillsData = [
     {
       category: t("skills.categories.frontend"),
@@ -19,7 +20,7 @@ export default function SkillsPage() {
         { icon: Code, name: t("skills.items.react.name"), experience: t("skills.items.react.experience") },
         { icon: Code, name: t("skills.items.typescript.name"), experience: t("skills.items.typescript.experience") },
         { icon: Palette, name: t("skills.items.tailwind.name"), experience: t("skills.items.tailwind.experience") },
-        { icon: Sparkles, name: t("skills.items.shadcn.name"), experience: t("skills.items.shadcn.experience") },
+        { icon: Palette, name: t("skills.items.shadcn.name"), experience: t("skills.items.shadcn.experience") },
         { icon: Code, name: t("skills.items.angular.name"), experience: t("skills.items.angular.experience") },
         { icon: Sparkles, name: t("skills.items.framer.name"), experience: t("skills.items.framer.experience") },
       ],
@@ -31,7 +32,7 @@ export default function SkillsPage() {
       skills: [
         { icon: Figma, name: t("skills.items.figma.name"), experience: t("skills.items.figma.experience") },
         { icon: Palette, name: t("skills.items.sketch.name"), experience: t("skills.items.sketch.experience") },
-        { icon: Sparkles, name: t("skills.items.adobe.name"), experience: t("skills.items.adobe.experience") },
+        { icon: LassoSelect, name: t("skills.items.adobe.name"), experience: t("skills.items.adobe.experience") },
       ],
     },
     {
@@ -41,8 +42,19 @@ export default function SkillsPage() {
       skills: [
         { icon: Terminal, name: t("skills.items.nodejs.name"), experience: t("skills.items.nodejs.experience") },
         { icon: Code, name: t("skills.items.git.name"), experience: t("skills.items.git.experience") },
-        { icon: Sparkles, name: t("skills.items.vite.name"), experience: t("skills.items.vite.experience") },
+        { icon: CodeXml, name: t("skills.items.php.name"), experience: t("skills.items.php.experience") },
+        { icon: Code, name: t("skills.items.dotnet.name"), experience: t("skills.items.dotnet.experience") },
       ],
+    },
+    {
+      category: t("skills.categories.ai"),
+      icon: Sparkles,
+      color: "text-amber-500",
+      skills: [
+        { icon: Sparkles, name: t("skills.items.prompt.name"), experience: t("skills.items.prompt.experience") },
+        { icon: WandSparkles, name: t("skills.items.v0dev.name"), experience: t("skills.items.v0dev.experience") },
+        { icon: Sparkles, name: t("skills.items.cursor.name"), experience: t("skills.items.cursor.experience") },
+      ]
     },
   ]
 
@@ -88,9 +100,36 @@ export default function SkillsPage() {
                         <h2 className="text-2xl font-semibold text-foreground">{category.category}</h2>
                       </div>
 
-                      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                      <div className="grid sm:grid-cols-3 lg:grid-cols-4 gap-4">
                         {category.skills.map((skill, skillIndex) => {
                           const SkillIcon = skill.icon
+
+                          // Simple logic to assign an "expertise progress" value based on years (just for demo)
+                          // You may map this from data if available, else parse from experience string
+                          let expertisePercent = 70 // fallback
+                          if (typeof skill.experience === "string") {
+                            const yearsMatch = skill.experience.match(/(\d+)(\+)?/);
+                            if (yearsMatch) {
+                              const years = parseInt(yearsMatch[1]);
+                              // Demo logic: cap at 90%, e.g. 1+ = 30%, 2+ = 45%, 3+ = 60%, 5+ = 75%, 7+ = 85%, 12+ = 100%
+                              if (years >= 12) {
+                                expertisePercent = 98;
+                              } else if (years >= 7) {
+                                expertisePercent = 85;
+                              } else if (years >= 5) {
+                                expertisePercent = 75;
+                              } else if (years >= 3) {
+                                expertisePercent = 60;
+                              } else if (years >= 2) {
+                                expertisePercent = 45;
+                              } else if (years >= 1) {
+                                expertisePercent = 30;
+                              } else {
+                                expertisePercent = 20;
+                              }
+                            }
+                          }
+
                           return (
                             <motion.div
                               key={skillIndex}
@@ -111,6 +150,16 @@ export default function SkillsPage() {
                                       <Sparkles className="w-3 h-3 text-accent" />
                                       {skill.experience}
                                     </p>
+                                    {/* Progress bar for expertise */}
+                                    <div className="mt-2">
+                                      <div className="w-full bg-accent/20 rounded-full h-2 relative overflow-hidden">
+                                        <div
+                                          className="bg-primary transition-all duration-500 h-2 rounded-full"
+                                          style={{ width: `${expertisePercent}%` }}
+                                        ></div>
+                                      </div>
+                                      <div className="text-xs text-right mt-1 text-muted-foreground">{expertisePercent}%</div>
+                                    </div>
                                   </div>
                                 </CardContent>
                               </Card>
