@@ -14,14 +14,15 @@ export const useI18n = () => {
 }
 
 // Server-side translation helper (for future use with Next.js App Router)
-export const getServerTranslation = async (locale: SupportedLanguage, namespace = "translation") => {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export const getServerTranslation = async (_locale: SupportedLanguage, _namespace = "translation") => {
   // This would be used with Next.js App Router i18n in the future
   // For now, we'll use client-side only
   return null
 }
 
 // Translation key validation helper
-export const validateTranslationKey = (key: string, translations: Record<string, any>): boolean => {
+export const validateTranslationKey = (key: string, translations: Record<string, unknown>): boolean => {
   const keys = key.split(".")
   let current = translations
   

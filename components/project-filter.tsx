@@ -1,12 +1,15 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 
-export function ProjectFilter(): JSX.Element {
-  const [activeFilter, setActiveFilter] = useState<string>("all");
+interface ProjectFilterProps {
+  activeFilter: string;
+  onFilterChange: (filterId: string) => void;
+}
 
+export function ProjectFilter({ activeFilter, onFilterChange }: ProjectFilterProps): JSX.Element {
   const filters = [
     { id: "all", label: "All" },
     { id: "web", label: "Web Development" },
@@ -25,7 +28,7 @@ export function ProjectFilter(): JSX.Element {
           <Button
             variant={activeFilter === filter.id ? "default" : "outline"}
             size="sm"
-            onClick={() => setActiveFilter(filter.id)}
+            onClick={() => onFilterChange(filter.id)}
             className="rounded-full"
             type="button"
           >

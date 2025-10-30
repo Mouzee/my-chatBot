@@ -1,7 +1,7 @@
 "use client"
 
 import { useI18n } from "@/lib/i18n-utils"
-import { changeLanguage, getSupportedLanguages, type SupportedLanguage } from "@/lib/i18n"
+import { changeLanguage, getSupportedLanguages } from "@/lib/i18n"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
