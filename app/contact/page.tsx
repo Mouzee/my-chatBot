@@ -38,7 +38,8 @@ export default function ContactPage() {
     },
   })
 
-  async function onSubmit(values: z.infer<typeof formSchema>) {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  async function onSubmit(_values: z.infer<typeof formSchema>) {
     setIsSubmitting(true)
     try {
       await new Promise((resolve) => setTimeout(resolve, 1500))
@@ -47,7 +48,7 @@ export default function ContactPage() {
         description: t("pages.contact.form.success_desc") || "Thank you for your message.",
       })
       form.reset()
-    } catch (error) {
+    } catch {
       toast({
         title: t("pages.contact.form.error_title") || "Error",
         description:
