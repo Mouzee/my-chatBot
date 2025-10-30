@@ -17,12 +17,22 @@ export default function SkillsPage() {
       icon: Layout,
       color: "text-cyan-500",
       skills: [
+        { icon: Code, name: t("skills.items.uiux.name"), experience: t("skills.items.uiux.experience") },
+        { icon: Code, name: t("skills.items.frontend.name"), experience: t("skills.items.frontend.experience") },
+        { icon: Palette, name: t("skills.items.bootstrap.name"), experience: t("skills.items.bootstrap.experience") },
         { icon: Code, name: t("skills.items.react.name"), experience: t("skills.items.react.experience") },
         { icon: Code, name: t("skills.items.typescript.name"), experience: t("skills.items.typescript.experience") },
         { icon: Palette, name: t("skills.items.tailwind.name"), experience: t("skills.items.tailwind.experience") },
         { icon: Palette, name: t("skills.items.shadcn.name"), experience: t("skills.items.shadcn.experience") },
         { icon: Code, name: t("skills.items.angular.name"), experience: t("skills.items.angular.experience") },
-        { icon: Sparkles, name: t("skills.items.framer.name"), experience: t("skills.items.framer.experience") },
+        { icon: Code, name: t("skills.items.vuejs.name"), experience: t("skills.items.vuejs.experience") },
+        { icon: Code, name: t("skills.items.redux.name"), experience: t("skills.items.redux.experience") },
+        { icon: Code, name: t("skills.items.zustand.name"), experience: t("skills.items.zustand.experience") },
+        { icon: Code, name: t("skills.items.sass.name"), experience: t("skills.items.sass.experience") },
+        { icon: Code, name: t("skills.items.htmlcss.name"), experience: t("skills.items.htmlcss.experience") },
+        { icon: Sparkles, name: t("skills.items.motion.name"), experience: t("skills.items.motion.experience") },
+        { icon: Sparkles, name: t("skills.items.responsive.name"), experience: t("skills.items.responsive.experience") },
+        { icon: Sparkles, name: t("skills.items.prototyping.name"), experience: t("skills.items.prototyping.experience") },
       ],
     },
     {
@@ -33,6 +43,7 @@ export default function SkillsPage() {
         { icon: Figma, name: t("skills.items.figma.name"), experience: t("skills.items.figma.experience") },
         { icon: Palette, name: t("skills.items.sketch.name"), experience: t("skills.items.sketch.experience") },
         { icon: LassoSelect, name: t("skills.items.adobe.name"), experience: t("skills.items.adobe.experience") },
+        { icon: LassoSelect, name: t("skills.items.miro.name"), experience: t("skills.items.miro.experience") },
       ],
     },
     {
@@ -41,20 +52,54 @@ export default function SkillsPage() {
       color: "text-green-500",
       skills: [
         { icon: Terminal, name: t("skills.items.nodejs.name"), experience: t("skills.items.nodejs.experience") },
-        { icon: Code, name: t("skills.items.git.name"), experience: t("skills.items.git.experience") },
-        { icon: CodeXml, name: t("skills.items.php.name"), experience: t("skills.items.php.experience") },
+        { icon: Code, name: t("skills.items.php.name"), experience: t("skills.items.php.experience") },
         { icon: Code, name: t("skills.items.dotnet.name"), experience: t("skills.items.dotnet.experience") },
+        { icon: Code, name: t("skills.items.restapi.name"), experience: t("skills.items.restapi.experience") },
+        { icon: Code, name: t("skills.items.firebase.name"), experience: t("skills.items.firebase.experience") },
+        { icon: Code, name: t("skills.items.git.name"), experience: t("skills.items.git.experience") },
+        { icon: Code, name: t("skills.items.jira.name"), experience: t("skills.items.jira.experience") },
+        { icon: Code, name: t("skills.items.vite.name"), experience: t("skills.items.vite.experience") },
+        { icon: Code, name: t("skills.items.storybook.name"), experience: t("skills.items.storybook.experience") },
+        { icon: Code, name: t("skills.items.jest.name"), experience: t("skills.items.jest.experience") },
       ],
     },
     {
-      category: t("skills.categories.ai"),
+      category: t("skills.categories.creative"),
       icon: Sparkles,
       color: "text-amber-500",
       skills: [
+        { icon: Sparkles, name: t("skills.items.framer.name"), experience: t("skills.items.framer.experience") },
+        { icon: Sparkles, name: t("skills.items.gsap.name"), experience: t("skills.items.gsap.experience") },
+      ]
+    },
+    {
+      category: t("skills.categories.ai"),
+      icon: WandSparkles,
+      color: "text-yellow-500",
+      skills: [
         { icon: Sparkles, name: t("skills.items.prompt.name"), experience: t("skills.items.prompt.experience") },
+        { icon: WandSparkles, name: t("skills.items.ai.name"), experience: t("skills.items.ai.experience") },
         { icon: WandSparkles, name: t("skills.items.v0dev.name"), experience: t("skills.items.v0dev.experience") },
         { icon: Sparkles, name: t("skills.items.cursor.name"), experience: t("skills.items.cursor.experience") },
       ]
+    },
+    {
+      category: t("skills.categories.devops"),
+      icon: CodeXml,
+      color: "text-pink-500",
+      skills: [
+        { icon: Code, name: t("skills.items.git.name"), experience: t("skills.items.git.experience") },
+        { icon: Code, name: t("skills.items.jira.name"), experience: t("skills.items.jira.experience") },
+        { icon: Code, name: t("skills.items.firebase.name"), experience: t("skills.items.firebase.experience") },
+      ]
+    },
+    {
+      category: t("skills.categories.accessibility"),
+      icon: Sparkles,
+      color: "text-blue-500",
+      skills: [
+        { icon: Sparkles, name: t("skills.items.accessibility.name"), experience: t("skills.items.accessibility.experience") },
+      ],
     },
   ]
 
@@ -63,109 +108,89 @@ export default function SkillsPage() {
       <AnimatedBackground />
       <main className="min-h-screen relative">
         <section className="min-h-screen flex items-center px-4 py-20">
-          <div className="max-w-7xl mx-auto w-full">
+          <div className="max-w-5xl mx-auto w-full">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="space-y-12"
+              className="space-y-8"
             >
-              <div className="text-center space-y-4">
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.5 }}
-                  className="inline-flex items-center space-x-2 px-4 py-2 bg-primary/10 rounded-full border border-primary/20 mb-4"
-                >
-                  <Code className="w-4 h-4 text-primary" />
-                  <span className="text-sm font-medium text-primary">{t("skills.categories.frontend")}</span>
-                </motion.div>
+              <div className="text-center space-y-3">
                 <h1 className="text-4xl sm:text-5xl font-bold text-foreground">{t("skills.title")}</h1>
-                <p className="text-lg text-muted-foreground max-w-2xl mx-auto">{t("skills.subtitle")}</p>
+                <p className="text-base text-muted-foreground max-w-xl mx-auto">{t("skills.subtitle")}</p>
               </div>
 
-              <div className="space-y-12">
+              <div className="space-y-10 sm:space-y-14">
                 {skillsData.map((category, categoryIndex) => {
                   const CategoryIcon = category.icon
                   return (
                     <motion.div
                       key={categoryIndex}
-                      initial={{ opacity: 0, y: 30 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.6, delay: 0.1 * categoryIndex }}
-                      className="space-y-6"
+                      initial={{ opacity: 0, y: 32, scale: 0.96 }}
+                      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.7, delay: 0.18 * categoryIndex, type: "spring", stiffness: 100 }}
+                      className="sm:flex sm:items-start gap-5"
                     >
-                      <div className="flex items-center gap-3">
-                        <CategoryIcon className={`w-6 h-6 ${category.color}`} />
-                        <h2 className="text-2xl font-semibold text-foreground">{category.category}</h2>
-                      </div>
+                      {/* Card container */}
+                      <div className="w-full bg-background/80 border border-border/60 rounded-2xl p-5 shadow-sm mb-2">
+                        <div className="flex items-center gap-2 mb-4">
+                          <span className="inline-flex items-center justify-center w-8 h-8 rounded-full shadow-sm" style={{ background: 'rgba(0,0,0,0.06)' }}>
+                            <CategoryIcon className={`w-5 h-5 ${category.color} opacity-80`} />
+                          </span>
+                          <h2 className="text-lg font-medium text-foreground tracking-tight">{category.category}</h2>
+                          <span
+                            className="grow h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent ml-2"
+                            style={{ minWidth: 24 }}
+                          />
+                        </div>
+                        {/* Skill item badges */}
+                        <div className="flex flex-wrap gap-2 mb-3">
+                          {category.skills.map((skill, skillIndex) => {
+                            const SkillIcon = skill.icon
 
-                      <div className="grid sm:grid-cols-3 lg:grid-cols-4 gap-4">
-                        {category.skills.map((skill, skillIndex) => {
-                          const SkillIcon = skill.icon
+                            // Determine badge color based on percent (optional, for visual variety)
+                            let badgeColor = "bg-primary/10 text-primary border border-primary/30";
+                            // You might add conditions here if you want more color variation per skill
 
-                          // Simple logic to assign an "expertise progress" value based on years (just for demo)
-                          // You may map this from data if available, else parse from experience string
-                          let expertisePercent = 70 // fallback
-                          if (typeof skill.experience === "string") {
-                            const yearsMatch = skill.experience.match(/(\d+)(\+)?/);
-                            if (yearsMatch) {
-                              const years = parseInt(yearsMatch[1]);
-                              // Demo logic: cap at 90%, e.g. 1+ = 30%, 2+ = 45%, 3+ = 60%, 5+ = 75%, 7+ = 85%, 12+ = 100%
-                              if (years >= 12) {
-                                expertisePercent = 98;
-                              } else if (years >= 7) {
-                                expertisePercent = 85;
-                              } else if (years >= 5) {
-                                expertisePercent = 75;
-                              } else if (years >= 3) {
-                                expertisePercent = 60;
-                              } else if (years >= 2) {
-                                expertisePercent = 45;
-                              } else if (years >= 1) {
-                                expertisePercent = 30;
-                              } else {
-                                expertisePercent = 20;
-                              }
-                            }
-                          }
-
-                          return (
-                            <motion.div
-                              key={skillIndex}
-                              initial={{ opacity: 0, scale: 0.9 }}
-                              animate={{ opacity: 1, scale: 1 }}
-                              transition={{ duration: 0.4, delay: 0.05 * skillIndex }}
-                              whileHover={{ scale: 1.02, y: -4 }}
-                            >
-                              <Card className="glass-card border-border/50 hover:border-primary/30 transition-all duration-300">
-                                <CardContent className="p-6 space-y-4">
-                                  <div className="flex items-center justify-center w-12 h-12 rounded-lg bg-primary/10 border border-primary/20">
-                                    <SkillIcon className="w-6 h-6 text-primary" />
-                                  </div>
-
-                                  <div className="space-y-1">
-                                    <h3 className="text-lg font-semibold text-foreground">{skill.name}</h3>
-                                    <p className="text-sm text-muted-foreground flex items-center gap-2">
-                                      <Sparkles className="w-3 h-3 text-accent" />
-                                      {skill.experience}
-                                    </p>
-                                    {/* Progress bar for expertise */}
-                                    <div className="mt-2">
-                                      <div className="w-full bg-accent/20 rounded-full h-2 relative overflow-hidden">
-                                        <div
-                                          className="bg-primary transition-all duration-500 h-2 rounded-full"
-                                          style={{ width: `${expertisePercent}%` }}
-                                        ></div>
-                                      </div>
-                                      <div className="text-xs text-right mt-1 text-muted-foreground">{expertisePercent}%</div>
-                                    </div>
-                                  </div>
-                                </CardContent>
-                              </Card>
-                            </motion.div>
-                          )
-                        })}
+                            return (
+                              <motion.div
+                                key={skillIndex}
+                                initial={{ opacity: 0, scale: 0.9 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.32, delay: 0.03 * (skillIndex + 1), type: "spring", stiffness: 90 }}
+                              >
+                                <span
+                                  className={
+                                    `inline-flex items-center px-3 py-1 rounded-full text-sm font-medium whitespace-nowrap shadow-sm ` +
+                                    badgeColor +
+                                    ` hover:shadow-md transition-shadow duration-200`
+                                  }
+                                >
+                                  <SkillIcon className="w-4 h-4 mr-1.5 opacity-80" />
+                                  {skill.name}
+                                  <span className="ml-2 text-xs font-normal text-muted-foreground">
+                                    {skill.experience}
+                                  </span>
+                                </span>
+                              </motion.div>
+                            )
+                          })}
+                        </div>
+                        {/* Skill details */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-1 mt-2 text-xs text-muted-foreground">
+                          {category.skills.map((skill, skillIndex) => (
+                            <div key={skillIndex} className="flex items-start gap-2">
+                              <span className="shrink-0 mt-1.5 w-1.5 h-1.5 rounded-full bg-primary/30" aria-hidden />
+                              <span>
+                                {/* Render details if present, fallback to empty string */}
+                                {t(`skills.items.${Object.keys(skill).find(k => k === 'name') ? 
+                                  Object.entries(skill).find(([k]) => k === 'name')?.[1].toLowerCase().replace(/[^a-z0-9]/g,'') : ''}.details`, '') || ''}
+                              </span>
+                            </div>
+                          ))}
+                        </div>
                       </div>
                     </motion.div>
                   )
