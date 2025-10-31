@@ -121,10 +121,10 @@ export function ChatbotFAQ() {
 
   const handleCategorySelect = (category: CategoryType) => {
     setSelectedCategory(category)
-    addMessage(t(`categories.${category}`), "user")
+    addMessage(t(`chatCategories.${category}`), "user")
 
     setTimeout(() => {
-      addMessage(t("categories.selectPrompt"), "bot")
+      addMessage(t("chatCategories.selectPrompt"), "bot")
       setStage("question-select")
     }, 800)
   }
@@ -200,7 +200,7 @@ export function ChatbotFAQ() {
     : 0
   const answeredCount = answeredQuestions.size
 
-  // Categories for carousel
+  // chatCategories for carousel
   const categoryArray = ["recruiter", "client", "collaborator"] as const
 
   // --- DRAG HOOKS for carousels ---
@@ -253,7 +253,7 @@ export function ChatbotFAQ() {
               >
                 <p className="text-xs text-muted-foreground text-center font-medium">
                   {t("progress.explored", { count: answeredCount, total: totalQuestions })} •{" "}
-                  {t(`categories.${selectedCategory}`)}
+                  {t(`chatCategories.${selectedCategory}`)}
                 </p>
               </motion.div>
             )}
@@ -373,7 +373,7 @@ export function ChatbotFAQ() {
                         variant="outline"
                         className="rounded-full px-6 py-4 bg-primary/5 border-primary/20 text-foreground whitespace-nowrap hover:bg-primary/10 hover:border-primary/40 hover:text-primary hover:shadow-lg hover:shadow-primary/10 active:scale-95 transition-all duration-200 font-medium"
                       >
-                        {t(`categories.${category}`)}
+                        {t(`chatCategories.${category}`)}
                       </Button>
                     </motion.div>
                   ))}
