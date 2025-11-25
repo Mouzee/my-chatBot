@@ -1,19 +1,16 @@
 "use client"
 
 import type React from "react"
-import { useState, useRef, useEffect } from "react"
-import { motion, AnimatePresence, useDragControls } from "framer-motion"
+import { useState, useRef, useEffect, useMemo } from "react"
+import { motion, AnimatePresence } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card } from "@/components/ui/card"
-import {
-  ScrollArea,
-  ScrollBar,
-} from "@/components/ui/scroll-area"
+import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area"
 import { ChatMessage } from "@/components/chat-message"
 import { ArrowRight, RotateCcw, Sparkles, HelpCircle, CheckCircle2, ExternalLink } from "lucide-react"
-import { ChevronLeft, ChevronRight } from "lucide-react"
 import { useTranslation } from "react-i18next"
+import { CHATBOT_FAQ, ANIMATION } from "@/lib/constants"
 
 type Stage = "name" | "category" | "question-select" | "answer" | "complete"
 type CategoryType = "recruiter" | "client" | "collaborator"
@@ -24,43 +21,19 @@ interface Message {
   type: "bot" | "user"
 }
 
-const CAROUSEL_VISIBLE = 3
-
-function useCarouselDrag({
-  length,
-  index,
-  setIndex,
-  disabled = false,
-}: {
-  length: number
-  index: number
-  setIndex: React.Dispatch<React.SetStateAction<number>>
-  disabled?: boolean
-}) {
-  // fit-content based carousel with 3 visible, drag controls for Framer Motion
-  const dragConfidenceThreshold = 50 // px
-  const controls = useDragControls()
-  /**
-   * Only move by 1 set (3 windows) at once, unless at bounds.
-   * When swiping left (offset.x < ...), move forward; right, move backward.
-   */
-  const handleDragEnd = (_event: any, { offset }: { offset: { x: number } }) => {
-    if (disabled) return
-    const maxIndex = Math.max(0, length - CAROUSEL_VISIBLE)
-    if (offset.x < -dragConfidenceThreshold) {
-      setIndex(prev => Math.min(prev + CAROUSEL_VISIBLE, maxIndex))
-    }
-    if (offset.x > dragConfidenceThreshold) {
-      setIndex(prev => Math.max(prev - CAROUSEL_VISIBLE, 0))
-    }
-  }
-  return { controls, handleDragEnd }
+interface FAQItem {
+  id: string
+  question: string
+  answer: string
 }
 
+/**
+ * Interactive FAQ chatbot component
+ * Guides users through name entry, category selection, and FAQ exploration
+ */
 export function ChatbotFAQ() {
   const { t } = useTranslation()
-  const [stage, setStage] = useState<Stage>("name")
-  const [, setUserName] = useState("")
+  const [stage, setStage] = useState<Stage>(CHATBOT_FAQ.STAGES.NAME)
   const [nameInput, setNameInput] = useState("")
   const [selectedCategory, setSelectedCategory] = useState<CategoryType | null>(null)
   const [answeredQuestions, setAnsweredQuestions] = useState<Set<string>>(new Set())
@@ -73,10 +46,6 @@ export function ChatbotFAQ() {
   ])
   const [nameError, setNameError] = useState("")
 
-  // Carousel state
-  const [categoryIndex, setCategoryIndex] = useState(0)
-  const [questionIndex, setQuestionIndex] = useState(0)
-
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const chatContainerRef = useRef<HTMLDivElement>(null)
 
@@ -85,12 +54,6 @@ export function ChatbotFAQ() {
       messagesEndRef.current.scrollIntoView({ behavior: "smooth" })
     }
   }, [messages])
-
-  useEffect(() => {
-    // Reset carousels when you reach these stages
-    setCategoryIndex(0)
-    setQuestionIndex(0)
-  }, [stage, selectedCategory])
 
   const addMessage = (content: string, type: "bot" | "user") => {
     const newMessage: Message = {
@@ -104,19 +67,19 @@ export function ChatbotFAQ() {
   const handleNameSubmit = (e: React.FormEvent) => {
     e.preventDefault()
 
-    if (nameInput.trim().length < 2) {
+    if (nameInput.trim().length < CHATBOT_FAQ.MIN_NAME_LENGTH) {
       setNameError(t("welcome.nameError"))
       return
     }
 
     setNameError("")
-    setUserName(nameInput.trim())
-    addMessage(nameInput.trim(), "user")
+    const trimmedName = nameInput.trim()
+    addMessage(trimmedName, "user")
 
     setTimeout(() => {
-      addMessage(t("welcome.niceMeet", { name: nameInput.trim() }), "bot")
-      setStage("category")
-    }, 800)
+      addMessage(t("welcome.niceMeet", { name: trimmedName }), "bot")
+      setStage(CHATBOT_FAQ.STAGES.CATEGORY)
+    }, CHATBOT_FAQ.DELAYS.MESSAGE_RESPONSE)
   }
 
   const handleCategorySelect = (category: CategoryType) => {
@@ -125,27 +88,22 @@ export function ChatbotFAQ() {
 
     setTimeout(() => {
       addMessage(t("categories.selectPrompt"), "bot")
-      setStage("question-select")
-    }, 800)
+      setStage(CHATBOT_FAQ.STAGES.QUESTION_SELECT)
+    }, CHATBOT_FAQ.DELAYS.MESSAGE_RESPONSE)
   }
 
   const handleQuestionSelect = (faqId: string) => {
     if (!selectedCategory) return
 
-    const faqList = t(`faq.${selectedCategory}`, { returnObjects: true }) as Array<{
-      id: string
-      question: string
-      answer: string
-    }>
+    const faqList = getFAQList(selectedCategory)
     const selectedFAQ = faqList.find((faq) => faq.id === faqId)
     if (!selectedFAQ) return
 
     addMessage(selectedFAQ.question, "user")
-    setStage("answer")
+    setStage(CHATBOT_FAQ.STAGES.ANSWER)
 
     setTimeout(() => {
       addMessage(selectedFAQ.answer, "bot")
-
       setAnsweredQuestions((prev) => new Set([...prev, faqId]))
 
       const allAnswered = answeredQuestions.size + 1 >= faqList.length
@@ -153,18 +111,17 @@ export function ChatbotFAQ() {
       setTimeout(() => {
         if (allAnswered) {
           addMessage(t("actions.allExplored"), "bot")
-          setStage("complete")
+          setStage(CHATBOT_FAQ.STAGES.COMPLETE)
         } else {
           addMessage(t("actions.anotherQuestion"), "bot")
-          setStage("question-select")
+          setStage(CHATBOT_FAQ.STAGES.QUESTION_SELECT)
         }
-      }, 1000)
-    }, 1200)
+      }, CHATBOT_FAQ.DELAYS.COMPLETE_CHECK)
+    }, CHATBOT_FAQ.DELAYS.ANSWER_DISPLAY)
   }
 
   const handleRestart = () => {
-    setStage("name")
-    setUserName("")
+    setStage(CHATBOT_FAQ.STAGES.NAME)
     setNameInput("")
     setSelectedCategory(null)
     setAnsweredQuestions(new Set())
@@ -175,51 +132,24 @@ export function ChatbotFAQ() {
         type: "bot",
       },
     ])
-    setCategoryIndex(0)
-    setQuestionIndex(0)
   }
 
-  const getAvailableQuestions = () => {
+  const getFAQList = (category: CategoryType): FAQItem[] => {
+    return (t(`faq.${category}`, { returnObjects: true }) as FAQItem[]) || []
+  }
+
+  const availableQuestions = useMemo(() => {
     if (!selectedCategory) return []
-    const faqList = t(`faq.${selectedCategory}`, { returnObjects: true }) as Array<{
-      id: string
-      question: string
-      answer: string
-    }>
+    const faqList = getFAQList(selectedCategory)
     return faqList.filter((faq) => !answeredQuestions.has(faq.id))
-  }
+  }, [selectedCategory, answeredQuestions])
 
-  const totalQuestions = selectedCategory
-    ? (
-      t(`faq.${selectedCategory}`, { returnObjects: true }) as Array<{
-        id: string
-        question: string
-        answer: string
-      }>
-    ).length
-    : 0
+  const totalQuestions = useMemo(() => {
+    if (!selectedCategory) return 0
+    return getFAQList(selectedCategory).length
+  }, [selectedCategory])
+
   const answeredCount = answeredQuestions.size
-
-  // Categories for carousel
-  const categoryArray = ["recruiter", "client", "collaborator"] as const
-
-  // --- DRAG HOOKS for carousels ---
-  const categoryDrag = useCarouselDrag({
-    length: categoryArray.length,
-    index: categoryIndex,
-    setIndex: setCategoryIndex
-  })
-
-  const questionDrag = useCarouselDrag({
-    length: getAvailableQuestions().length,
-    index: questionIndex,
-    setIndex: setQuestionIndex
-  })
-
-  // Helper: detect if drag is enabled (just check always true, framer-motion useDragControls always present)
-  // We'll show all items at once if drag is "working", i.e. rely on framer-motion
-  const isCategoryDragEnabled = true
-  const isQuestionDragEnabled = true
 
   return (
     <Card className="flex w-full gap-0 max-w-2xl flex-col overflow-hidden backdrop-blur-xl bg-surface/70 py-0 border-2 border-border/60 shadow-xl transition-all duration-300 hover:shadow-2xl hover:border-primary/30 leading-4 h-[70vh] max-h-[600px] min-h-[400px]">
@@ -244,7 +174,9 @@ export function ChatbotFAQ() {
             </div>
           </div>
           <div className="flex items-center justify-end">
-            {(stage === "question-select" || stage === "answer" || stage === "complete") && selectedCategory && (
+            {(stage === CHATBOT_FAQ.STAGES.QUESTION_SELECT || 
+              stage === CHATBOT_FAQ.STAGES.ANSWER || 
+              stage === CHATBOT_FAQ.STAGES.COMPLETE) && selectedCategory && (
               <motion.div
                 initial={{ opacity: 0, height: 0 }}
                 animate={{ opacity: 1, height: "auto" }}
@@ -291,14 +223,14 @@ export function ChatbotFAQ() {
         style={{ minHeight: 0, maxHeight: 230, overflow: "unset" }}
       >
         <AnimatePresence mode="wait">
-          {/* NAME ENTRY */}
-          {stage === "name" && (
+          {/* Name entry */}
+          {stage === CHATBOT_FAQ.STAGES.NAME && (
             <motion.form
               key="name-form"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: 20 }}
-              transition={{ duration: 0.3 }}
+              transition={{ duration: ANIMATION.DURATION.FAST }}
               onSubmit={handleNameSubmit}
               className="space-y-2"
             >
@@ -345,19 +277,19 @@ export function ChatbotFAQ() {
             </motion.form>
           )}
 
-          {/* --- CATEGORY CAROUSEL using loop and shadcn ScrollArea --- */}
-          {stage === "category" && (
+          {/* Category selection */}
+          {stage === CHATBOT_FAQ.STAGES.CATEGORY && (
             <motion.div
               key="category-selection"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.3 }}
+              transition={{ duration: ANIMATION.DURATION.FAST }}
               className="space-y-2"
             >
               <ScrollArea className="w-full">
                 <div className="flex items-center gap-3 px-2 pt-1 pb-3 w-full">
-                  {categoryArray.map((category, idx) => (
+                  {CHATBOT_FAQ.CATEGORIES.map((category, idx) => (
                     <motion.div
                       key={category}
                       initial={{ opacity: 0, x: 30 }}
@@ -365,7 +297,7 @@ export function ChatbotFAQ() {
                       transition={{ delay: idx * 0.08 }}
                       whileHover={{ scale: 1.07, y: -2 }}
                       whileTap={{ scale: 0.98 }}
-                      className="flex-shrink-0"
+                      className="shrink-0"
                       style={{ minWidth: 140, maxWidth: 250 }}
                     >
                       <Button
@@ -383,19 +315,19 @@ export function ChatbotFAQ() {
             </motion.div>
           )}
 
-          {/* --- QUESTION CAROUSEL using loop and shadcn ScrollArea --- */}
-          {stage === "question-select" && (
+          {/* Question selection */}
+          {stage === CHATBOT_FAQ.STAGES.QUESTION_SELECT && (
             <motion.div
               key="question-selection"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.3 }}
-              className="space-y-x px-0"
+              transition={{ duration: ANIMATION.DURATION.FAST }}
+              className="space-y-2 px-0"
             >
               <ScrollArea className="w-full">
-                <div className="flex items-center gap-2 px-2 pt-1 pb-3 w-full hover:bg-transparent hover:text-transparent">
-                  {getAvailableQuestions().map((faq, idx) => (
+                <div className="flex items-center gap-2 px-2 pt-1 pb-3 w-full">
+                  {availableQuestions.map((faq, idx) => (
                     <motion.div
                       key={faq.id}
                       initial={{ opacity: 0, scale: 0.94 }}
@@ -403,15 +335,16 @@ export function ChatbotFAQ() {
                       transition={{ delay: idx * 0.04 }}
                       whileHover={{ scale: 1.06, y: -2 }}
                       whileTap={{ scale: 0.98 }}
-                      className="flex-shrink-0"
+                      className="shrink-0"
                       style={{ width: "auto" }}
                     >
                       <Button
                         onClick={() => handleQuestionSelect(faq.id)}
                         variant="outline"
                         className="h-auto w-full rounded-xl py-3 px-4 text-left bg-secondary/5 border-secondary/20 text-foreground whitespace-nowrap overflow-hidden text-ellipsis hover:bg-secondary/10 hover:border-secondary/40 hover:text-secondary hover:shadow-lg hover:shadow-secondary/10 active:scale-95 flex items-center gap-2 group"
+                        aria-label={`Select question: ${faq.question}`}
                       >
-                        <HelpCircle className="h-4 w-4 flex-shrink-0 text-secondary/70 group-hover:text-secondary transition-colors" />
+                        <HelpCircle className="h-4 w-4 shrink-0 text-secondary/70 group-hover:text-secondary transition-colors" aria-hidden="true" />
                         <span className="text-sm leading-normal text-balance flex-1 overflow-hidden text-ellipsis whitespace-nowrap">{faq.question}</span>
                       </Button>
                     </motion.div>
@@ -431,8 +364,8 @@ export function ChatbotFAQ() {
                       addMessage(t("actions.doneMessage"), "user")
                       setTimeout(() => {
                         addMessage(t("actions.thanksMessage"), "bot")
-                        setStage("complete")
-                      }, 800)
+                        setStage(CHATBOT_FAQ.STAGES.COMPLETE)
+                      }, CHATBOT_FAQ.DELAYS.MESSAGE_RESPONSE)
                     }}
                     variant="outline"
                     size="sm"
@@ -446,24 +379,28 @@ export function ChatbotFAQ() {
             </motion.div>
           )}
 
-          {/* --- "COMPLETE" STAGE --- */}
-          {stage === "complete" && (
+          {/* Complete stage */}
+          {stage === CHATBOT_FAQ.STAGES.COMPLETE && (
             <motion.div
               key="complete-actions"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.9 }}
-              transition={{ duration: 0.3 }}
+              transition={{ duration: ANIMATION.DURATION.FAST }}
               className="space-y-2"
             >
               {selectedCategory && (
                 <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
                   <Button
-                    onClick={() => console.log(`[v0] CTA clicked: ${t(`cta.${selectedCategory}`)}`)}
+                    onClick={() => {
+                      // TODO: Implement proper CTA handling based on category
+                      console.log(`CTA clicked: ${t(`cta.${selectedCategory}`)}`)
+                    }}
                     className="w-full rounded-full bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg hover:shadow-xl hover:shadow-primary/20 active:scale-95 transition-all duration-200 flex items-center justify-center gap-2"
                     size="lg"
+                    aria-label={`Call to action: ${t(`cta.${selectedCategory}`)}`}
                   >
-                    <ExternalLink className="h-4 w-4" />
+                    <ExternalLink className="h-4 w-4" aria-hidden="true" />
                     {t(`cta.${selectedCategory}`)}
                   </Button>
                 </motion.div>

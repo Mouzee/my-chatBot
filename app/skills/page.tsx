@@ -4,14 +4,61 @@ import { AnimatedBackground } from "@/components/animated-background"
 import { PageNavigation } from "@/components/page-navigation"
 import { Card, CardContent } from "@/components/ui/card"
 import { motion } from "framer-motion"
-import { Code, Palette, Layout, Terminal, Figma, Sparkles, CodeXml, LassoSelect, WandSparkles } from "lucide-react"
+import { Code, Palette, Layout, Terminal, Figma, Sparkles, CodeXml, LassoSelect, WandSparkles, type LucideIcon } from "lucide-react"
 import { useTranslation } from "react-i18next"
+import { SKILLS, ANIMATION } from "@/lib/constants"
 
+interface Skill {
+  icon: LucideIcon
+  name: string
+  experience: string
+}
+
+interface SkillCategory {
+  category: string
+  icon: LucideIcon
+  color: string
+  skills: Skill[]
+}
+
+/**
+ * Calculate expertise percentage based on years of experience
+ */
+function calculateExpertisePercent(experience: string | number): number {
+  const { YEARS_THRESHOLDS, PERCENTAGES } = SKILLS.EXPERTISE
+  
+  if (typeof experience === "string") {
+    const yearsMatch = experience.match(/(\d+)(\+)?/)
+    if (yearsMatch) {
+      const years = parseInt(yearsMatch[1], 10)
+      
+      if (years >= YEARS_THRESHOLDS.EXPERT) {
+        return PERCENTAGES.EXPERT
+      } else if (years >= YEARS_THRESHOLDS.SENIOR) {
+        return PERCENTAGES.SENIOR
+      } else if (years >= YEARS_THRESHOLDS.INTERMEDIATE) {
+        return PERCENTAGES.INTERMEDIATE
+      } else if (years >= YEARS_THRESHOLDS.JUNIOR) {
+        return PERCENTAGES.JUNIOR
+      } else if (years >= YEARS_THRESHOLDS.BEGINNER) {
+        return PERCENTAGES.BEGINNER
+      } else if (years >= YEARS_THRESHOLDS.NOVICE) {
+        return PERCENTAGES.NOVICE
+      }
+    }
+  }
+  
+  return PERCENTAGES.DEFAULT
+}
+
+/**
+ * Skills page displaying categorized skills with experience levels
+ * Shows frontend, design, backend, and AI skills with progress indicators
+ */
 export default function SkillsPage() {
   const { t } = useTranslation()
 
-  // Updated skillsData from en.json "skills.items"
-  const skillsData = [
+  const skillsData: SkillCategory[] = [
     {
       category: t("skills.categories.frontend"),
       icon: Layout,
@@ -67,7 +114,7 @@ export default function SkillsPage() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: ANIMATION.DURATION.NORMAL }}
               className="space-y-12"
             >
               <div className="text-center space-y-4">
@@ -92,11 +139,11 @@ export default function SkillsPage() {
                       key={categoryIndex}
                       initial={{ opacity: 0, y: 30 }}
                       animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.6, delay: 0.1 * categoryIndex }}
+                      transition={{ duration: ANIMATION.DURATION.NORMAL, delay: ANIMATION.DELAY.SHORT * categoryIndex }}
                       className="space-y-6"
                     >
                       <div className="flex items-center gap-3">
-                        <CategoryIcon className={`w-6 h-6 ${category.color}`} />
+                        <CategoryIcon className={`w-6 h-6 ${category.color}`} aria-hidden="true" />
                         <h2 className="text-2xl font-semibold text-foreground">{category.category}</h2>
                       </div>
 
@@ -104,31 +151,8 @@ export default function SkillsPage() {
                         {category.skills.map((skill, skillIndex) => {
                           const SkillIcon = skill.icon
 
-                          // Simple logic to assign an "expertise progress" value based on years (just for demo)
-                          // You may map this from data if available, else parse from experience string
-                          let expertisePercent = 70 // fallback
-                          if (typeof skill.experience === "string") {
-                            const yearsMatch = skill.experience.match(/(\d+)(\+)?/);
-                            if (yearsMatch) {
-                              const years = parseInt(yearsMatch[1]);
-                              // Demo logic: cap at 90%, e.g. 1+ = 30%, 2+ = 45%, 3+ = 60%, 5+ = 75%, 7+ = 85%, 12+ = 100%
-                              if (years >= 12) {
-                                expertisePercent = 98;
-                              } else if (years >= 7) {
-                                expertisePercent = 85;
-                              } else if (years >= 5) {
-                                expertisePercent = 75;
-                              } else if (years >= 3) {
-                                expertisePercent = 60;
-                              } else if (years >= 2) {
-                                expertisePercent = 45;
-                              } else if (years >= 1) {
-                                expertisePercent = 30;
-                              } else {
-                                expertisePercent = 20;
-                              }
-                            }
-                          }
+                          // Calculate expertise percentage based on years of experience
+                          const expertisePercent = calculateExpertisePercent(skill.experience)
 
                           return (
                             <motion.div
@@ -141,24 +165,33 @@ export default function SkillsPage() {
                               <Card className="glass-card border-border/50 hover:border-primary/30 transition-all duration-300">
                                 <CardContent className="p-6 space-y-4">
                                   <div className="flex items-center justify-center w-12 h-12 rounded-lg bg-primary/10 border border-primary/20">
-                                    <SkillIcon className="w-6 h-6 text-primary" />
+                                    <SkillIcon className="w-6 h-6 text-primary" aria-hidden="true" />
                                   </div>
 
                                   <div className="space-y-1">
                                     <h3 className="text-lg font-semibold text-foreground">{skill.name}</h3>
                                     <p className="text-sm text-muted-foreground flex items-center gap-2">
-                                      <Sparkles className="w-3 h-3 text-accent" />
+                                      <Sparkles className="w-3 h-3 text-accent" aria-hidden="true" />
                                       {skill.experience}
                                     </p>
-                                    {/* Progress bar for expertise */}
+                                    {/* Expertise progress bar */}
                                     <div className="mt-2">
-                                      <div className="w-full bg-accent/20 rounded-full h-2 relative overflow-hidden">
+                                      <div 
+                                        className="w-full bg-accent/20 rounded-full h-2 relative overflow-hidden"
+                                        role="progressbar"
+                                        aria-valuenow={expertisePercent}
+                                        aria-valuemin={0}
+                                        aria-valuemax={100}
+                                        aria-label={`${skill.name} expertise: ${expertisePercent}%`}
+                                      >
                                         <div
                                           className="bg-primary transition-all duration-500 h-2 rounded-full"
                                           style={{ width: `${expertisePercent}%` }}
-                                        ></div>
+                                        />
                                       </div>
-                                      <div className="text-xs text-right mt-1 text-muted-foreground">{expertisePercent}%</div>
+                                      <div className="text-xs text-right mt-1 text-muted-foreground">
+                                        {expertisePercent}%
+                                      </div>
                                     </div>
                                   </div>
                                 </CardContent>

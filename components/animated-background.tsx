@@ -2,7 +2,21 @@
 
 import { useEffect, useRef } from "react"
 import { motion } from "framer-motion"
+import { ANIMATED_BACKGROUND } from "@/lib/constants"
 
+interface Particle {
+  x: number
+  y: number
+  vx: number
+  vy: number
+  size: number
+  opacity: number
+}
+
+/**
+ * Animated background with particle system and gradient effects
+ * Creates an interactive canvas-based background with connecting particles
+ */
 export function AnimatedBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
 
@@ -21,24 +35,18 @@ export function AnimatedBackground() {
     resizeCanvas()
     window.addEventListener("resize", resizeCanvas)
 
-    const particles: Array<{
-      x: number
-      y: number
-      vx: number
-      vy: number
-      size: number
-      opacity: number
-    }> = []
+    const particles: Particle[] = []
 
-    // Create more particles for denser effect
-    for (let i = 0; i < 80; i++) {
+    // Initialize particles with constants
+    const { PARTICLE_COUNT, PARTICLE } = ANIMATED_BACKGROUND
+    for (let i = 0; i < PARTICLE_COUNT; i++) {
       particles.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
-        vx: (Math.random() - 0.5) * 0.3,
-        vy: (Math.random() - 0.5) * 0.3,
-        size: Math.random() * 2 + 0.5,
-        opacity: Math.random() * 0.5 + 0.3,
+        vx: (Math.random() - 0.5) * PARTICLE.VELOCITY_RANGE,
+        vy: (Math.random() - 0.5) * PARTICLE.VELOCITY_RANGE,
+        size: Math.random() * (PARTICLE.MAX_SIZE - PARTICLE.MIN_SIZE) + PARTICLE.MIN_SIZE,
+        opacity: Math.random() * (PARTICLE.MAX_OPACITY - PARTICLE.MIN_OPACITY) + PARTICLE.MIN_OPACITY,
       })
     }
 
@@ -46,58 +54,62 @@ export function AnimatedBackground() {
       ctx.clearRect(0, 0, canvas.width, canvas.height)
 
       const isDark = document.documentElement.classList.contains("dark")
+      const { PARTICLE, COLORS } = ANIMATED_BACKGROUND
 
-      // Update and draw particles with enhanced visuals
+      // Update and draw particles
       particles.forEach((particle, i) => {
         particle.x += particle.vx
         particle.y += particle.vy
 
-        // Smooth bounce with damping
+        // Bounce with damping
         if (particle.x < 0 || particle.x > canvas.width) {
-          particle.vx *= -0.95
+          particle.vx *= -PARTICLE.BOUNCE_DAMPING
           particle.x = Math.max(0, Math.min(canvas.width, particle.x))
         }
         if (particle.y < 0 || particle.y > canvas.height) {
-          particle.vy *= -0.95
+          particle.vy *= -PARTICLE.BOUNCE_DAMPING
           particle.y = Math.max(0, Math.min(canvas.height, particle.y))
         }
 
         // Draw particle with glow effect
-        const gradient = ctx.createRadialGradient(particle.x, particle.y, 0, particle.x, particle.y, particle.size * 3)
+        const gradient = ctx.createRadialGradient(
+          particle.x, 
+          particle.y, 
+          0, 
+          particle.x, 
+          particle.y, 
+          particle.size * 3
+        )
 
-        if (isDark) {
-          gradient.addColorStop(0, `rgba(34, 211, 238, ${particle.opacity})`)
-          gradient.addColorStop(0.5, `rgba(34, 211, 238, ${particle.opacity * 0.3})`)
-          gradient.addColorStop(1, "rgba(34, 211, 238, 0)")
-        } else {
-          gradient.addColorStop(0, `rgba(8, 145, 178, ${particle.opacity * 0.6})`)
-          gradient.addColorStop(0.5, `rgba(8, 145, 178, ${particle.opacity * 0.2})`)
-          gradient.addColorStop(1, "rgba(8, 145, 178, 0)")
-        }
+        const colors = isDark ? COLORS.DARK : COLORS.LIGHT
+        gradient.addColorStop(0, `${colors.PRIMARY}${particle.opacity})`)
+        gradient.addColorStop(0.5, `${colors.PRIMARY}${particle.opacity * (isDark ? 0.3 : 0.6)})`)
+        gradient.addColorStop(1, `${colors.PRIMARY}0)`)
 
         ctx.beginPath()
         ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2)
         ctx.fillStyle = gradient
         ctx.fill()
 
-        // Draw connections with gradient lines
+        // Draw connections between nearby particles
         particles.slice(i + 1).forEach((otherParticle) => {
           const dx = particle.x - otherParticle.x
           const dy = particle.y - otherParticle.y
           const distance = Math.sqrt(dx * dx + dy * dy)
 
-          if (distance < 120) {
-            const lineGradient = ctx.createLinearGradient(particle.x, particle.y, otherParticle.x, otherParticle.y)
+          if (distance < PARTICLE.CONNECTION_DISTANCE) {
+            const lineGradient = ctx.createLinearGradient(
+              particle.x, 
+              particle.y, 
+              otherParticle.x, 
+              otherParticle.y
+            )
 
-            const opacity = (1 - distance / 120) * 0.15
+            const opacity = (1 - distance / PARTICLE.CONNECTION_DISTANCE) * 0.15
+            const connectionColors = isDark ? COLORS.DARK : COLORS.LIGHT
 
-            if (isDark) {
-              lineGradient.addColorStop(0, `rgba(34, 211, 238, ${opacity})`)
-              lineGradient.addColorStop(1, `rgba(103, 232, 249, ${opacity})`)
-            } else {
-              lineGradient.addColorStop(0, `rgba(8, 145, 178, ${opacity * 0.8})`)
-              lineGradient.addColorStop(1, `rgba(6, 182, 212, ${opacity * 0.8})`)
-            }
+            lineGradient.addColorStop(0, `${connectionColors.PRIMARY}${opacity})`)
+            lineGradient.addColorStop(1, `${connectionColors.SECONDARY}${opacity})`)
 
             ctx.beginPath()
             ctx.moveTo(particle.x, particle.y)
@@ -119,21 +131,23 @@ export function AnimatedBackground() {
     }
   }, [])
 
+  const { COLORS } = ANIMATED_BACKGROUND
+
   return (
-    <div className="fixed inset-0 -z-10 overflow-hidden">
+    <div className="fixed inset-0 -z-10 overflow-hidden" aria-hidden="true">
       <motion.div
         className="absolute inset-0"
         animate={{
           background: [
-            "radial-gradient(circle at 20% 30%, rgba(34, 211, 238, 0.08) 0%, transparent 50%)",
-            "radial-gradient(circle at 80% 70%, rgba(103, 232, 249, 0.08) 0%, transparent 50%)",
-            "radial-gradient(circle at 40% 80%, rgba(6, 182, 212, 0.08) 0%, transparent 50%)",
-            "radial-gradient(circle at 20% 30%, rgba(34, 211, 238, 0.08) 0%, transparent 50%)",
+            `radial-gradient(circle at 20% 30%, ${COLORS.DARK.PRIMARY}0.08) 0%, transparent 50%)`,
+            `radial-gradient(circle at 80% 70%, ${COLORS.DARK.SECONDARY}0.08) 0%, transparent 50%)`,
+            `radial-gradient(circle at 40% 80%, ${COLORS.DARK.TERTIARY}0.08) 0%, transparent 50%)`,
+            `radial-gradient(circle at 20% 30%, ${COLORS.DARK.PRIMARY}0.08) 0%, transparent 50%)`,
           ],
         }}
         transition={{
           duration: 20,
-          repeat: Number.POSITIVE_INFINITY,
+          repeat: Infinity,
           ease: "linear",
         }}
       />
@@ -141,7 +155,7 @@ export function AnimatedBackground() {
       <motion.div
         className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full blur-3xl opacity-20"
         style={{
-          background: "radial-gradient(circle, rgba(34, 211, 238, 0.4) 0%, transparent 70%)",
+          background: `radial-gradient(circle, ${COLORS.DARK.PRIMARY}0.4) 0%, transparent 70%)`,
         }}
         animate={{
           x: [0, 100, -50, 0],
@@ -150,7 +164,7 @@ export function AnimatedBackground() {
         }}
         transition={{
           duration: 25,
-          repeat: Number.POSITIVE_INFINITY,
+          repeat: Infinity,
           ease: "easeInOut",
         }}
       />
@@ -158,7 +172,7 @@ export function AnimatedBackground() {
       <motion.div
         className="absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full blur-3xl opacity-15"
         style={{
-          background: "radial-gradient(circle, rgba(103, 232, 249, 0.4) 0%, transparent 70%)",
+          background: `radial-gradient(circle, ${COLORS.DARK.SECONDARY}0.4) 0%, transparent 70%)`,
         }}
         animate={{
           x: [0, -120, 80, 0],
@@ -167,7 +181,7 @@ export function AnimatedBackground() {
         }}
         transition={{
           duration: 30,
-          repeat: Number.POSITIVE_INFINITY,
+          repeat: Infinity,
           ease: "easeInOut",
         }}
       />
@@ -175,7 +189,7 @@ export function AnimatedBackground() {
       <motion.div
         className="absolute top-1/2 right-1/3 w-72 h-72 rounded-full blur-3xl opacity-10"
         style={{
-          background: "radial-gradient(circle, rgba(6, 182, 212, 0.4) 0%, transparent 70%)",
+          background: `radial-gradient(circle, ${COLORS.DARK.TERTIARY}0.4) 0%, transparent 70%)`,
         }}
         animate={{
           x: [0, 90, -60, 0],
@@ -184,7 +198,7 @@ export function AnimatedBackground() {
         }}
         transition={{
           duration: 28,
-          repeat: Number.POSITIVE_INFINITY,
+          repeat: Infinity,
           ease: "easeInOut",
         }}
       />
@@ -198,7 +212,7 @@ export function AnimatedBackground() {
         }}
         transition={{
           duration: 8,
-          repeat: Number.POSITIVE_INFINITY,
+          repeat: Infinity,
           ease: "easeInOut",
         }}
       />
@@ -212,7 +226,7 @@ export function AnimatedBackground() {
           }}
           transition={{
             duration: 4,
-            repeat: Number.POSITIVE_INFINITY,
+            repeat: Infinity,
             ease: "easeInOut",
           }}
         />
@@ -224,7 +238,7 @@ export function AnimatedBackground() {
           }}
           transition={{
             duration: 5,
-            repeat: Number.POSITIVE_INFINITY,
+            repeat: Infinity,
             ease: "easeInOut",
             delay: 1,
           }}

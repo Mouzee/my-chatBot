@@ -29,20 +29,40 @@
     "title": "Portfolio Assistant",
     "subtitle": "Learn about my work & experience"
   },
-  "hero": {
-    "badge": " Interactive Portfolio",
-    "title": "👋 I'm Shafeek Ali",
-    "titleHighlight": "UX/UI Designer, Front-end Developer",
-    "description": "Chat with my AI assistant to learn about my experience, projects, and expertise in UI/UX design and front-end development. ",
-    "feature1": "12+ Years Experience",
-    "feature2": "UI/UX Excellence & Enthusiasm",
-    "feature3": "Creative Problem Solver",
-    "feature4": "Modern Framework Specialist",  
-    "feature5": "Consistent Brand Storytelling", 
-    "feature6": "Front-End Innovation",
-    "feature7": "Pixel-Perfect Precision", 
-    "feature8": "AI-Driven Design Thinking"
+  "intro-section": {
+     "hero": {
+      "badge": " Interactive Portfolio",
+      "title": "👋 I'm Shafeek Ali",
+      "titleHighlight": "UX/UI Designer, Front-end Developer",
+      "description": "Chat with my AI assistant to learn about my experience, projects, and expertise in UI/UX design and front-end development. ",
+      "feature1": "12+ Years Experience",
+      "feature2": "UI/UX Excellence & Enthusiasm",
+      "feature3": "Creative Problem Solver",
+      "feature4": "Modern Framework Specialist",  
+      "feature5": "Consistent Brand Storytelling", 
+      "feature6": "Front-End Innovation",
+      "feature7": "Pixel-Perfect Precision", 
+      "feature8": "AI-Driven Design Thinking"
+    },
+    "ui": {
+      "language": {
+        "change": "Change Language",
+        "english": "English",
+        "arabic": "Arabic"
+      },
+      "theme": {
+        "change": "Change Theme",
+        "toggle": "Toggle theme",
+        "light": "Light",
+        "dark": "Dark",
+        "system": "System"
+      }
+    },
+    "footer": {
+      "visitors": "Visitors"
+    }
   },
+
   "navigation": {
     "home": "Home",
     "about": "About",

@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react"
 import { useInView } from "framer-motion"
+import { ANIMATED_COUNTER } from "@/lib/constants"
 
 interface AnimatedCounterProps {
   from: number
@@ -9,32 +10,41 @@ interface AnimatedCounterProps {
   duration?: number
 }
 
-export function AnimatedCounter({ from, to, duration = 2 }: AnimatedCounterProps) {
+/**
+ * Animated counter component that counts from a starting value to an end value
+ * when it comes into view. Uses 60fps animation for smooth counting.
+ */
+export function AnimatedCounter({ 
+  from, 
+  to, 
+  duration = ANIMATED_COUNTER.DEFAULT_DURATION 
+}: AnimatedCounterProps) {
   const [count, setCount] = useState(from)
   const ref = useRef<HTMLSpanElement>(null)
   const isInView = useInView(ref, { once: true })
-  const frameRate = 1000 / 60
-  const totalFrames = Math.round(duration * 60)
+  
+  const frameRate = 1000 / ANIMATED_COUNTER.FRAME_RATE
+  const totalFrames = Math.round(duration * ANIMATED_COUNTER.FRAME_RATE)
 
   useEffect(() => {
-    if (isInView) {
-      let frame = 0
+    if (!isInView) return
 
-      const counter = setInterval(() => {
-        frame++
-        const progress = frame / totalFrames
-        const currentCount = Math.round(from + (to - from) * progress)
+    let frame = 0
 
-        if (frame === totalFrames) {
-          clearInterval(counter)
-          setCount(to)
-        } else {
-          setCount(currentCount)
-        }
-      }, frameRate)
+    const counter = setInterval(() => {
+      frame++
+      const progress = frame / totalFrames
+      const currentCount = Math.round(from + (to - from) * progress)
 
-      return () => clearInterval(counter)
-    }
+      if (frame === totalFrames) {
+        clearInterval(counter)
+        setCount(to)
+      } else {
+        setCount(currentCount)
+      }
+    }, frameRate)
+
+    return () => clearInterval(counter)
   }, [from, to, totalFrames, frameRate, isInView])
 
   return <span ref={ref}>{count}</span>

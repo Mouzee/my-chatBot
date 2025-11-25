@@ -15,12 +15,19 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { useToast } from "@/components/ui/use-toast"
 import { AnimatedBackground } from "@/components/animated-background"
 import { PageNavigation } from "@/components/page-navigation"
+import { CONTACT_FORM, ANIMATION } from "@/lib/constants"
 
 const formSchema = z.object({
-  name: z.string().min(2, { message: "Name must be at least 2 characters." }),
+  name: z.string().min(CONTACT_FORM.VALIDATION.MIN_NAME_LENGTH, { 
+    message: "Name must be at least 2 characters." 
+  }),
   email: z.string().email({ message: "Please enter a valid email address." }),
-  subject: z.string().min(5, { message: "Subject must be at least 5 characters." }),
-  message: z.string().min(10, { message: "Message must be at least 10 characters." }),
+  subject: z.string().min(CONTACT_FORM.VALIDATION.MIN_SUBJECT_LENGTH, { 
+    message: "Subject must be at least 5 characters." 
+  }),
+  message: z.string().min(CONTACT_FORM.VALIDATION.MIN_MESSAGE_LENGTH, { 
+    message: "Message must be at least 10 characters." 
+  }),
 })
 
 export default function ContactPage() {
@@ -38,11 +45,11 @@ export default function ContactPage() {
     },
   })
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   async function onSubmit(_values: z.infer<typeof formSchema>) {
     setIsSubmitting(true)
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1500))
+      // Simulate form submission delay
+      await new Promise((resolve) => setTimeout(resolve, CONTACT_FORM.SUBMISSION_DELAY))
       toast({
         title: t("pages.contact.form.success_title") || "Message sent!",
         description: t("pages.contact.form.success_desc") || "Thank you for your message.",
@@ -69,7 +76,7 @@ export default function ContactPage() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: ANIMATION.DURATION.NORMAL }}
               className="space-y-12"
             >
               {/* Header Section */}
@@ -88,12 +95,13 @@ export default function ContactPage() {
                     className="gap-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all"
                     onClick={() => {
                       const link = document.createElement("a")
-                      link.href = "/files/Shafeek_Ali_CV.pdf" // ✅ Replace with your CV path
-                      link.download = "Shafeek_Ali_CV.pdf"
+                      link.href = CONTACT_FORM.CV_PATH
+                      link.download = CONTACT_FORM.CV_FILENAME
                       link.click()
                     }}
+                    aria-label="Download CV"
                   >
-                    <Download className="w-4 h-4" />
+                    <Download className="w-4 h-4" aria-hidden="true" />
                     {t("pages.contact.download_cv") || "Download CV"}
                   </Button>
                 </motion.div>
@@ -104,21 +112,21 @@ export default function ContactPage() {
                 <motion.div
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: 0.1 }}
+                  transition={{ duration: ANIMATION.DURATION.NORMAL, delay: ANIMATION.DELAY.SHORT }}
                   className="glass-card p-6 space-y-6"
                 >
                   <h3 className="text-xl font-semibold">{t("pages.contact.info.title")}</h3>
                   <div className="space-y-4 text-muted-foreground">
                     <div className="flex items-center gap-3">
-                      <Mail className="w-5 h-5 text-primary" />
+                      <Mail className="w-5 h-5 text-primary" aria-hidden="true" />
                       <span>{t("pages.contact.info.email")}</span>
                     </div>
                     <div className="flex items-center gap-3">
-                      <Phone className="w-5 h-5 text-primary" />
+                      <Phone className="w-5 h-5 text-primary" aria-hidden="true" />
                       <span>{t("pages.contact.info.phone")}</span>
                     </div>
                     <div className="flex items-center gap-3">
-                      <MapPin className="w-5 h-5 text-primary" />
+                      <MapPin className="w-5 h-5 text-primary" aria-hidden="true" />
                       <span>{t("pages.contact.info.location")}</span>
                     </div>
                   </div>
@@ -128,7 +136,7 @@ export default function ContactPage() {
                 <motion.div
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: 0.2 }}
+                  transition={{ duration: ANIMATION.DURATION.NORMAL, delay: ANIMATION.DELAY.MEDIUM }}
                   className="glass-card p-6"
                 >
                   <Form {...form}>
@@ -208,6 +216,7 @@ export default function ContactPage() {
                                 xmlns="http://www.w3.org/2000/svg"
                                 fill="none"
                                 viewBox="0 0 24 24"
+                                aria-hidden="true"
                               >
                                 <circle
                                   className="opacity-25"
@@ -216,18 +225,18 @@ export default function ContactPage() {
                                   r="10"
                                   stroke="currentColor"
                                   strokeWidth="4"
-                                ></circle>
+                                />
                                 <path
                                   className="opacity-75"
                                   fill="currentColor"
                                   d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                                ></path>
+                                />
                               </svg>
                               {t("pages.contact.form.sending") || "Sending..."}
                             </>
                           ) : (
                             <>
-                              <Send className="w-4 h-4" />
+                              <Send className="w-4 h-4" aria-hidden="true" />
                               {t("pages.contact.form.send")}
                             </>
                           )}

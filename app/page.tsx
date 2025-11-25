@@ -4,142 +4,118 @@ import { ChatbotFAQ } from "@/components/chatbot-faq"
 import { AnimatedBackground } from "@/components/animated-background"
 import { PageNavigation } from "@/components/page-navigation"
 import { motion } from "framer-motion"
-import { Bot, Sparkles, Eye, BrainCog, Lightbulb, LayoutGrid, PenTool, Code2, MonitorSmartphone, BadgeCheck } from "lucide-react"
+import { Bot, Sparkles, Eye, BrainCog, Lightbulb, LayoutGrid, PenTool, Code2, MonitorSmartphone, BadgeCheck, type LucideIcon } from "lucide-react"
 import { useTranslation } from "react-i18next"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useMemo } from "react"
+import { STORAGE_KEYS, ANIMATION } from "@/lib/constants"
 
+interface FeatureCard {
+  icon: LucideIcon
+  translationKey: string
+}
+
+/**
+ * Home page with hero section, feature highlights, and interactive chatbot
+ */
 export default function Home() {
   const { t } = useTranslation()
   const [visitorCount, setVisitorCount] = useState<number>(0)
 
   useEffect(() => {
-    // Get current count from localStorage
-    const currentCount = localStorage.getItem("visitorCount")
+    const currentCount = localStorage.getItem(STORAGE_KEYS.VISITOR_COUNT)
     const count = currentCount ? Number.parseInt(currentCount, 10) : 0
-
-    // Increment count
     const newCount = count + 1
-
-    // Save to localStorage
-    localStorage.setItem("visitorCount", newCount.toString())
-
-    // Update state
+    localStorage.setItem(STORAGE_KEYS.VISITOR_COUNT, newCount.toString())
     setVisitorCount(newCount)
   }, [])
 
-  // Add a JSX element somewhere in your render, e.g., in the Hero section or footer (not shown here),
-  // to localise the "Visitors" label:
-  // <span>{visitorCount} {t("hero.footer.visitors")}</span>
+  const features: FeatureCard[] = useMemo(
+    () => [
+      { icon: BadgeCheck, translationKey: "intro-section.hero.feature1" },
+      { icon: Sparkles, translationKey: "intro-section.hero.feature2" },
+      { icon: Lightbulb, translationKey: "intro-section.hero.feature3" },
+      { icon: LayoutGrid, translationKey: "intro-section.hero.feature4" },
+      { icon: PenTool, translationKey: "intro-section.hero.feature5" },
+      { icon: Code2, translationKey: "intro-section.hero.feature6" },
+      { icon: MonitorSmartphone, translationKey: "intro-section.hero.feature7" },
+      { icon: BrainCog, translationKey: "intro-section.hero.feature8" },
+    ],
+    []
+  )
 
   return (
     <>
       <AnimatedBackground />
       
-      <main className="relative h-[100dvh] overflow-hidden">
+      <main className="relative h-dvh overflow-hidden">
         <section className="flex items-center px-4 h-full pb-20">
           <div className="max-w-7xl mx-auto w-full">
             <div className="grid lg:grid-cols-[1fr_1.5fr] gap-8 items-center">
-              {/* Left Column - Hero Content */}
+              {/* Hero content */}
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6 }}
+                transition={{ duration: ANIMATION.DURATION.NORMAL }}
               >
                 <div className="inline-flex items-center space-x-2 px-4 py-2 bg-primary/10 rounded-full border border-primary/20 mb-6">
-                  <Bot className="w-4 h-4 text-primary" />
-                  <span className="text-sm font-medium text-primary">{t("hero.badge")}</span>
+                  <Bot className="w-4 h-4 text-primary" aria-hidden="true" />
+                  <span className="text-sm font-medium text-primary">{t("intro-section.hero.badge")}</span>
                 </div>
 
                 <h1 className="text-4xl sm:text-5xl font-bold mb-6 leading-tight">
-                  <span className="text-foreground">{t("hero.title")} </span>
-                  <span className="text-primary">{t("hero.titleHighlight")}</span>
+                  <span className="text-foreground">{t("intro-section.hero.title")} </span>
+                  <span className="text-primary">{t("intro-section.hero.titleHighlight")}</span>
                 </h1>
 
-                <p className="text-lg text-muted-foreground mb-8 leading-relaxed">{t("hero.description")}</p>
+                <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+                  {t("intro-section.hero.description")}
+                </p>
 
                 <motion.div
                   className="flex flex-wrap items-center gap-3"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.2 }}
+                  transition={{ duration: ANIMATION.DURATION.NORMAL, delay: ANIMATION.DELAY.MEDIUM }}
+                  role="list"
+                  aria-label="Key features"
                 >
-                  <motion.div
-                    whileHover={{ scale: 1.05, y: -2 }}
-                    className="flex items-center gap-2 px-4 py-2 bg-secondary/50 rounded-full border border-border/50 hover:border-accent/50 hover:shadow-md transition-all duration-200"
-                  >
-                    <BadgeCheck className="w-4 h-4 text-accent" />
-                    <span className="text-sm text-muted-foreground">{t("hero.feature1")}</span>
-                  </motion.div>
-                  <motion.div
-                    whileHover={{ scale: 1.05, y: -2 }}
-                    className="flex items-center gap-2 px-4 py-2 bg-secondary/50 rounded-full border border-border/50 hover:border-accent/50 hover:shadow-md transition-all duration-200"
-                  >
-                    <Sparkles className="w-4 h-4 text-accent" />
-                    <span className="text-sm text-muted-foreground">{t("hero.feature2")}</span>
-                  </motion.div>
-                  <motion.div
-                    whileHover={{ scale: 1.05, y: -2 }}
-                    className="flex items-center gap-2 px-4 py-2 bg-secondary/50 rounded-full border border-border/50 hover:border-accent/50 hover:shadow-md transition-all duration-200"
-                  >
-                    <Lightbulb className="w-4 h-4 text-accent" />
-                    <span className="text-sm text-muted-foreground">{t("hero.feature3")}</span>
-                  </motion.div>
-                  <motion.div
-                    whileHover={{ scale: 1.05, y: -2 }}
-                    className="flex items-center gap-2 px-4 py-2 bg-secondary/50 rounded-full border border-border/50 hover:border-accent/50 hover:shadow-md transition-all duration-200"
-                  >
-                    <LayoutGrid className="w-4 h-4 text-accent" />
-                    <span className="text-sm text-muted-foreground">{t("hero.feature4")}</span>
-                  </motion.div>
-                  <motion.div
-                    whileHover={{ scale: 1.05, y: -2 }}
-                    className="flex items-center gap-2 px-4 py-2 bg-secondary/50 rounded-full border border-border/50 hover:border-accent/50 hover:shadow-md transition-all duration-200"
-                  >
-                    <PenTool className="w-4 h-4 text-accent" />
-                    <span className="text-sm text-muted-foreground">{t("hero.feature5")}</span>
-                  </motion.div>
-                  <motion.div
-                    whileHover={{ scale: 1.05, y: -2 }}
-                    className="flex items-center gap-2 px-4 py-2 bg-secondary/50 rounded-full border border-border/50 hover:border-accent/50 hover:shadow-md transition-all duration-200"
-                  >
-                    <Code2 className="w-4 h-4 text-accent" />
-                    <span className="text-sm text-muted-foreground">{t("hero.feature6")}</span>
-                  </motion.div>
-                  <motion.div
-                    whileHover={{ scale: 1.05, y: -2 }}
-                    className="flex items-center gap-2 px-4 py-2 bg-secondary/50 rounded-full border border-border/50 hover:border-accent/50 hover:shadow-md transition-all duration-200"
-                  >
-                    <MonitorSmartphone className="w-4 h-4 text-accent" />
-                    <span className="text-sm text-muted-foreground">{t("hero.feature7")}</span>
-                  </motion.div>
-                  <motion.div
-                    whileHover={{ scale: 1.05, y: -2 }}
-                    className="flex items-center gap-2 px-4 py-2 bg-secondary/50 rounded-full border border-border/50 hover:border-accent/50 hover:shadow-md transition-all duration-200"
-                  >
-                    <BrainCog  className="w-4 h-4 text-accent" />
-                    <span className="text-sm text-muted-foreground">{t("hero.feature8")}</span>
-                  </motion.div>
+                  {features.map((feature, index) => {
+                    const Icon = feature.icon
+                    return (
+                      <motion.div
+                        key={feature.translationKey}
+                        whileHover={{ scale: 1.05, y: -2 }}
+                        className="flex items-center gap-2 px-4 py-2 bg-secondary/50 rounded-full border border-border/50 hover:border-accent/50 hover:shadow-md transition-all duration-200"
+                        role="listitem"
+                      >
+                        <Icon className="w-4 h-4 text-accent" aria-hidden="true" />
+                        <span className="text-sm text-muted-foreground">{t(feature.translationKey)}</span>
+                      </motion.div>
+                    )
+                  })}
                 </motion.div>
 
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.4 }}
+                  transition={{ duration: ANIMATION.DURATION.NORMAL, delay: ANIMATION.DELAY.LONG }}
                   className="mt-8 flex items-center gap-2 text-sm text-muted-foreground"
                 >
-                  <Eye className="w-4 h-4 text-accent" />
+                  <Eye className="w-4 h-4 text-accent" aria-hidden="true" />
                   <span>
-                    {t("hero.footer.visitors")}:{" "}
-                    <span className="font-semibold text-foreground">{visitorCount.toLocaleString()}</span>
+                    {t("intro-section.footer.visitors")}:{" "}
+                    <span className="font-semibold text-foreground" aria-label={`${visitorCount.toLocaleString()} visitors`}>
+                      {visitorCount.toLocaleString()}
+                    </span>
                   </span>
                 </motion.div>
               </motion.div>
 
-              {/* Right Column - Chatbot */}
+              {/* Chatbot section */}
               <motion.div
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
+                transition={{ duration: ANIMATION.DURATION.NORMAL, delay: ANIMATION.DELAY.SHORT * 3 }}
                 className="flex justify-center lg:justify-end"
               >
                 <ChatbotFAQ />

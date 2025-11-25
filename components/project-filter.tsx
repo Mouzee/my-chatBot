@@ -1,24 +1,40 @@
-"use client";
+"use client"
 
-import React from "react";
-import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion"
+import { Button } from "@/components/ui/button"
+import { useTranslation } from "react-i18next"
 
-interface ProjectFilterProps {
-  activeFilter: string;
-  onFilterChange: (filterId: string) => void;
+export type ProjectFilterId = "all" | "web" | "ui" | "mobile"
+
+interface ProjectFilter {
+  id: ProjectFilterId
+  translationKey: string
 }
 
-export function ProjectFilter({ activeFilter, onFilterChange }: ProjectFilterProps): JSX.Element {
-  const filters = [
-    { id: "all", label: "All" },
-    { id: "web", label: "Web Development" },
-    { id: "ui", label: "UI/UX Design" },
-    { id: "mobile", label: "Mobile" },
-  ];
+interface ProjectFilterProps {
+  activeFilter: ProjectFilterId
+  onFilterChange: (filterId: ProjectFilterId) => void
+}
+
+/**
+ * Project filter component with animated buttons
+ * Allows filtering projects by category (all, web, ui, mobile)
+ */
+export function ProjectFilter({ activeFilter, onFilterChange }: ProjectFilterProps) {
+  const { t } = useTranslation()
+
+  const filters: ProjectFilter[] = [
+    { id: "all", translationKey: "projects.filters.all" },
+    { id: "web", translationKey: "projects.filters.web" },
+    { id: "ui", translationKey: "projects.filters.ui" },
+    { id: "mobile", translationKey: "projects.filters.mobile" },
+  ]
 
   return (
-    <div className="flex flex-wrap justify-center gap-2 mb-8">
+    <nav 
+      className="flex flex-wrap justify-center gap-2 mb-8"
+      aria-label="Project category filters"
+    >
       {filters.map((filter) => (
         <motion.div
           key={filter.id}
@@ -31,11 +47,13 @@ export function ProjectFilter({ activeFilter, onFilterChange }: ProjectFilterPro
             onClick={() => onFilterChange(filter.id)}
             className="rounded-full"
             type="button"
+            aria-pressed={activeFilter === filter.id}
+            aria-label={`Filter by ${t(filter.translationKey)}`}
           >
-            {filter.label}
+            {t(filter.translationKey)}
           </Button>
         </motion.div>
       ))}
-    </div>
-  );
+    </nav>
+  )
 }
