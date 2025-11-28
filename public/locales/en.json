@@ -6,7 +6,7 @@
     "niceMeet": "Nice to meet you, {{name}}! Are you a recruiter, potential client, or looking to collaborate?"
   },
   "chatCategories": {
-    "recruiter": "For Hairing 💼",
+    "recruiter": "For Hiring 💼",
     "client": "For Business 💼",
     "collaborator": "For Collaborator 🤝",
     "selectPrompt": "Great! Here are some questions you might have. Feel free to explore any that interest you:"

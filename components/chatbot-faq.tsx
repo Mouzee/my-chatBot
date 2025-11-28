@@ -78,7 +78,6 @@ export function ChatbotFAQ() {
   const [questionIndex, setQuestionIndex] = useState(0)
 
   const messagesEndRef = useRef<HTMLDivElement>(null)
-  const chatContainerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     if (messagesEndRef.current) {
@@ -264,7 +263,6 @@ export function ChatbotFAQ() {
       {/* --- CHAT AREA --- */}
       <ScrollArea
         className="flex-1 min-h-0 max-h-[calc(100vh-200px)] bg-background/30 chat-faq-scrollarea"
-        ref={chatContainerRef}
         style={{ minHeight: 0 }}
       >
         <div
@@ -391,7 +389,7 @@ export function ChatbotFAQ() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.3 }}
-              className="space-y-x px-0"
+              className="space-y-2 px-0"
             >
               <ScrollArea className="w-full">
                 <div className="flex items-center gap-2 px-2 pt-1 pb-3 w-full hover:bg-transparent hover:text-transparent">
@@ -399,7 +397,7 @@ export function ChatbotFAQ() {
                     <motion.div
                       key={faq.id}
                       initial={{ opacity: 0, scale: 0.94 }}
-                      animate={{ opacity: 1, scale: 0.96 }}
+                      animate={{ opacity: 1, scale: 1 }}
                       transition={{ delay: idx * 0.04 }}
                       whileHover={{ scale: 1.06, y: -2 }}
                       whileTap={{ scale: 0.98 }}

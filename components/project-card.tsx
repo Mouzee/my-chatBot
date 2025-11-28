@@ -388,7 +388,7 @@ export function ProjectCard({
                           target="_blank"
                           className="flex items-center gap-2"
                         >
-                          Live Demo <ExternalLink className="w-4 h-4" />
+                          Live Demo/Case Study <ExternalLink className="w-4 h-4" />
                         </Link>
                       </Button>
                     )}
