@@ -11,24 +11,13 @@ interface ProjectFilter {
   translationKey: string
 }
 
-interface ProjectFilterProps {
-  activeFilter: ProjectFilterId
-  onFilterChange: (filterId: ProjectFilterId) => void
-}
-
-/**
- * Project filter component with animated buttons
- * Allows filtering projects by category (all, web, ui, mobile)
- */
-export function ProjectFilter({ activeFilter, onFilterChange }: ProjectFilterProps) {
-  const { t } = useTranslation()
-
-  const filters: ProjectFilter[] = [
-    { id: "all", translationKey: "projects.filters.all" },
-    { id: "web", translationKey: "projects.filters.web" },
-    { id: "ui", translationKey: "projects.filters.ui" },
-    { id: "mobile", translationKey: "projects.filters.mobile" },
-  ]
+export function ProjectFilter({ activeFilter, onFilterChange }: ProjectFilterProps): JSX.Element {
+  const filters = [
+    { id: "all", label: "All" },
+    { id: "web", label: "Web Projects" },
+    { id: "ui", label: "UI/UX Design" },
+    { id: "mobile", label: "Mobile Apps" },
+  ];
 
   return (
     <nav 

@@ -324,44 +324,22 @@ export function ProjectCard({
                           className="px-3 py-1 rounded-full text-xs font-medium bg-muted text-muted-foreground"
                           role="listitem"
                         >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                  </section>
-                )}
-
-                {details?.challenges && (
-                  <section>
-                    <h4 className="text-lg font-semibold mb-2">Challenges</h4>
-                    <p className="text-muted-foreground leading-relaxed">
-                      {details.challenges}
-                    </p>
-                  </section>
-                )}
-
-                {details?.results && (
-                  <section>
-                    <h4 className="text-lg font-semibold mb-2">Results</h4>
-                    <p className="text-muted-foreground leading-relaxed">
-                      {details.results}
-                    </p>
-                  </section>
-                )}
-              </div>
-
-              {/* Action buttons and tags */}
-              <div className="max-w-5xl mx-auto mt-10 flex flex-col md:flex-row md:items-center md:justify-between gap-4 border-t border-border pt-6">
-                <div className="flex flex-wrap gap-2" role="list" aria-label="Project tags">
-                  {tags.map((tag, index) => (
-                    <span
-                      key={`${tag}-${index}`}
-                      className="text-xs px-2 py-1 bg-muted rounded-full text-muted-foreground"
-                      role="listitem"
-                    >
-                      {tag}
-                    </span>
-                  ))}
+                          Live Demo/Case Study <ExternalLink className="w-4 h-4" />
+                        </Link>
+                      </Button>
+                    )}
+                    {githubLink && (
+                      <Button asChild variant="outline">
+                        <Link
+                          href={githubLink}
+                          target="_blank"
+                          className="flex items-center gap-2"
+                        >
+                          Code <Github className="w-4 h-4" />
+                        </Link>
+                      </Button>
+                    )}
+                  </div>
                 </div>
 
                 <div className="flex gap-3 justify-center md:justify-end">

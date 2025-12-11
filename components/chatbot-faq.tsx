@@ -47,7 +47,6 @@ export function ChatbotFAQ() {
   const [nameError, setNameError] = useState("")
 
   const messagesEndRef = useRef<HTMLDivElement>(null)
-  const chatContainerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     if (messagesEndRef.current) {
@@ -84,12 +83,12 @@ export function ChatbotFAQ() {
 
   const handleCategorySelect = (category: CategoryType) => {
     setSelectedCategory(category)
-    addMessage(t(`categories.${category}`), "user")
+    addMessage(t(`chatCategories.${category}`), "user")
 
     setTimeout(() => {
-      addMessage(t("categories.selectPrompt"), "bot")
-      setStage(CHATBOT_FAQ.STAGES.QUESTION_SELECT)
-    }, CHATBOT_FAQ.DELAYS.MESSAGE_RESPONSE)
+      addMessage(t("chatCategories.selectPrompt"), "bot")
+      setStage("question-select")
+    }, 800)
   }
 
   const handleQuestionSelect = (faqId: string) => {
@@ -151,6 +150,27 @@ export function ChatbotFAQ() {
 
   const answeredCount = answeredQuestions.size
 
+  // chatCategories for carousel
+  const categoryArray = ["recruiter", "client", "collaborator"] as const
+
+  // --- DRAG HOOKS for carousels ---
+  const categoryDrag = useCarouselDrag({
+    length: categoryArray.length,
+    index: categoryIndex,
+    setIndex: setCategoryIndex
+  })
+
+  const questionDrag = useCarouselDrag({
+    length: getAvailableQuestions().length,
+    index: questionIndex,
+    setIndex: setQuestionIndex
+  })
+
+  // Helper: detect if drag is enabled (just check always true, framer-motion useDragControls always present)
+  // We'll show all items at once if drag is "working", i.e. rely on framer-motion
+  const isCategoryDragEnabled = true
+  const isQuestionDragEnabled = true
+
   return (
     <Card className="flex w-full gap-0 max-w-2xl flex-col overflow-hidden backdrop-blur-xl bg-surface/70 py-0 border-2 border-border/60 shadow-xl transition-all duration-300 hover:shadow-2xl hover:border-primary/30 leading-4 h-[70vh] max-h-[600px] min-h-[400px]">
 
@@ -185,7 +205,7 @@ export function ChatbotFAQ() {
               >
                 <p className="text-xs text-muted-foreground text-center font-medium">
                   {t("progress.explored", { count: answeredCount, total: totalQuestions })} •{" "}
-                  {t(`categories.${selectedCategory}`)}
+                  {t(`chatCategories.${selectedCategory}`)}
                 </p>
               </motion.div>
             )}
@@ -196,7 +216,6 @@ export function ChatbotFAQ() {
       {/* --- CHAT AREA --- */}
       <ScrollArea
         className="flex-1 min-h-0 max-h-[calc(100vh-200px)] bg-background/30 chat-faq-scrollarea"
-        ref={chatContainerRef}
         style={{ minHeight: 0 }}
       >
         <div
@@ -305,7 +324,7 @@ export function ChatbotFAQ() {
                         variant="outline"
                         className="rounded-full px-6 py-4 bg-primary/5 border-primary/20 text-foreground whitespace-nowrap hover:bg-primary/10 hover:border-primary/40 hover:text-primary hover:shadow-lg hover:shadow-primary/10 active:scale-95 transition-all duration-200 font-medium"
                       >
-                        {t(`categories.${category}`)}
+                        {t(`chatCategories.${category}`)}
                       </Button>
                     </motion.div>
                   ))}
@@ -322,7 +341,7 @@ export function ChatbotFAQ() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: ANIMATION.DURATION.FAST }}
+              transition={{ duration: 0.3 }}
               className="space-y-2 px-0"
             >
               <ScrollArea className="w-full">
@@ -331,7 +350,7 @@ export function ChatbotFAQ() {
                     <motion.div
                       key={faq.id}
                       initial={{ opacity: 0, scale: 0.94 }}
-                      animate={{ opacity: 1, scale: 0.96 }}
+                      animate={{ opacity: 1, scale: 1 }}
                       transition={{ delay: idx * 0.04 }}
                       whileHover={{ scale: 1.06, y: -2 }}
                       whileTap={{ scale: 0.98 }}
