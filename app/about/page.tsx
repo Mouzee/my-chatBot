@@ -15,7 +15,7 @@ export default function AboutPage() {
       <AnimatedBackground />
       <main className="min-h-screen relative">
         <section className="min-h-screen flex items-center px-4 py-20">
-          <div className="max-w-4xl mx-auto w-full">
+          <div className="max-w-5xl mx-auto w-full">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -25,7 +25,7 @@ export default function AboutPage() {
               {/* Header */}
               <div className="text-center space-y-4">
                 <h1 className="text-4xl sm:text-5xl font-bold text-foreground">{t("pages.about.title")}</h1>
-                <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
                   {t("pages.about.subtitle")}
                 </p>
               </div>
@@ -64,17 +64,27 @@ export default function AboutPage() {
               <p className="text-muted-foreground leading-relaxed">
                 {t("pages.about.longDescription1")}
               </p>
-              <p className="text-muted-foreground leading-relaxed">
-                {t("pages.about.longDescription2")}
-              </p>
+
+<div className="grid grid-cols-3 gap-6 text-left ">
+  <p className="text-muted-foreground leading-relaxed justify-center">
+    {t("pages.about.longDescription2")}
+  </p>
+  <p className="text-muted-foreground leading-relaxed justify-center">
+    {t("pages.about.longDescription3")}
+  </p>
+  <p className="text-muted-foreground leading-relaxed justify-left">
+    {t("pages.about.longDescription4")}
+  </p>
+</div>
+ 
             </motion.div>
 
             {/* Stats */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 mt-12">
-              <Stat label={t("pages.about.stats.experience")} value={10} suffix="+" />
+              <Stat label={t("pages.about.stats.experience")} value={12} suffix="+" />
               <Stat label={t("pages.about.stats.projects")} value={50} suffix="+" />
+              <Stat label={t("pages.about.stats.startupProjects")} value={10} suffix="+" />
               <Stat label={t("pages.about.stats.clients")} value={30} suffix="+" />
-              <Stat label={t("pages.about.stats.awards")} value={15} suffix="+" />
             </div>
           </div>
         </section>

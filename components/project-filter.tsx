@@ -12,9 +12,9 @@ interface ProjectFilterProps {
 export function ProjectFilter({ activeFilter, onFilterChange }: ProjectFilterProps): JSX.Element {
   const filters = [
     { id: "all", label: "All" },
-    { id: "web", label: "Web Development" },
+    { id: "web", label: "Web Projects" },
     { id: "ui", label: "UI/UX Design" },
-    { id: "mobile", label: "Mobile" },
+    { id: "mobile", label: "Mobile Apps" },
   ];
 
   return (

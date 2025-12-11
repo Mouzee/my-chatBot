@@ -56,10 +56,10 @@
 
         "about": {
           "title": "About Me",
-          "subtitle": "Passionate designer and developer creating meaningful digital experiences.",
+          "subtitle": "Experienced UI/UX Designer and Front-End Developer Crafting High-Impact Digital Experiences",
           "experience": {
             "title": "12+ Years Experience",
-            "description": "Working across healthcare, banking, government, and e-commerce sectors with diverse teams and technologies."
+            "description": "Working across Healthcare, Military domains, Banking, Education, Social Apps, and e-commerce sectors with diverse teams and technologies."
           },
           "mission": {
             "title": "My Mission",
@@ -69,13 +69,15 @@
             "title": "What I Love",
             "description": "Exploring new technologies, solving complex problems, and bringing creative ideas to life through code."
           },
-          "longDescription1": "With over 12 years of experience in web design and front-end development, I've worked on projects ranging from small business websites to large-scale enterprise applications. My approach blends technical precision with creative problem-solving, delivering solutions that are visually compelling, high-performing, and user-centered.",
-          "longDescription2": "I specialize in UI/UX design and front-end development, with hands-on expertise in Next.js, Vite, Angular, React, Vue.js, Shadcn UI, TailwindCSS, Bootstrap, HTML5, CSS3, and jQuery. I also work extensively with Figma, Sketch, Adobe Suite, and AI prompting tools, alongside version control systems like Git and SVN. I'm passionate about crafting accessible, responsive, and intuitive interfaces that ensure seamless experiences across devices. Outside of work, I love exploring new design trends, contributing to open-source projects, and experimenting with emerging technologies to stay ahead in the ever-evolving digital landscape.",
+          "longDescription1": "With over 12 years of experience in web design and front-end development, I have contributed to projects ranging from small business websites to large-scale enterprise applications. My approach blends technical precision with creative problem-solving, ensuring that every solution is visually compelling, high-performing, and driven by user needs.",
+          "longDescription2": "I specialize in UI/UX design with deep expertise in UX strategy, user research, journey mapping, wireframing, prototyping, usability testing, and design system development. I work extensively with Figma, Sketch, and the Adobe Creative Suite, leveraging AI-driven design and productivity tools to accelerate delivery and enhance creativity.",
+          "longDescription3": "In addition to my design capabilities, I bring comprehensive front-end development skills, including proficiency in React, Next.js, Vue.js, Angular, Vite, Shadcn UI, TailwindCSS, Bootstrap, HTML5, CSS3, and jQuery. I excel at bridging the gap between design and development by implementing pixel-perfect, responsive interfaces and collaborating effectively with cross-functional teams.",
+          "longDescription4": "I also have strong experience working in Agile environments, contributing to sprint planning, daily stand-ups, backlog refinement, and iterative delivery cycles. I am passionate about building intuitive, scalable, and cohesive design systems, while continuously exploring new UI trends, emerging technologies, and open-source opportunities to stay ahead in the evolving digital landscape.",
           "stats": {
             "experience": "Years Experience",
             "projects": "Projects Completed",
             "clients": "Happy Clients",
-            "awards": "Awards Won"
+            "startupProjects": "SASS Projects"
           }
         },
 
