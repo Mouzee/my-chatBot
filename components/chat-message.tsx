@@ -12,8 +12,6 @@ interface ChatMessageProps {
   className?: string
 }
 
-type MessageType = "bot" | "user"
-
 /**
  * Chat message component with typing animation and link detection
  * Supports bot and user message types with appropriate styling

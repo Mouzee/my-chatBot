@@ -1,7 +1,7 @@
 "use client"
 
 import type React from "react"
-import { useState, useRef, useEffect, useMemo } from "react"
+import { useState, useRef, useEffect, useMemo, useCallback } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -133,43 +133,22 @@ export function ChatbotFAQ() {
     ])
   }
 
-  const getFAQList = (category: CategoryType): FAQItem[] => {
+  const getFAQList = useCallback((category: CategoryType): FAQItem[] => {
     return (t(`faq.${category}`, { returnObjects: true }) as FAQItem[]) || []
-  }
+  }, [t])
 
   const availableQuestions = useMemo(() => {
     if (!selectedCategory) return []
     const faqList = getFAQList(selectedCategory)
     return faqList.filter((faq) => !answeredQuestions.has(faq.id))
-  }, [selectedCategory, answeredQuestions])
+  }, [selectedCategory, answeredQuestions, getFAQList])
 
   const totalQuestions = useMemo(() => {
     if (!selectedCategory) return 0
     return getFAQList(selectedCategory).length
-  }, [selectedCategory])
+  }, [selectedCategory, getFAQList])
 
   const answeredCount = answeredQuestions.size
-
-  // chatCategories for carousel
-  const categoryArray = ["recruiter", "client", "collaborator"] as const
-
-  // --- DRAG HOOKS for carousels ---
-  const categoryDrag = useCarouselDrag({
-    length: categoryArray.length,
-    index: categoryIndex,
-    setIndex: setCategoryIndex
-  })
-
-  const questionDrag = useCarouselDrag({
-    length: getAvailableQuestions().length,
-    index: questionIndex,
-    setIndex: setQuestionIndex
-  })
-
-  // Helper: detect if drag is enabled (just check always true, framer-motion useDragControls always present)
-  // We'll show all items at once if drag is "working", i.e. rely on framer-motion
-  const isCategoryDragEnabled = true
-  const isQuestionDragEnabled = true
 
   return (
     <Card className="flex w-full gap-0 max-w-2xl flex-col overflow-hidden backdrop-blur-xl bg-surface/70 py-0 border-2 border-border/60 shadow-xl transition-all duration-300 hover:shadow-2xl hover:border-primary/30 leading-4 h-[70vh] max-h-[600px] min-h-[400px]">

@@ -4,9 +4,9 @@ import { ChatbotFAQ } from "@/components/chatbot-faq"
 import { AnimatedBackground } from "@/components/animated-background"
 import { PageNavigation } from "@/components/page-navigation"
 import { motion } from "framer-motion"
-import { Bot, Sparkles, Eye, BrainCog, Lightbulb, LayoutGrid, PenTool, Code2, MonitorSmartphone, BadgeCheck, type LucideIcon } from "lucide-react"
+import { Bot, Sparkles, BrainCog, Lightbulb, LayoutGrid, PenTool, Code2, MonitorSmartphone, BadgeCheck, type LucideIcon } from "lucide-react"
 import { useTranslation } from "react-i18next"
-import { useState, useEffect, useMemo } from "react"
+import { useEffect, useMemo } from "react"
 import { STORAGE_KEYS, ANIMATION } from "@/lib/constants"
 
 interface FeatureCard {
@@ -19,14 +19,12 @@ interface FeatureCard {
  */
 export default function Home() {
   const { t } = useTranslation()
-  const [visitorCount, setVisitorCount] = useState<number>(0)
 
   useEffect(() => {
     const currentCount = localStorage.getItem(STORAGE_KEYS.VISITOR_COUNT)
     const count = currentCount ? Number.parseInt(currentCount, 10) : 0
     const newCount = count + 1
     localStorage.setItem(STORAGE_KEYS.VISITOR_COUNT, newCount.toString())
-    setVisitorCount(newCount)
   }, [])
 
   const features: FeatureCard[] = useMemo(
@@ -79,7 +77,7 @@ export default function Home() {
                   role="list"
                   aria-label="Key features"
                 >
-                  {features.map((feature, index) => {
+                  {features.map((feature) => {
                     const Icon = feature.icon
                     return (
                       <motion.div

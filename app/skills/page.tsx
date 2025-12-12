@@ -2,11 +2,9 @@
 
 import { AnimatedBackground } from "@/components/animated-background"
 import { PageNavigation } from "@/components/page-navigation"
-import { Card, CardContent } from "@/components/ui/card"
 import { motion } from "framer-motion"
 import { Code, Palette, Layout, Terminal, Figma, Sparkles, CodeXml, LassoSelect, WandSparkles, type LucideIcon } from "lucide-react"
 import { useTranslation } from "react-i18next"
-import { SKILLS, ANIMATION } from "@/lib/constants"
 
 interface Skill {
   icon: LucideIcon
@@ -18,37 +16,8 @@ interface SkillCategory {
   category: string
   icon: LucideIcon
   color: string
+  description: string
   skills: Skill[]
-}
-
-/**
- * Calculate expertise percentage based on years of experience
- */
-function calculateExpertisePercent(experience: string | number): number {
-  const { YEARS_THRESHOLDS, PERCENTAGES } = SKILLS.EXPERTISE
-  
-  if (typeof experience === "string") {
-    const yearsMatch = experience.match(/(\d+)(\+)?/)
-    if (yearsMatch) {
-      const years = parseInt(yearsMatch[1], 10)
-      
-      if (years >= YEARS_THRESHOLDS.EXPERT) {
-        return PERCENTAGES.EXPERT
-      } else if (years >= YEARS_THRESHOLDS.SENIOR) {
-        return PERCENTAGES.SENIOR
-      } else if (years >= YEARS_THRESHOLDS.INTERMEDIATE) {
-        return PERCENTAGES.INTERMEDIATE
-      } else if (years >= YEARS_THRESHOLDS.JUNIOR) {
-        return PERCENTAGES.JUNIOR
-      } else if (years >= YEARS_THRESHOLDS.BEGINNER) {
-        return PERCENTAGES.BEGINNER
-      } else if (years >= YEARS_THRESHOLDS.NOVICE) {
-        return PERCENTAGES.NOVICE
-      }
-    }
-  }
-  
-  return PERCENTAGES.DEFAULT
 }
 
 /**
@@ -59,7 +28,7 @@ export default function SkillsPage() {
   const { t } = useTranslation()
 
   // Skills data now pulls all labels and experience via t(), using fallback for missing keys
-  const skillsData = [
+  const skillsData: SkillCategory[] = [
     {
       category: t("skills.categories.design"),
       icon: Figma,
@@ -203,7 +172,7 @@ export default function SkillsPage() {
                           {category.skills.map((skill, skillIndex) => {
                             const SkillIcon = skill.icon
 
-                            let badgeColor = "bg-primary/10 text-primary border border-primary/30";
+                            const badgeColor = "bg-primary/10 text-primary border border-primary/30";
 
                             return (
                               <motion.div

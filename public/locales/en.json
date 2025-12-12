@@ -45,6 +45,9 @@
       "feature8": "AI-Driven Design Thinking"
     },
     "ui": {
+      "chat": {
+        "yourName": "Your Name"
+      },
       "language": {
         "change": "Change Language",
         "english": "English",

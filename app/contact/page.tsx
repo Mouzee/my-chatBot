@@ -45,7 +45,7 @@ export default function ContactPage() {
     },
   })
 
-  async function onSubmit(_values: z.infer<typeof formSchema>) {
+  async function onSubmit() {
     setIsSubmitting(true)
     try {
       // Simulate form submission delay

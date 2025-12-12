@@ -324,25 +324,33 @@ export function ProjectCard({
                           className="px-3 py-1 rounded-full text-xs font-medium bg-muted text-muted-foreground"
                           role="listitem"
                         >
-                          Live Demo/Case Study <ExternalLink className="w-4 h-4" />
-                        </Link>
-                      </Button>
-                    )}
-                    {githubLink && (
-                      <Button asChild variant="outline">
-                        <Link
-                          href={githubLink}
-                          target="_blank"
-                          className="flex items-center gap-2"
-                        >
-                          Code <Github className="w-4 h-4" />
-                        </Link>
-                      </Button>
-                    )}
-                  </div>
-                </div>
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </section>
+                )}
 
-                <div className="flex gap-3 justify-center md:justify-end">
+                {details?.challenges && (
+                  <section>
+                    <h4 className="text-lg font-semibold mb-2">Challenges</h4>
+                    <p className="text-muted-foreground leading-relaxed">
+                      {details.challenges}
+                    </p>
+                  </section>
+                )}
+
+                {details?.results && (
+                  <section>
+                    <h4 className="text-lg font-semibold mb-2">Results</h4>
+                    <p className="text-muted-foreground leading-relaxed">
+                      {details.results}
+                    </p>
+                  </section>
+                )}
+
+                {/* Action buttons */}
+                <div className="flex gap-3 justify-center md:justify-end mt-8">
                   {link && (
                     <Button asChild variant="outline" aria-label={`View live demo of ${title}`}>
                       <Link
