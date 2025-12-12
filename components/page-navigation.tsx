@@ -44,7 +44,7 @@ export function PageNavigation({ className = "" }: PageNavigationProps) {
         <ExpandableTabs
           tabs={navigationTabs}
           activeColor="text-primary"
-          className="glass-surface shadow-2xl border border-border/30 bg-background/80 backdrop-blur-md supports-[backdrop-filter]:bg-background/60"
+          className="glass-surface shadow-2xl border border-border/30 bg-background/80 backdrop-blur-md supports-backdrop-filter:bg-background/60"
         />
       </motion.div>
     </>

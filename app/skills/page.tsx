@@ -160,7 +160,7 @@ export default function SkillsPage() {
                           </span>
                           <h2 className="text-lg font-medium text-foreground tracking-tight">{category.category}</h2>
                           <span
-                            className="grow h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent ml-2"
+                            className="grow h-px bg-linear-to-r from-transparent via-primary/40 to-transparent ml-2"
                             style={{ minWidth: 24 }}
                           />
                         </div>
