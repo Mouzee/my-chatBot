@@ -139,24 +139,24 @@ export function ChatbotFAQ() {
   const answeredCount = answeredQuestions.size
 
   return (
-    <Card className="flex w-full gap-0 max-w-2xl flex-col overflow-hidden backdrop-blur-xl bg-surface/70 py-0 border-2 border-border/60 shadow-xl transition-all duration-300 hover:shadow-2xl hover:border-primary/30 leading-4 h-[70vh] max-h-[600px] min-h-[400px]">
+    <Card className="flex w-full gap-0 max-w-2xl flex-col overflow-hidden glass-card py-0 border-glass-border shadow-2xl transition-all duration-300 hover:shadow-primary/10 hover:border-glass-highlight leading-4 h-[70vh] max-h-[600px] min-h-[400px]">
 
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="sticky top-0 z-10 border-b border-border/50 backdrop-blur-xl bg-card/80 px-6 py-2"
+        className="sticky top-0 z-10 border-b border-glass-border glass-surface bg-glass-bg/50 px-6 py-2"
       >
         <div className="flex items-center gap-3 py-1">
           <div className="flex items-center gap-4">
             <motion.div
               animate={{ rotate: [0, 360] }}
               transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
-              className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 ring-2 ring-primary/20"
+              className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 ring-1 ring-primary/50 shadow-[0_0_15px_rgba(124,124,255,0.3)]"
             >
               <Sparkles className="h-5 w-5 text-primary" />
             </motion.div>
             <div>
-              <h2 className="text-lg font-semibold text-foreground">{t("header.title")}</h2>
+              <h2 className="text-lg font-semibold text-foreground tracking-tight">{t("header.title")}</h2>
               <p className="text-xs text-muted-foreground">{t("header.subtitle")}</p>
             </div>
           </div>
@@ -168,7 +168,7 @@ export function ChatbotFAQ() {
                   initial={{ opacity: 0, height: 0 }}
                   animate={{ opacity: 1, height: "auto" }}
                   exit={{ opacity: 0, height: 0 }}
-                  className="mt-2 pt-2 border-t border-border/30 space-y-1"
+                  className="mt-2 pt-2 border-t border-glass-border space-y-1"
                 >
                   <p className="text-xs text-muted-foreground text-center font-medium">
                     {t("progress.explored", { count: answeredCount, total: totalQuestions })} •{" "}
@@ -182,7 +182,7 @@ export function ChatbotFAQ() {
 
       {/* --- CHAT AREA --- */}
       <ScrollArea
-        className="flex-1 min-h-0 max-h-[calc(100vh-200px)] bg-background/30 chat-faq-scrollarea"
+        className="flex-1 min-h-0 max-h-[calc(100vh-200px)] bg-transparent chat-faq-scrollarea"
         style={{ minHeight: 0 }}
       >
         <div
@@ -205,7 +205,7 @@ export function ChatbotFAQ() {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="border-t border-border/50 backdrop-blur-md bg-card/80 px-4 py-4"
+        className="border-t border-glass-border glass-surface bg-glass-bg/30 px-4 py-4 backdrop-blur-md"
         style={{ minHeight: 0, maxHeight: 230, overflow: "unset" }}
       >
         <AnimatePresence mode="wait">
