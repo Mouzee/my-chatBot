@@ -21,8 +21,8 @@
   --secondary-foreground: #1e40af;
   --muted: #e0f2fe;
   --muted-foreground: #475569;
-  --accent: #60a5fa;
-  --accent-foreground: #ffffff;
+  --accent: #5eead4;
+  --accent-foreground: #0f172a;
   --destructive: #ef4444;
   --destructive-foreground: #ffffff;
   --border: #bfdbfe;
@@ -111,6 +111,47 @@
   --glass-blur: 20px;
 }
 
+/* 
+═══════════════════════════════════════════════════════════════════════════
+🎨 COLOR THEME CLASSES
+═══════════════════════════════════════════════════════════════════════════
+*/
+
+.theme-teal {
+  --primary: #0d9488;
+  --primary-foreground: #ffffff;
+  --accent: #5eead4;
+  --accent-foreground: #0f172a;
+  --ring: #0d9488;
+  --chart-1: #0d9488;
+  --chart-2: #5eead4;
+}
+
+.dark.theme-teal {
+  --primary: #5eead4;
+  --primary-foreground: #0f172a;
+  --accent: #0d9488;
+  --accent-foreground: #ffffff;
+}
+
+.theme-purple {
+  --primary: #8b5cf6;
+  --primary-foreground: #ffffff;
+  --accent: #c084fc;
+  --accent-foreground: #0f172a;
+  --ring: #8b5cf6;
+  --chart-1: #8b5cf6;
+  --chart-2: #c084fc;
+}
+
+.dark.theme-purple {
+  --primary: #a78bfa;
+  --primary-foreground: #0f172a;
+  --accent: #7c3aed;
+  --accent-foreground: #ffffff;
+}
+
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -157,12 +198,16 @@
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
     border-color: var(--border);
+    outline-color: rgba(var(--ring), 0.5);
+    /* Note: this might need adjustment if --ring is not rgb */
+    border-style: solid;
+    border-width: 0;
   }
 
   body {
-    @apply bg-background text-foreground;
+    background-color: var(--background);
+    color: var(--foreground);
   }
 
   .dark body {
