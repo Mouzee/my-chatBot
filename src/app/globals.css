@@ -364,6 +364,50 @@
 
 /* 
 ═══════════════════════════════════════════════════════════════════════════
+🎴 PROJECT CARD - TRANSPARENT WITH HOVER GLASSMORPHISM
+═══════════════════════════════════════════════════════════════════════════
+*/
+
+.project-card-transparent {
+  /* Default state: fully transparent */
+  background: transparent;
+  border: 1px solid transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+
+  /* Smooth transitions for all properties */
+  transition:
+    background-color 0.3s ease-out,
+    backdrop-filter 0.3s ease-out,
+    -webkit-backdrop-filter 0.3s ease-out,
+    border-color 0.3s ease-out,
+    box-shadow 0.3s ease-out,
+    transform 0.2s ease-out;
+}
+
+.project-card-transparent:hover {
+  /* Hover state: apply glassmorphism */
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 12px 24px -6px rgba(0, 0, 0, 0.3);
+}
+
+/* Touch devices: always show glass effect for better usability */
+@media (hover: none) and (pointer: coarse) {
+  .project-card-transparent {
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 8px 16px -4px rgba(0, 0, 0, 0.2);
+  }
+}
+
+/* 
+═══════════════════════════════════════════════════════════════════════════
 📱 RESPONSIVE BLUR ADJUSTMENTS
 ═══════════════════════════════════════════════════════════════════════════
 */

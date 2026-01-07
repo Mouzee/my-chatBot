@@ -19,10 +19,10 @@ export const ProjectCardPreview = forwardRef<HTMLButtonElement, ProjectCardPrevi
                 {...props}
                 whileHover={{ y: -10, scale: 1.02 }}
                 transition={{ type: "spring", stiffness: 250 }}
-                className="glass-card group relative overflow-hidden cursor-pointer h-full flex flex-col w-full text-left bg-glass-bg border-glass-border shadow-lg"
+                className="project-card-transparent group relative overflow-hidden cursor-pointer h-full flex flex-col w-full text-left rounded-lg"
                 aria-label={`View details for ${title}`}
             >
-                <div className="relative h-52 w-full overflow-hidden flex items-center justify-center">
+                <div className="relative h-52 w-full overflow-hidden flex items-center justify-center rounded-t-lg">
                     <Image
                         src={image}
                         alt={`${title} preview`}
@@ -37,7 +37,7 @@ export const ProjectCardPreview = forwardRef<HTMLButtonElement, ProjectCardPrevi
                         {description}
                     </p>
                     <div className="flex flex-wrap gap-2 mt-auto" role="list" aria-label="Project tags">
-                        {tags.map((tag, i) => (
+                        {tags.map((tag: string, i: number) => (
                             <span
                                 key={`${tag}-${i}`}
                                 className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary border border-primary/20"

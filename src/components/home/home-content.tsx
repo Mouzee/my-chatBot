@@ -70,7 +70,7 @@ export function HomeContent() {
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.4 }}
                         className="flex items-center px-4 h-full"
-                        style={{ paddingBottom: '140px' }}
+                        style={{ paddingBottom: '40px' }}
                     >
                         <div className="max-w-7xl mx-auto w-full">
                             <div className="grid lg:grid-cols-[1fr_1.5fr] gap-8 items-center">
