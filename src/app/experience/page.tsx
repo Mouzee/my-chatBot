@@ -20,6 +20,9 @@ export default function ExperiencePage() {
       t(`pages.experience.timeline.${i}.achievements.0`),
       t(`pages.experience.timeline.${i}.achievements.1`),
       t(`pages.experience.timeline.${i}.achievements.2`),
+      t(`pages.experience.timeline.${i}.achievements.3`),
+      t(`pages.experience.timeline.${i}.achievements.4`),
+      t(`pages.experience.timeline.${i}.achievements.5`)
     ].filter(Boolean),
     tags: t(`pages.experience.timeline.${i}.tags`, { returnObjects: true }) as string[],
   }))

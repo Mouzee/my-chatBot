@@ -180,14 +180,16 @@
           "title": "UX/UI Designer",
           "company": "Core42 / Injazat Data System LLC",
           "period": "2023 November - Present",
-          "description": "Leading design and development initiatives for innovative digital products, focusing on user-centered design and modern web technologies.",
+          "description": "Driving end-to-end design and development of innovative digital products, emphasizing user-centered experiences and modern web technologies.",
           "achievements": [
-            "Working on a military client location, contributing to high-security and mission-critical digital solutions.",
-            "Built 15+ production-ready web applications using Next.js and React",
-            "Established design system and component library used across multiple projects",
-            "Mentored junior designers and developers in best practices"
-          ],
-          "tags": ["Next.js", "React", "Figma", "Leadership", "Design Systems"]
+            "Working on a military client location, contributing to delivering secure, enterprise-grade digital solutions.",
+            "Contributed to military domain platforms, handling CR enhancements and feature upgrades for mission-critical systems.",
+            "Developed and maintained Angular + .NET and Angular + Java applications, managing UI/UX design and front-end implementation end-to-end.",
+            "Collaborated closely with Business Analysts (BA) and MDE stakeholders, translating requirements into intuitive UI/UX solutions aligned with stakeholder expectations.",
+            "Built 10+ production-ready web applications using React and Next.js.",
+            "Established a scalable design system and reusable component library, adopted across multiple projects to ensure consistency and faster delivery."
+                    ],
+          "tags": ["Angular", "Bootstrap", "Tailwind", "TypeScript", "JavaScript", "HTML", "CSS", "Figma","Adobe Suite", "UI Design", "Design Systems"]
         },
         {
           "title": "Team Lead UI/UX & Senior Frontend Developer",
