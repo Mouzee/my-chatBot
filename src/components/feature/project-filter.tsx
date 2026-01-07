@@ -20,10 +20,10 @@ export function ProjectFilter({ activeFilter, onFilterChange }: ProjectFilterPro
   const { t } = useTranslation()
 
   const filters: ProjectFilter[] = [
-    { id: "all", translationKey: "projects.filters.all" },
-    { id: "web", translationKey: "projects.filters.web" },
-    { id: "ui", translationKey: "projects.filters.ui" },
-    { id: "mobile", translationKey: "projects.filters.mobile" },
+    { id: "all", translationKey: "pages.projects.filters.all" },
+    { id: "web", translationKey: "pages.projects.filters.web" },
+    { id: "ui", translationKey: "pages.projects.filters.ui" },
+    { id: "mobile", translationKey: "pages.projects.filters.mobile" },
   ]
 
   return (

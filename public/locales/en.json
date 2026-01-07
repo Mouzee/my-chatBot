@@ -44,25 +44,26 @@
       "feature7": "Pixel-Perfect Precision", 
       "feature8": "AI-Driven Design Thinking"
     },
-    "ui": {
-      "chat": {
-        "yourName": "Your Name"
-      },
-      "language": {
-        "change": "Change Language",
-        "english": "English",
-        "arabic": "Arabic"
-      },
-      "theme": {
-        "change": "Change Theme",
-        "toggle": "Toggle theme",
-        "light": "Light",
-        "dark": "Dark",
-        "system": "System"
-      }
-    },
     "footer": {
       "visitors": "Visitors"
+    }
+  },
+
+  "ui": {
+    "chat": {
+      "yourName": "Your Name"
+    },
+    "language": {
+      "change": "Change Language",
+      "english": "English",
+      "arabic": "Arabic"
+    },
+    "theme": {
+      "change": "Change Theme",
+      "toggle": "Toggle theme",
+      "light": "Light",
+      "dark": "Dark",
+      "system": "System"
     }
   },
 
@@ -104,7 +105,18 @@
           }
         },
 
-    "projects": [ ],
+    "projects": {
+      "title": "All",
+      "titleHighlight": "Projects",
+      "subtitle": "A comprehensive showcase of my work across various technologies and design disciplines.",
+      "filters": {
+        "all": "All Projects",
+        "web": "Web Development",
+        "ui": "UI/UX Design",
+        "mobile": "Mobile Apps"
+      },
+      "noResults": "No projects found in this category."
+    },
     "contact": {
       "title": "Get In Touch",
       "subtitle": "Let's discuss your next project or collaboration opportunity",

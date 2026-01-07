@@ -49,7 +49,7 @@ export function HomeContent() {
     )
 
     return (
-        <section className="flex items-center px-4 h-full pt-20">
+        <section className="flex items-center px-4 h-full pb-10">
             <div className="max-w-7xl mx-auto w-full">
                 <div className="grid lg:grid-cols-[1fr_1.5fr] gap-8 items-center">
                     {/* Hero content */}
