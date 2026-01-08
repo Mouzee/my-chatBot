@@ -70,7 +70,8 @@ export function ChatbotFAQ({ onNameSubmit, onStageChange, currentStage }: Chatbo
   // Expose handler to parent
   useEffect(() => {
     if (onNameSubmit) {
-      (window as any).__chatbotHandleNameSubmit = handleNameSubmitExternal
+      ;(window as Window & { __chatbotHandleNameSubmit?: (name: string) => void }).__chatbotHandleNameSubmit =
+        handleNameSubmitExternal
     }
   }, [handleNameSubmitExternal, onNameSubmit])
 

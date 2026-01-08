@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area"
 import { useTranslation } from "react-i18next"
-import { CHATBOT_FAQ, ANIMATION } from "@/lib/constants"
+import { CHATBOT_FAQ } from "@/lib/constants"
 import type { ChatStage, ChatCategoryType, FAQItem } from "@/types"
 
 interface GlobalChatFooterProps {

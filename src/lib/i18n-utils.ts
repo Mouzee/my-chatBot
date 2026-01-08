@@ -24,11 +24,11 @@ export const getServerTranslation = async (_locale: SupportedLanguage, _namespac
 // Translation key validation helper
 export const validateTranslationKey = (key: string, translations: Record<string, unknown>): boolean => {
   const keys = key.split(".")
-  let current: any = translations
+  let current: unknown = translations
 
   for (const k of keys) {
-    if (current && typeof current === "object" && k in current) {
-      current = current[k]
+    if (current && typeof current === "object" && k in (current as Record<string, unknown>)) {
+      current = (current as Record<string, unknown>)[k]
     } else {
       return false
     }

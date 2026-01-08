@@ -1,14 +1,14 @@
 
 import Image from "next/image"
 import { motion } from "framer-motion"
+import type { HTMLMotionProps } from "framer-motion"
 import { forwardRef } from "react"
 
-interface ProjectCardPreviewProps {
+interface ProjectCardPreviewProps extends HTMLMotionProps<"button"> {
     title: string
     description: string
     tags: string[]
     image: string
-    [key: string]: any
 }
 
 export const ProjectCardPreview = forwardRef<HTMLButtonElement, ProjectCardPreviewProps>(
