@@ -6,9 +6,9 @@ export const projects = [
       "A modern e-commerce platform with advanced filtering, animations, and a seamless checkout experience.",
     tags: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
     imageSrc: [
-      "/projects/pr-02.jpg?auto=format&fit=crop&w=800&q=80",
-      "/projects/pr-03.jpg?auto=format&fit=crop&w=800&q=80",
-      "/projects/pr-04.jpg?auto=format&fit=crop&w=800&q=80"
+      "/projects/pr-1-a.jpg?auto=format&fit=crop&w=800&q=80",
+      "/projects/pr-1-b.jpg?auto=format&fit=crop&w=800&q=80",
+      "/projects/pr-1-c.jpg?auto=format&fit=crop&w=800&q=80"
     ],
     link: "https://example.com/ecommerce",
     githubLink: "https://github.com/username/ecommerce",
@@ -20,9 +20,9 @@ export const projects = [
     description: "A creative portfolio for a photographer with immersive galleries and smooth transitions.",
     tags: ["React", "GSAP", "Styled Components"],
     imageSrc: [
-      "/projects/pr-02.jpg?auto=format&fit=crop&w=800&q=80",
-      "/projects/pr-03.jpg?auto=format&fit=crop&w=800&q=80",
-      "/projects/pr-04.jpg?auto=format&fit=crop&w=800&q=80"
+      "/projects/pr-2-a.jpg?auto=format&fit=crop&w=800&q=80",
+      "/projects/pr-2-b.jpg?auto=format&fit=crop&w=800&q=80",
+      "/projects/pr-2-c.jpg?auto=format&fit=crop&w=800&q=80"
     ],
     link: "https://example.com/portfolio",
     githubLink: "https://github.com/username/portfolio",
@@ -34,8 +34,9 @@ export const projects = [
     description: "An intuitive admin dashboard with data visualization, dark mode, and responsive design.",
     tags: ["Next.js", "Chart.js", "Tailwind CSS"],
     imageSrc: [
-      "/projects/pr-02.jpg?auto=format&fit=crop&w=800&q=80",
-      "/projects/pr-03.jpg?auto=format&fit=crop&w=800&q=80"
+      "/projects/pr-3-a.jpg?auto=format&fit=crop&w=800&q=80",
+      "/projects/pr-3-b.jpg?auto=format&fit=crop&w=800&q=80",
+      "/projects/pr-3-c.jpg?auto=format&fit=crop&w=800&q=80"
     ],
     link: "https://example.com/dashboard",
     githubLink: "https://github.com/username/dashboard",
@@ -47,8 +48,9 @@ export const projects = [
     description: "UI/UX design and prototype for a fitness tracking mobile application with animations.",
     tags: ["Figma", "Prototyping", "UI/UX"],
     imageSrc: [
-      "/projects/pr-02.jpg?auto=format&fit=crop&w=800&q=80",
-      "/projects/pr-03.jpg?auto=format&fit=crop&w=800&q=80"
+      "/projects/pr-4-a.jpg?auto=format&fit=crop&w=800&q=80",
+      "/projects/pr-4-b.jpg?auto=format&fit=crop&w=800&q=80",
+      "/projects/pr-4-c.jpg?auto=format&fit=crop&w=800&q=80"
     ],
     link: "https://example.com/fitness-app",
     category: "mobile",
@@ -59,8 +61,9 @@ export const projects = [
     description: "A high-converting landing page with interactive elements and optimized performance.",
     tags: ["HTML", "CSS", "JavaScript", "GSAP"],
     imageSrc: [
-      "/projects/pr-02.jpg?auto=format&fit=crop&w=800&q=80",
-      "/projects/pr-03.jpg?auto=format&fit=crop&w=800&q=80"
+      "/projects/pr-5-a.jpg?auto=format&fit=crop&w=800&q=80",
+      "/projects/pr-5-b.jpg?auto=format&fit=crop&w=800&q=80",
+      "/projects/pr-5-c.jpg?auto=format&fit=crop&w=800&q=80"
     ],
     link: "https://example.com/marketing",
     githubLink: "https://github.com/username/marketing",
@@ -72,8 +75,9 @@ export const projects = [
     description: "A full-featured web application with authentication, real-time updates, and animations.",
     tags: ["React", "Firebase", "Tailwind CSS", "Framer Motion"],
     imageSrc: [
-      "/projects/pr-02.jpg?auto=format&fit=crop&w=800&q=80",
-      "/projects/pr-03.jpg?auto=format&fit=crop&w=800&q=80"
+      "/projects/pr-6-a.jpg?auto=format&fit=crop&w=800&q=80",
+      "/projects/pr-6-b.jpg?auto=format&fit=crop&w=800&q=80",
+      "/projects/pr-6-c.jpg?auto=format&fit=crop&w=800&q=80"
     ],
     link: "https://example.com/webapp",
     githubLink: "https://github.com/username/webapp",
