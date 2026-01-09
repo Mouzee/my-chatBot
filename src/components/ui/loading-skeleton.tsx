@@ -182,3 +182,65 @@ export function PageSkeleton() {
         </motion.div>
     )
 }
+/**
+ * Project Card Skeleton
+ */
+export function ProjectCardSkeleton() {
+    return (
+        <div className="flex flex-col gap-4 rounded-lg overflow-hidden">
+            {/* Image Placeholder */}
+            <SkeletonLoading variant="rectangle" height="208px" className="w-full" />
+
+            <div className="space-y-3 px-2">
+                {/* Title */}
+                <SkeletonLoading variant="text" width="60%" height="24px" />
+
+                {/* Description */}
+                <div className="space-y-2">
+                    <SkeletonLoading variant="text" width="100%" height="16px" />
+                    <SkeletonLoading variant="text" width="80%" height="16px" />
+                </div>
+
+                {/* Tags */}
+                <div className="flex gap-2 pt-2">
+                    <SkeletonLoading variant="pill" width="60px" height="24px" />
+                    <SkeletonLoading variant="pill" width="60px" height="24px" />
+                    <SkeletonLoading variant="pill" width="60px" height="24px" />
+                </div>
+            </div>
+        </div>
+    )
+}
+
+/**
+ * Projects Page Skeleton
+ */
+export function ProjectsSkeleton() {
+    return (
+        <div className="space-y-12">
+            {/* Header Skeleton */}
+            <div className="text-center space-y-4">
+                <div className="flex justify-center">
+                    <SkeletonLoading variant="text" width="300px" height="48px" />
+                </div>
+                <div className="flex justify-center">
+                    <SkeletonLoading variant="text" width="500px" height="20px" />
+                </div>
+            </div>
+
+            {/* Filters Skeleton */}
+            <div className="flex justify-center gap-3">
+                {[1, 2, 3, 4, 5].map((i) => (
+                    <SkeletonLoading key={i} variant="pill" width="100px" height="40px" />
+                ))}
+            </div>
+
+            {/* Project Grid Skeleton */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {[1, 2, 3, 4, 5, 6].map((i) => (
+                    <ProjectCardSkeleton key={i} />
+                ))}
+            </div>
+        </div>
+    )
+}

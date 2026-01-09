@@ -1,9 +1,20 @@
 export const projects = [
   {
+    id: 0,
+    title: "Project: X-Intelligence",
+    description: "An experimental project focused on AI-driven user interfaces. Currently in deep development. Full Reveal Soon...",
+    tags: ["Coming Soon", "AI Research", "Web3"],
+    imageSrc: [
+      "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?q=80&w=800&auto=format&fit=crop"
+    ],
+    category: "web",
+    isComingSoon: true
+  },
+  {
     id: 1,
     title: "E-Commerce Platform",
-    description:
-      "A modern e-commerce platform with advanced filtering, animations, and a seamless checkout experience.",
+    description: "A modern e-commerce platform with advanced filtering, animations, and a seamless checkout experience.",
     tags: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
     imageSrc: [
       "/projects/pr-1-a.jpg?auto=format&fit=crop&w=800&q=80",

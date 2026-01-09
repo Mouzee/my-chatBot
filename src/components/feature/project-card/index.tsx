@@ -27,6 +27,7 @@ export function ProjectCard({
   autoSlide = true,
   slideInterval,
   details,
+  isComingSoon = false,
 }: ProjectCardProps) {
 
   const [open, setOpen] = useState(false)
@@ -45,30 +46,33 @@ export function ProjectCard({
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: ANIMATION.DURATION.NORMAL, delay }}
     >
-      <Drawer open={open} onOpenChange={setOpen}>
+      <Drawer open={open} onOpenChange={isComingSoon ? undefined : setOpen}>
         <DrawerTrigger asChild>
           <ProjectCardPreview
             title={title}
             description={description}
             tags={tags}
             image={carousel.images[0]}
+            isComingSoon={isComingSoon}
           />
         </DrawerTrigger>
 
-        <ProjectDetailsView
-          title={title}
-          description={description}
-          details={details}
-          link={link}
-          githubLink={githubLink}
-          images={carousel.images}
-          currentImage={carousel.currentImage}
-          setCurrentImage={carousel.setCurrentImage}
-          handlePrev={carousel.handlePrev}
-          handleNext={carousel.handleNext}
-          hasMultipleImages={carousel.hasMultipleImages}
-          onClose={() => setOpen(false)}
-        />
+        {!isComingSoon && (
+          <ProjectDetailsView
+            title={title}
+            description={description}
+            details={details}
+            link={link}
+            githubLink={githubLink}
+            images={carousel.images}
+            currentImage={carousel.currentImage}
+            setCurrentImage={carousel.setCurrentImage}
+            handlePrev={carousel.handlePrev}
+            handleNext={carousel.handleNext}
+            hasMultipleImages={carousel.hasMultipleImages}
+            onClose={() => setOpen(false)}
+          />
+        )}
       </Drawer>
     </motion.article>
   )
