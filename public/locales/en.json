@@ -113,7 +113,8 @@
         "all": "All Projects",
         "web": "Web Development",
         "ui": "UI/UX Design",
-        "mobile": "Mobile Apps"
+        "mobile": "Mobile Apps",
+        "branding": "Branding"
       },
       "noResults": "No projects found in this category."
     },

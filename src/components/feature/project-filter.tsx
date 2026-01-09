@@ -4,7 +4,7 @@ import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { useTranslation } from "react-i18next"
 
-export type ProjectFilterId = "all" | "web" | "ui" | "mobile"
+export type ProjectFilterId = "all" | "web" | "ui" | "mobile" | "branding"
 
 interface ProjectFilterProps {
   activeFilter: ProjectFilterId
@@ -24,6 +24,7 @@ export function ProjectFilter({ activeFilter, onFilterChange }: ProjectFilterPro
     { id: "web", translationKey: "pages.projects.filters.web" },
     { id: "ui", translationKey: "pages.projects.filters.ui" },
     { id: "mobile", translationKey: "pages.projects.filters.mobile" },
+    { id: "branding", translationKey: "pages.projects.filters.branding" },
   ]
 
   return (
