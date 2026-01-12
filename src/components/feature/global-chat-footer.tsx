@@ -1,5 +1,6 @@
 "use client"
 
+import type React from "react"
 import { useState, useCallback, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { ArrowRight, HelpCircle, CheckCircle2, ExternalLink, RotateCcw } from "lucide-react"

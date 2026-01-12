@@ -1,7 +1,6 @@
 "use client"
 
-import type React from "react"
-import { useRef, useEffect } from "react"
+// import { useRef, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Card } from "@/components/ui/card"
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area"
