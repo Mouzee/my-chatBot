@@ -80,9 +80,9 @@ export function HomeContent() {
                                     animate={{ opacity: 1, x: 0 }}
                                     transition={{ duration: ANIMATION.DURATION.NORMAL }}
                                 >
-                                    <div className="inline-flex items-center space-x-2 px-4 py-2 bg-accent/10 rounded-full border border-accent/20 mb-2 sm:mb-6">
-                                        <Bot className="w-4 h-4 text-accent" aria-hidden="true" />
-                                        <span className="text-sm font-medium text-accent">{t("hero.badge")}</span>
+                                    <div className="inline-flex items-center space-x-2 px-4 py-2 bg-primary/10 dark:bg-white/5 rounded-full border border-primary/20 dark:border-white/10 mb-2 sm:mb-6 backdrop-blur-md">
+                                        <Bot className="w-4 h-4 text-primary dark:text-primary-foreground" aria-hidden="true" />
+                                        <span className="text-sm font-medium text-primary dark:text-primary-foreground">{t("hero.badge")}</span>
                                     </div>
 
                                     <h1 className="text-3xl sm:text-5xl font-bold mb-2 sm:mb-6 leading-tight">
@@ -108,11 +108,11 @@ export function HomeContent() {
                                                 <motion.div
                                                     key={feature.translationKey}
                                                     whileHover={{ scale: 1.05, y: -2 }}
-                                                    className="flex items-center gap-2 px-4 py-2 bg-secondary/50 backdrop-blur-sm rounded-full border border-border/50 hover:border-accent/50 hover:shadow-md transition-all duration-200"
+                                                    className="flex items-center gap-2 px-4 py-2 bg-white/40 dark:bg-white/5 backdrop-blur-md rounded-full border border-white/30 dark:border-white/10 hover:bg-white/60 dark:hover:bg-white/10 hover:border-white/50 hover:shadow-lg transition-all duration-300"
                                                     role="listitem"
                                                 >
-                                                    <Icon className="w-4 h-4 text-accent" aria-hidden="true" />
-                                                    <span className="text-sm text-accent font-medium">{t(feature.translationKey)}</span>
+                                                    <Icon className="w-4 h-4 text-primary dark:text-primary-foreground" aria-hidden="true" />
+                                                    <span className="text-sm text-primary dark:text-primary-foreground font-medium">{t(feature.translationKey)}</span>
                                                 </motion.div>
                                             )
                                         })}
