@@ -50,7 +50,7 @@
     "language": {
       "change": "Change Language",
       "english": "English",
-      "arabic": "Arabic"
+      "arabic": "العربية"
     },
     "theme": {
       "change": "Change Theme",
@@ -113,6 +113,7 @@
     "contact": {
       "title": "Get In Touch",
       "subtitle": "Let's discuss your next project or collaboration opportunity",
+      "download_cv": "Download CV",
       "info": {
         "title": "Contact Information",
         "email": "shafeekali.ktdi@gmail.com",
@@ -122,10 +123,20 @@
       "form": {
         "name": "Your Name",
         "email": "Your Email",
+        "subject": "Subject",
         "message": "Your Message",
         "send": "Send Message",
-        "success": "Message sent successfully!",
-        "error": "Failed to send message. Please try again."
+        "sending": "Sending...",
+        "success_title": "Message Sent!",
+        "success_desc": "Thank you for reaching out. I will get back to you soon.",
+        "error_title": "Submission Failed",
+        "error_desc": "There was a problem sending your message. Please try again later.",
+        "validation": {
+          "name": "Name must be at least 2 characters.",
+          "email": "Please enter a valid email address.",
+          "subject": "Subject must be at least 5 characters.",
+          "message": "Message must be at least 10 characters."
+        }
       },
       "social": {
         "title": "Follow Me",

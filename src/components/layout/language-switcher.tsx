@@ -30,11 +30,11 @@ export function LanguageSwitcher() {
           </Button>
         </motion.div>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="min-w-[120px]">
-        <DropdownMenuItem onClick={() => handleLanguageChange("en")} className={currentLanguage === "en" ? "bg-accent" : ""}>
+      <DropdownMenuContent align="end" className="min-w-[120px] space-y-1">
+        <DropdownMenuItem onClick={() => handleLanguageChange("en")} className={currentLanguage === "en" ? "bg-accent text-white" : ""}>
           {t("ui.language.english")}
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => handleLanguageChange("ar")} className={currentLanguage === "ar" ? "bg-accent" : ""}>
+        <DropdownMenuItem onClick={() => handleLanguageChange("ar")} className={currentLanguage === "ar" ? "bg-accent text-white" : ""}>
           {t("ui.language.arabic")}
         </DropdownMenuItem>
       </DropdownMenuContent>
