@@ -12,23 +12,23 @@ export const projects = [
   },
   {
     id: 1,
-    title: "E-Commerce Platform",
-    description: "A modern e-commerce platform with advanced filtering, animations, and a seamless checkout experience.",
-    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
+    title: "AI-Powered HR Solution Platform",
+    description: "An intelligent HR management platform leveraging AI to automate recruitment, employee lifecycle management, performance analytics, and data-driven decision-making with a seamless user experience.",
+    tags: ["AI", "Next.js", "TypeScript", "Tailwind CSS", "HR Tech", "Automation", "Data Analytics"],
     imageSrc: [
       "/projects/pr-1-a.jpg",
       "/projects/pr-1-b.jpg",
       "/projects/pr-1-c.jpg"
     ],
-    link: "https://example.com/ecommerce",
-    githubLink: "https://github.com/username/ecommerce",
+    link: "#",
+    githubLink: "https://github.com/#",
     category: "web",
   },
   {
     id: 2,
-    title: "Portfolio Website",
-    description: "A creative portfolio for a photographer with immersive galleries and smooth transitions.",
-    tags: ["React", "GSAP", "Styled Components"],
+    title: "Qatar Airways Destinations",
+    description: "Explore Qatar Airways destinations across the globe with immersive city guides, curated travel experiences, and seamless navigation designed to inspire your next journey.",
+    tags: ["UI/UX", "UI Style Guide", "Figma", "SEO", "Qatar Airways", "City Guides"],
     imageSrc: [
       "/projects/pr-2-a.jpg",
       "/projects/pr-2-b.jpg",
