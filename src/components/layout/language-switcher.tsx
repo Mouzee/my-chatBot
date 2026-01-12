@@ -4,14 +4,16 @@ import { Languages } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { motion } from "framer-motion"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
-import { changeLanguage, type SupportedLanguage } from "@/lib/i18n"
-import { useI18n } from "@/lib/i18n-utils"
+import { useRouter, usePathname } from "@/i18n/routing"
+import { useI18n, type SupportedLanguage } from "@/lib/i18n-utils"
 
 export function LanguageSwitcher() {
   const { t, currentLanguage } = useI18n()
+  const router = useRouter()
+  const pathname = usePathname()
 
-  const handleLanguageChange = (lng: SupportedLanguage) => {
-    changeLanguage(lng)
+  const handleLanguageChange = (lng: string) => {
+    router.replace(pathname, { locale: lng as SupportedLanguage })
   }
 
   return (

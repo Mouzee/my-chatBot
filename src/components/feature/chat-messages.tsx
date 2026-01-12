@@ -7,7 +7,7 @@ import { Card } from "@/components/ui/card"
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area"
 import { ChatMessage } from "@/components/feature/chat-message"
 import { Sparkles } from "lucide-react"
-import { useTranslation } from "react-i18next"
+import { useI18n } from "@/lib/i18n-utils"
 import type { ChatMessage as Message } from "@/types"
 
 interface ChatMessagesProps {
@@ -19,7 +19,7 @@ interface ChatMessagesProps {
  * NO inputs, NO buttons, NO footer - DISPLAY ONLY
  */
 export function ChatMessages({ messages }: ChatMessagesProps) {
-    const { t } = useTranslation()
+    const { t } = useI18n()
     const messagesEndRef = useRef<HTMLDivElement>(null)
 
     useEffect(() => {

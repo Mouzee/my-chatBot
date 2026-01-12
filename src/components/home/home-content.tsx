@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { useTranslation } from "react-i18next"
+import { useI18n } from "@/lib/i18n-utils"
 import {
     Bot,
     Sparkles,
@@ -26,7 +26,7 @@ interface FeatureCard {
 }
 
 export function HomeContent() {
-    const { t } = useTranslation()
+    const { t } = useI18n()
     const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
@@ -45,14 +45,14 @@ export function HomeContent() {
 
     const features: FeatureCard[] = useMemo(
         () => [
-            { icon: BadgeCheck, translationKey: "intro-section.hero.feature1" },
-            { icon: Sparkles, translationKey: "intro-section.hero.feature2" },
-            { icon: Lightbulb, translationKey: "intro-section.hero.feature3" },
-            { icon: LayoutGrid, translationKey: "intro-section.hero.feature4" },
-            { icon: PenTool, translationKey: "intro-section.hero.feature5" },
-            { icon: Code2, translationKey: "intro-section.hero.feature6" },
-            { icon: MonitorSmartphone, translationKey: "intro-section.hero.feature7" },
-            { icon: BrainCog, translationKey: "intro-section.hero.feature8" },
+            { icon: BadgeCheck, translationKey: "hero.feature1" },
+            { icon: Sparkles, translationKey: "hero.feature2" },
+            { icon: Lightbulb, translationKey: "hero.feature3" },
+            { icon: LayoutGrid, translationKey: "hero.feature4" },
+            { icon: PenTool, translationKey: "hero.feature5" },
+            { icon: Code2, translationKey: "hero.feature6" },
+            { icon: MonitorSmartphone, translationKey: "hero.feature7" },
+            { icon: BrainCog, translationKey: "hero.feature8" },
         ],
         []
     )
@@ -80,18 +80,18 @@ export function HomeContent() {
                                     animate={{ opacity: 1, x: 0 }}
                                     transition={{ duration: ANIMATION.DURATION.NORMAL }}
                                 >
-                                    <div className="inline-flex items-center space-x-2 px-4 py-2 bg-primary/10 rounded-full border border-primary/20 mb-6">
-                                        <Bot className="w-4 h-4 text-primary" aria-hidden="true" />
-                                        <span className="text-sm font-medium text-primary">{t("intro-section.hero.badge")}</span>
+                                    <div className="inline-flex items-center space-x-2 px-4 py-2 bg-accent/10 rounded-full border border-accent/20 mb-6">
+                                        <Bot className="w-4 h-4 text-accent" aria-hidden="true" />
+                                        <span className="text-sm font-medium text-accent">{t("hero.badge")}</span>
                                     </div>
 
                                     <h1 className="text-4xl sm:text-5xl font-bold mb-6 leading-tight">
-                                        <span className="text-foreground">{t("intro-section.hero.title")} </span>
-                                        <span className="text-primary">{t("intro-section.hero.titleHighlight")}</span>
+                                        <span className="text-foreground">{t("hero.title")} </span>
+                                        <span className="text-accent">{t("hero.titleHighlight")}</span>
                                     </h1>
 
                                     <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                                        {t("intro-section.hero.description")}
+                                        {t("hero.description")}
                                     </p>
 
                                     <motion.div
@@ -112,7 +112,7 @@ export function HomeContent() {
                                                     role="listitem"
                                                 >
                                                     <Icon className="w-4 h-4 text-accent" aria-hidden="true" />
-                                                    <span className="text-sm text-muted-foreground">{t(feature.translationKey)}</span>
+                                                    <span className="text-sm text-accent font-medium">{t(feature.translationKey)}</span>
                                                 </motion.div>
                                             )
                                         })}

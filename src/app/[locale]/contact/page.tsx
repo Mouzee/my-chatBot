@@ -5,7 +5,7 @@ import { motion } from "framer-motion"
 import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
-import { useTranslation } from "react-i18next"
+import { useI18n } from "@/lib/i18n-utils"
 import { Mail, Send, MapPin, Phone, Download } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
@@ -31,7 +31,7 @@ const formSchema = z.object({
 })
 
 export default function ContactPage() {
-  const { t } = useTranslation()
+  const { t } = useI18n()
   const { toast } = useToast()
   const [isSubmitting, setIsSubmitting] = useState(false)
 

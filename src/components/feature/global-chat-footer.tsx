@@ -6,7 +6,7 @@ import { ArrowRight, HelpCircle, CheckCircle2, ExternalLink, RotateCcw } from "l
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area"
-import { useTranslation } from "react-i18next"
+import { useI18n } from "@/lib/i18n-utils"
 import { CHATBOT_FAQ } from "@/lib/constants"
 import type { ChatStage, ChatCategoryType, FAQItem } from "@/types"
 
@@ -40,7 +40,7 @@ export function GlobalChatFooter({
     onRestart,
     onCTAClick,
 }: GlobalChatFooterProps) {
-    const { t } = useTranslation()
+    const { t } = useI18n()
     const [nameInput, setNameInput] = useState("")
     const [nameError, setNameError] = useState("")
     const [isReady, setIsReady] = useState(false)

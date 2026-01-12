@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
-import { useTranslation } from "react-i18next"
+import { useI18n } from "@/lib/i18n-utils"
 
 export type ProjectFilterId = "all" | "web" | "ui" | "mobile" | "branding"
 
@@ -17,7 +17,7 @@ interface ProjectFilter {
 }
 
 export function ProjectFilter({ activeFilter, onFilterChange }: ProjectFilterProps) {
-  const { t } = useTranslation()
+  const { t } = useI18n()
 
   const filters: ProjectFilter[] = [
     { id: "all", translationKey: "pages.projects.filters.all" },

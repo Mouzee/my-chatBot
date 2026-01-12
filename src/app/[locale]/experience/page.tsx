@@ -5,10 +5,10 @@ import { PageNavigation } from "@/components/layout/page-navigation"
 import { Timeline } from "@/components/ui/timeline"
 import { motion } from "framer-motion"
 import { Clock } from "lucide-react"
-import { useTranslation } from "react-i18next"
+import { useI18n } from "@/lib/i18n-utils"
 
 export default function ExperiencePage() {
-  const { t } = useTranslation()
+  const { t } = useI18n()
 
   // Get timeline items from translations
   const timelineItems = Array.from({ length: 5 }, (_, i) => ({
@@ -24,7 +24,7 @@ export default function ExperiencePage() {
       t(`pages.experience.timeline.${i}.achievements.4`),
       t(`pages.experience.timeline.${i}.achievements.5`)
     ].filter(Boolean),
-    tags: t(`pages.experience.timeline.${i}.tags`, { returnObjects: true }) as string[],
+    tags: t.raw(`pages.experience.timeline.${i}.tags`) as string[],
   }))
 
   return (
@@ -45,10 +45,10 @@ export default function ExperiencePage() {
                   initial={{ scale: 0.9, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
                   transition={{ duration: 0.5 }}
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/20"
                 >
-                  <Clock className="w-5 h-5 text-primary" />
-                  <span className="text-sm font-medium text-primary">{t("pages.experience.badge")}</span>
+                  <Clock className="w-5 h-5 text-accent" />
+                  <span className="text-sm font-medium text-accent">{t("pages.experience.badge")}</span>
                 </motion.div>
                 <h1 className="text-4xl sm:text-5xl font-bold text-foreground">{t("pages.experience.title")}</h1>
                 <p className="text-lg text-muted-foreground max-w-2xl mx-auto">{t("pages.experience.subtitle")}</p>

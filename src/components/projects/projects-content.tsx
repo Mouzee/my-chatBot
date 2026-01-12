@@ -2,7 +2,7 @@
 
 import { useState, useMemo, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { useTranslation } from "react-i18next"
+import { useI18n } from "@/lib/i18n-utils"
 
 import { ProjectCard } from "@/components/feature/project-card"
 import { ProjectFilter, type ProjectFilterId } from "@/components/feature/project-filter"
@@ -11,7 +11,7 @@ import { projects } from "@/data/projects"
 import { ANIMATION } from "@/lib/constants"
 
 export function ProjectsContent() {
-    const { t } = useTranslation()
+    const { t } = useI18n()
     const [activeFilter, setActiveFilter] = useState<ProjectFilterId>("all")
     const [isLoading, setIsLoading] = useState(true)
 
@@ -55,7 +55,7 @@ export function ProjectsContent() {
                                     className="text-3xl md:text-4xl font-bold mb-6 tracking-tight"
                                 >
                                     {t("pages.projects.title")}
-                                    <span className="text-primary"> {t("pages.projects.titleHighlight")}</span>
+                                    <span className="text-accent"> {t("pages.projects.titleHighlight")}</span>
                                 </motion.h1>
                                 <motion.p
                                     initial={{ opacity: 0, y: -10 }}

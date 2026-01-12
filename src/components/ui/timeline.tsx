@@ -30,7 +30,7 @@ export function Timeline({ items }: TimelineProps) {
 
       {/* Animated progress line */}
       <motion.div
-        className="absolute left-8 top-0 w-[2px] bg-gradient-to-b from-primary via-primary/80 to-primary/60"
+        className="absolute left-8 top-0 w-[2px] bg-gradient-to-b from-accent via-accent/80 to-accent/60"
         style={{
           height: useTransform(scrollYProgress, [0, 1], ["0%", "100%"]),
         }}
@@ -60,7 +60,7 @@ function TimelineItem({ item, index }: { item: TimelineItem; index: number }) {
         whileInView={{ scale: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.4, delay: index * 0.1 + 0.2 }}
-        className="absolute left-[26px] top-2 w-4 h-4 rounded-full bg-primary shadow-lg shadow-primary/50 border-4 border-background"
+        className="absolute left-[26px] top-2 w-4 h-4 rounded-full bg-accent shadow-lg shadow-accent/50 border-4 border-background"
       />
 
       {/* Content card */}
@@ -69,7 +69,7 @@ function TimelineItem({ item, index }: { item: TimelineItem; index: number }) {
           <div className="flex items-start justify-between gap-4 flex-wrap">
             <div>
               <h3 className="text-xl font-semibold text-foreground">{item.title}</h3>
-              {item.company && <p className="text-primary font-medium mt-1">{item.company}</p>}
+              {item.company && <p className="text-accent font-medium mt-1">{item.company}</p>}
             </div>
             <span className="text-sm text-muted-foreground bg-muted/50 px-3 py-1 rounded-full">{item.period}</span>
           </div>
@@ -82,7 +82,7 @@ function TimelineItem({ item, index }: { item: TimelineItem; index: number }) {
             <ul className="space-y-1">
               {item.achievements.map((achievement, i) => (
                 <li key={i} className="text-sm text-muted-foreground flex items-start gap-2">
-                  <span className="text-primary mt-1">•</span>
+                  <span className="text-accent mt-1">•</span>
                   <span>{achievement}</span>
                 </li>
               ))}
@@ -95,7 +95,7 @@ function TimelineItem({ item, index }: { item: TimelineItem; index: number }) {
             {item.tags.map((tag, i) => (
               <span
                 key={i}
-                className="text-xs px-2 py-1 rounded-md bg-primary/10 text-primary border border-primary/20"
+                className="text-xs px-2 py-1 rounded-md bg-accent/10 text-accent border border-accent/20"
               >
                 {tag}
               </span>

@@ -8,7 +8,7 @@ import { Card } from "@/components/ui/card"
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area"
 import { ChatMessage } from "@/components/feature/chat-message"
 import { RotateCcw, Sparkles, HelpCircle, CheckCircle2, ExternalLink } from "lucide-react"
-import { useTranslation } from "react-i18next"
+import { useI18n } from "@/lib/i18n-utils"
 import { CHATBOT_FAQ, ANIMATION } from "@/lib/constants"
 import type { ChatStage, ChatCategoryType, ChatMessage as Message, FAQItem } from "@/types"
 
@@ -23,7 +23,13 @@ interface ChatbotFAQProps {
  * Guides users through name entry, category selection, and FAQ exploration
  */
 export function ChatbotFAQ({ onNameSubmit, onStageChange, currentStage }: ChatbotFAQProps) {
-  const { t } = useTranslation()
+  const { t } = useI18n()
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
   const [stage, setStage] = useState<ChatStage>(currentStage || CHATBOT_FAQ.STAGES.NAME)
   const [selectedCategory, setSelectedCategory] = useState<ChatCategoryType | null>(null)
   const [answeredQuestions, setAnsweredQuestions] = useState<Set<string>>(new Set())
@@ -127,7 +133,8 @@ export function ChatbotFAQ({ onNameSubmit, onStageChange, currentStage }: Chatbo
   }
 
   const getFAQList = useCallback((category: ChatCategoryType): FAQItem[] => {
-    return (t(`faq.${category}`, { returnObjects: true }) as FAQItem[]) || []
+    const faqData = t.raw(`faq.${category}`)
+    return Array.isArray(faqData) ? faqData as FAQItem[] : []
   }, [t])
 
   const availableQuestions = useMemo(() => {
@@ -142,6 +149,8 @@ export function ChatbotFAQ({ onNameSubmit, onStageChange, currentStage }: Chatbo
   }, [selectedCategory, getFAQList])
 
   const answeredCount = answeredQuestions.size
+
+  if (!mounted) return null
 
   return (
     <Card className="flex w-full gap-0 max-w-2xl flex-col overflow-hidden glass-card py-0 border-glass-border shadow-2xl transition-all duration-300 hover:shadow-primary/10 hover:border-glass-highlight leading-4 h-[70vh] max-h-[600px] min-h-[400px]">

@@ -22,13 +22,13 @@ export const ProjectCardPreview = forwardRef<HTMLButtonElement, ProjectCardPrevi
                 whileHover={isComingSoon ? { y: -5 } : { y: -10, scale: 1.02 }}
                 transition={{ type: "spring", stiffness: 250 }}
                 className={cn(
-                    "project-card-transparent group relative overflow-hidden h-full flex flex-col w-full text-left rounded-lg transition-all duration-300",
+                    "project-card-transparent group relative overflow-hidden h-full flex flex-col w-full text-left rounded-lg hover:px-1 hover:pt-1 transition-all duration-300",
                     isComingSoon ? "cursor-default opacity-80" : "cursor-pointer"
                 )}
                 aria-label={isComingSoon ? `Coming soon: ${title}` : `View details for ${title}`}
                 disabled={isComingSoon}
             >
-                <div className="relative h-52 w-full overflow-hidden flex items-center justify-center rounded-t-lg">
+                <div className="relative h-52 w-full overflow-hidden flex items-center justify-center rounded-lg">
                     <Image
                         src={image}
                         alt={`${title} preview`}
@@ -39,7 +39,7 @@ export const ProjectCardPreview = forwardRef<HTMLButtonElement, ProjectCardPrevi
                             isComingSoon && "blur-[2px] grayscale-[0.5]"
                         )}
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent opacity-80 transition-opacity duration-500" />
+                    {/* <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent opacity-80 transition-opacity duration-500" /> */}
 
                     {isComingSoon && (
                         <div className="absolute inset-0 flex items-center justify-center z-20">

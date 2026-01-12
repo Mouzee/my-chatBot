@@ -5,12 +5,12 @@ import { ThemeSwitcher } from "@/components/layout/theme-switcher"
 import { LanguageSwitcher } from "@/components/layout/language-switcher"
 import { motion } from "framer-motion"
 import { User, Briefcase, Code, Mail, Clock, Home, Menu } from "lucide-react"
-import { useTranslation } from "react-i18next"
+import { Link } from "@/i18n/routing"
+import { useI18n } from "@/lib/i18n-utils"
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-import Link from "next/link"
-import { usePathname } from "next/navigation"
+import { usePathname } from "@/i18n/routing"
 import { cn } from "@/lib/utils"
 
 interface PageNavigationProps {
@@ -18,7 +18,7 @@ interface PageNavigationProps {
 }
 
 export function PageNavigation({ className = "" }: PageNavigationProps) {
-  const { t } = useTranslation()
+  const { t } = useI18n()
   const [scrolled, setScrolled] = useState(false)
   const pathname = usePathname()
 

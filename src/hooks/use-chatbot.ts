@@ -1,11 +1,11 @@
 
 import { useState, useCallback, useMemo } from "react"
-import { useTranslation } from "react-i18next"
+import { useI18n } from "@/lib/i18n-utils"
 import { CHATBOT_FAQ } from "@/lib/constants"
 import type { ChatStage, ChatCategoryType, ChatMessage, FAQItem } from "@/types"
 
 export function useChatbot() {
-    const { t } = useTranslation()
+    const { t } = useI18n()
     const [stage, setStage] = useState<ChatStage>(CHATBOT_FAQ.STAGES.NAME)
     const [nameInput, setNameInput] = useState("")
     const [selectedCategory, setSelectedCategory] = useState<ChatCategoryType | null>(null)
@@ -57,7 +57,8 @@ export function useChatbot() {
     }, [addMessage, t])
 
     const getFAQList = useCallback((category: ChatCategoryType): FAQItem[] => {
-        return (t(`faq.${category}`, { returnObjects: true }) as FAQItem[]) || []
+        const faqData = t.raw(`faq.${category}`)
+        return Array.isArray(faqData) ? faqData as FAQItem[] : []
     }, [t])
 
     const handleQuestionSelect = useCallback((faqId: string) => {

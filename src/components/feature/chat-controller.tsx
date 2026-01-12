@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useCallback, useMemo } from "react"
-import { useTranslation } from "react-i18next"
+import { useI18n } from "@/lib/i18n-utils"
 import { ChatMessages } from "@/components/feature/chat-messages"
 import { GlobalChatFooter } from "@/components/feature/global-chat-footer"
 import { CHATBOT_FAQ } from "@/lib/constants"
@@ -12,7 +12,7 @@ import type { ChatStage, ChatCategoryType, ChatMessage, FAQItem } from "@/types"
  * NO UI - pure logic component
  */
 export function ChatController() {
-    const { t } = useTranslation()
+    const { t } = useI18n()
     const [stage, setStage] = useState<ChatStage>(CHATBOT_FAQ.STAGES.NAME)
     const [selectedCategory, setSelectedCategory] = useState<ChatCategoryType | null>(null)
     const [answeredQuestions, setAnsweredQuestions] = useState<Set<string>>(new Set())
@@ -51,7 +51,8 @@ export function ChatController() {
     }, [addMessage, t])
 
     const getFAQList = useCallback((category: ChatCategoryType): FAQItem[] => {
-        return (t(`faq.${category}`, { returnObjects: true }) as FAQItem[]) || []
+        const faqData = t.raw(`faq.${category}`)
+        return Array.isArray(faqData) ? faqData as FAQItem[] : []
     }, [t])
 
     const handleQuestionSelect = useCallback((faqId: string) => {

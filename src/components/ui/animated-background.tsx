@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 import { motion } from "framer-motion"
 import { ANIMATED_BACKGROUND } from "@/lib/constants"
 
@@ -19,8 +19,10 @@ interface Particle {
  */
 export function AnimatedBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
+  const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
+    setMounted(true)
     const canvas = canvasRef.current
     if (!canvas) return
 
@@ -132,6 +134,8 @@ export function AnimatedBackground() {
   }, [])
 
   const { COLORS } = ANIMATED_BACKGROUND
+
+  if (!mounted) return null
 
   return (
     <div className="fixed inset-0 -z-10 overflow-hidden" aria-hidden="true">
