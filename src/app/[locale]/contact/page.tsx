@@ -17,23 +17,27 @@ import { AnimatedBackground } from "@/components/ui/animated-background"
 import { PageNavigation } from "@/components/layout/page-navigation"
 import { CONTACT_FORM, ANIMATION } from "@/lib/constants"
 
-const formSchema = z.object({
-  name: z.string().min(CONTACT_FORM.VALIDATION.MIN_NAME_LENGTH, {
-    message: "Name must be at least 2 characters."
-  }),
-  email: z.string().email({ message: "Please enter a valid email address." }),
-  subject: z.string().min(CONTACT_FORM.VALIDATION.MIN_SUBJECT_LENGTH, {
-    message: "Subject must be at least 5 characters."
-  }),
-  message: z.string().min(CONTACT_FORM.VALIDATION.MIN_MESSAGE_LENGTH, {
-    message: "Message must be at least 10 characters."
-  }),
-})
+// Schema is now defined inside the component to support localization
 
 export default function ContactPage() {
   const { t } = useI18n()
   const { toast } = useToast()
   const [isSubmitting, setIsSubmitting] = useState(false)
+
+  const formSchema = z.object({
+    name: z.string().min(CONTACT_FORM.VALIDATION.MIN_NAME_LENGTH, {
+      message: t("pages.contact.form.validation.name") || "Name must be at least 2 characters."
+    }),
+    email: z.string().email({ 
+      message: t("pages.contact.form.validation.email") || "Please enter a valid email address." 
+    }),
+    subject: z.string().min(CONTACT_FORM.VALIDATION.MIN_SUBJECT_LENGTH, {
+      message: t("pages.contact.form.validation.subject") || "Subject must be at least 5 characters."
+    }),
+    message: z.string().min(CONTACT_FORM.VALIDATION.MIN_MESSAGE_LENGTH, {
+      message: t("pages.contact.form.validation.message") || "Message must be at least 10 characters."
+    }),
+  })
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
