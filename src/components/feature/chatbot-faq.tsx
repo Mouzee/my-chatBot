@@ -1,6 +1,5 @@
 "use client"
 
-import type React from "react"
 import { useState, useRef, useEffect, useMemo, useCallback } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Button } from "@/components/ui/button"
@@ -76,7 +75,7 @@ export function ChatbotFAQ({ onNameSubmit, onStageChange, currentStage }: Chatbo
   // Expose handler to parent
   useEffect(() => {
     if (onNameSubmit) {
-      ;(window as Window & { __chatbotHandleNameSubmit?: (name: string) => void }).__chatbotHandleNameSubmit =
+      ; (window as Window & { __chatbotHandleNameSubmit?: (name: string) => void }).__chatbotHandleNameSubmit =
         handleNameSubmitExternal
     }
   }, [handleNameSubmitExternal, onNameSubmit])
