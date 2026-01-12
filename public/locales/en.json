@@ -29,40 +29,35 @@
     "title": "Portfolio Assistant",
     "subtitle": "Learn about my work & experience"
   },
-  "intro-section": {
-     "hero": {
-      "badge": " Interactive Portfolio",
-      "title": "👋 I'm Shafeek Ali",
-      "titleHighlight": "UX/UI Designer, Front-end Developer",
-      "description": "Chat with my AI assistant to learn about my experience, projects, and expertise in UI/UX design and front-end development. ",
-      "feature1": "12+ Years Experience",
-      "feature2": "UI/UX Excellence & Enthusiasm",
-      "feature3": "Creative Problem Solver",
-      "feature4": "Modern Framework Specialist",  
-      "feature5": "Consistent Brand Storytelling", 
-      "feature6": "Front-End Innovation",
-      "feature7": "Pixel-Perfect Precision", 
-      "feature8": "AI-Driven Design Thinking"
+  "hero": {
+    "badge": " Interactive Portfolio",
+    "title": "👋 I'm Shafeek Ali",
+    "titleHighlight": "UX/UI Designer, Front-end Developer",
+    "description": "Chat with my AI assistant to learn about my experience, projects, and expertise in UI/UX design and front-end development. ",
+    "feature1": "12+ Years Experience",
+    "feature2": "UI/UX Excellence & Enthusiasm",
+    "feature3": "Creative Problem Solver",
+    "feature4": "Modern Framework Specialist",
+    "feature5": "Consistent Brand Storytelling",
+    "feature6": "Front-End Innovation",
+    "feature7": "Pixel-Perfect Precision",
+    "feature8": "AI-Driven Design Thinking"
+  },
+  "ui": {
+    "chat": {
+      "yourName": "Your Name"
     },
-    "ui": {
-      "chat": {
-        "yourName": "Your Name"
-      },
-      "language": {
-        "change": "Change Language",
-        "english": "English",
-        "arabic": "Arabic"
-      },
-      "theme": {
-        "change": "Change Theme",
-        "toggle": "Toggle theme",
-        "light": "Light",
-        "dark": "Dark",
-        "system": "System"
-      }
+    "language": {
+      "change": "Change Language",
+      "english": "English",
+      "arabic": "Arabic"
     },
-    "footer": {
-      "visitors": "Visitors"
+    "theme": {
+      "change": "Change Theme",
+      "toggle": "Toggle theme",
+      "light": "Light",
+      "dark": "Dark",
+      "system": "System"
     }
   },
 
@@ -92,19 +87,29 @@
             "title": "What I Love",
             "description": "Exploring new technologies, solving complex problems, and bringing creative ideas to life through code."
           },
-          "longDescription1": "With over 12 years of experience in web design and front-end development, I have contributed to projects ranging from small business websites to large-scale enterprise applications. My approach blends technical precision with creative problem-solving, ensuring that every solution is visually compelling, high-performing, and driven by user needs.",
-          "longDescription2": "I specialize in UI/UX design with deep expertise in UX strategy, user research, journey mapping, wireframing, prototyping, usability testing, and design system development. I work extensively with Figma, Sketch, and the Adobe Creative Suite, leveraging AI-driven design and productivity tools to accelerate delivery and enhance creativity.",
-          "longDescription3": "In addition to my design capabilities, I bring comprehensive front-end development skills, including proficiency in React, Next.js, Vue.js, Angular, Vite, Shadcn UI, TailwindCSS, Bootstrap, HTML5, CSS3, and jQuery. I excel at bridging the gap between design and development by implementing pixel-perfect, responsive interfaces and collaborating effectively with cross-functional teams.",
-          "longDescription4": "I also have strong experience working in Agile environments, contributing to sprint planning, daily stand-ups, backlog refinement, and iterative delivery cycles. I am passionate about building intuitive, scalable, and cohesive design systems, while continuously exploring new UI trends, emerging technologies, and open-source opportunities to stay ahead in the evolving digital landscape.",
-          "stats": {
-            "experience": "Years Experience",
-            "projects": "Projects Completed",
-            "clients": "Happy Clients",
-            "startupProjects": "SASS Projects"
-          }
+      "longDescription1": "With over 12 years of experience in web design and front-end development, I have contributed to projects ranging from small business websites to large-scale enterprise applications. My approach blends technical precision with creative problem-solving, ensuring that every solution is visually compelling, high-performing, and driven by user needs.",
+      "longDescription2": "I specialize in UI/UX design with deep expertise in UX strategy, user research, journey mapping, wireframing, prototyping, usability testing, and design system development. I work extensively with Figma, Sketch, and the Adobe Creative Suite, leveraging AI-driven design and productivity tools to accelerate delivery and enhance creativity.",
+      "stats": {
+        "experience": "Years Experience",
+        "projects": "Projects Completed",
+        "clients": "Happy Clients",
+        "awards": "Awards"
+      }
         },
 
-    "projects": [ ],
+    "projects": {
+      "title": "All",
+      "titleHighlight": "Projects",
+      "subtitle": "A comprehensive showcase of my work across various technologies and design disciplines.",
+      "filters": {
+        "all": "All Projects",
+        "web": "Web Development",
+        "ui": "UI/UX Design",
+        "mobile": "Mobile Apps",
+        "branding": "Branding"
+      },
+      "noResults": "No projects found in this category."
+    },
     "contact": {
       "title": "Get In Touch",
       "subtitle": "Let's discuss your next project or collaboration opportunity",
@@ -168,14 +173,16 @@
           "title": "UX/UI Designer",
           "company": "Core42 / Injazat Data System LLC",
           "period": "2023 November - Present",
-          "description": "Leading design and development initiatives for innovative digital products, focusing on user-centered design and modern web technologies.",
+          "description": "Driving end-to-end design and development of innovative digital products, emphasizing user-centered experiences and modern web technologies.",
           "achievements": [
-            "Working on a military client location, contributing to high-security and mission-critical digital solutions.",
-            "Built 15+ production-ready web applications using Next.js and React",
-            "Established design system and component library used across multiple projects",
-            "Mentored junior designers and developers in best practices"
-          ],
-          "tags": ["Next.js", "React", "Figma", "Leadership", "Design Systems"]
+            "Working on a military client location, contributing to delivering secure, enterprise-grade digital solutions.",
+            "Contributed to military domain platforms, handling CR enhancements and feature upgrades for mission-critical systems.",
+            "Developed and maintained Angular + .NET and Angular + Java applications, managing UI/UX design and front-end implementation end-to-end.",
+            "Collaborated closely with Business Analysts (BA) and MDE stakeholders, translating requirements into intuitive UI/UX solutions aligned with stakeholder expectations.",
+            "Built 10+ production-ready web applications using React and Next.js.",
+            "Established a scalable design system and reusable component library, adopted across multiple projects to ensure consistency and faster delivery."
+                    ],
+          "tags": ["Angular", "Bootstrap", "Tailwind", "TypeScript", "JavaScript", "HTML", "CSS", "Figma","Adobe Suite", "UI Design", "Design Systems"]
         },
         {
           "title": "Team Lead UI/UX & Senior Frontend Developer",
@@ -283,10 +290,13 @@
       "vite": { "name": "Vite", "experience": "1 yr" },
       "storybook": { "name": "Storybook", "experience": "1 yr" },
       "jest": { "name": "Jest", "experience": "1 yr" },
+      "vibe": { "name": "Vibe Coding", "experience": "1 yr" },
       "prompt": { "name": "Prompt Engineering", "experience": "1 yr" },
       "ai": { "name": "AI Tools (ChatGPT, Midjourney)", "experience": "2 yrs" },
       "v0dev": { "name": "v0.dev", "experience": "1 yr" },
       "cursor": { "name": "Cursor AI", "experience": "1 yr" },
+      "antigravity": { "name": "Antigravity AI", "experience": "1 yr" },
+      "bolt": { "name": "Bolt.dev", "experience": "1 yr" },
       "accessibility": { "name": "Accessibility Auditing", "experience": "1 yr" }
     }
   },
