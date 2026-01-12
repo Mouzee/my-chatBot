@@ -10,18 +10,18 @@
   ═══════════════════════════════════════════════════════════════════════════
   */
   --background: #f0f9ff;
-  --foreground: #1e3a8a;
+  --foreground: #4343ca;
   --card: rgba(255, 255, 255, 0.75);
-  --card-foreground: #1e3a8a;
+  --card-foreground: #4343ca;
   --popover: #ffffff;
-  --popover-foreground: #1e3a8a;
-  --primary: #3b82f6;
+  --popover-foreground: #4343ca;
+  --primary: #4343ca;
   --primary-foreground: #ffffff;
   --secondary: #dbeafe;
   --secondary-foreground: #1e40af;
   --muted: #e0f2fe;
   --muted-foreground: #475569;
-  --accent: #3b82f6;
+  --accent: #4343ca;
   --accent-foreground: #0f172a;
   --destructive: #ef4444;
   --destructive-foreground: #ffffff;
@@ -35,7 +35,7 @@
   --chart-5: #dbeafe;
   --radius: 1rem;
   --sidebar: #f0f9ff;
-  --sidebar-foreground: #1e3a8a;
+  --sidebar-foreground: #4343ca;
   --sidebar-primary: #3b82f6;
   --sidebar-primary-foreground: #ffffff;
   --sidebar-accent: #dbeafe;
