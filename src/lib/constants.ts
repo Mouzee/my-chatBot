@@ -86,8 +86,9 @@ export const ANIMATED_BACKGROUND = {
       TERTIARY: "rgba(6, 182, 212, ",
     },
     LIGHT: {
-      PRIMARY: "rgba(8, 145, 178, ",
-      SECONDARY: "rgba(6, 182, 212, ",
+      PRIMARY: "rgba(79, 70, 229, ",
+      SECONDARY: "rgba(13, 148, 136, ",
+      TERTIARY: "rgba(147, 51, 234, ",
     },
   },
 } as const

@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react"
 import { motion } from "framer-motion"
+import { useTheme } from "next-themes"
 import { ANIMATED_BACKGROUND } from "@/lib/constants"
 
 interface Particle {
@@ -19,6 +20,7 @@ interface Particle {
  */
 export function AnimatedBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
+  const { theme } = useTheme()
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
@@ -134,6 +136,8 @@ export function AnimatedBackground() {
   }, [])
 
   const { COLORS } = ANIMATED_BACKGROUND
+  const isDarkTheme = theme === "dark"
+  const currentColors = isDarkTheme ? COLORS.DARK : COLORS.LIGHT
 
   if (!mounted) return null
 
@@ -143,10 +147,10 @@ export function AnimatedBackground() {
         className="absolute inset-0"
         animate={{
           background: [
-            `radial-gradient(circle at 20% 30%, ${COLORS.DARK.PRIMARY}0.08) 0%, transparent 50%)`,
-            `radial-gradient(circle at 80% 70%, ${COLORS.DARK.SECONDARY}0.08) 0%, transparent 50%)`,
-            `radial-gradient(circle at 40% 80%, ${COLORS.DARK.TERTIARY}0.08) 0%, transparent 50%)`,
-            `radial-gradient(circle at 20% 30%, ${COLORS.DARK.PRIMARY}0.08) 0%, transparent 50%)`,
+            `radial-gradient(circle at 20% 30%, ${currentColors.PRIMARY}0.08) 0%, transparent 50%)`,
+            `radial-gradient(circle at 80% 70%, ${currentColors.SECONDARY}0.08) 0%, transparent 50%)`,
+            `radial-gradient(circle at 40% 80%, ${currentColors.TERTIARY}0.08) 0%, transparent 50%)`,
+            `radial-gradient(circle at 20% 30%, ${currentColors.PRIMARY}0.08) 0%, transparent 50%)`,
           ],
         }}
         transition={{
@@ -159,7 +163,7 @@ export function AnimatedBackground() {
       <motion.div
         className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full blur-3xl opacity-20"
         style={{
-          background: `radial-gradient(circle, ${COLORS.DARK.PRIMARY}0.4) 0%, transparent 70%)`,
+          background: `radial-gradient(circle, ${currentColors.PRIMARY}0.4) 0%, transparent 70%)`,
         }}
         animate={{
           x: [0, 100, -50, 0],
@@ -176,7 +180,7 @@ export function AnimatedBackground() {
       <motion.div
         className="absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full blur-3xl opacity-15"
         style={{
-          background: `radial-gradient(circle, ${COLORS.DARK.SECONDARY}0.4) 0%, transparent 70%)`,
+          background: `radial-gradient(circle, ${currentColors.SECONDARY}0.4) 0%, transparent 70%)`,
         }}
         animate={{
           x: [0, -120, 80, 0],
@@ -193,7 +197,7 @@ export function AnimatedBackground() {
       <motion.div
         className="absolute top-1/2 right-1/3 w-72 h-72 rounded-full blur-3xl opacity-10"
         style={{
-          background: `radial-gradient(circle, ${COLORS.DARK.TERTIARY}0.4) 0%, transparent 70%)`,
+          background: `radial-gradient(circle, ${currentColors.TERTIARY}0.4) 0%, transparent 70%)`,
         }}
         animate={{
           x: [0, 90, -60, 0],
