@@ -137,7 +137,7 @@ export function ChatWindowSkeleton() {
  */
 export function GlobalFooterSkeleton() {
     return (
-        <div className="fixed bottom-0 left-0 right-0 z-40 pb-6 px-4 pointer-events-none">
+        <div className="absolute bottom-0 left-0 right-0 z-40 pb-6 px-4 pointer-events-none">
             <div className="max-w-5xl mx-auto">
                 <div className="glass-surface rounded-full border border-glass-border shadow-2xl backdrop-blur-xl bg-glass-bg/80 p-2">
                     <div className="flex items-center gap-2">

@@ -12,6 +12,8 @@ import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { usePathname } from "@/i18n/routing"
 import { cn } from "@/lib/utils"
+import Image from "next/image"
+
 
 interface PageNavigationProps {
   className?: string
@@ -57,9 +59,12 @@ export function PageNavigation({ className = "" }: PageNavigationProps) {
     >
       <div className="max-w-7xl mx-auto px-4 flex items-center justify-between h-14">
         {/* Logo / Name */}
-        <div className="flex-shrink-0 hidden md:block">
+        <div className="flex-shrink-0">
           <Link href="/" className="text-lg font-bold tracking-tight hover:text-primary transition-colors">
-            Shafeek Ali
+            <div className="flex items-center gap-2">
+              <Image src="/me.svg" alt="Logo" width={40} height={40} className="w-12 h-12 rounded-full lg:w-16 lg:h-16" />
+              {/* <span className="text-primary">SAli</span>  */}
+            </div>
           </Link>
         </div>
 
