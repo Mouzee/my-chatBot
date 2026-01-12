@@ -1,6 +1,5 @@
 "use client"
 
-// import { useRef, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Card } from "@/components/ui/card"
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area"
@@ -8,6 +7,7 @@ import { ChatMessage } from "@/components/feature/chat-message"
 import { Sparkles } from "lucide-react"
 import { useI18n } from "@/lib/i18n-utils"
 import type { ChatMessage as Message } from "@/types"
+import { useRef, useEffect } from "react"
 
 interface ChatMessagesProps {
     messages: Message[]

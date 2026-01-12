@@ -3,7 +3,7 @@
     "greeting": "Welcome to my interactive portfolio! I'd be glad to share more about my work and experience with you. May I know your name?",
     "namePrompt": "Enter your name...",
     "nameError": "Please enter at least 2 characters",
-    "niceMeet": "Nice to meet you, {{name}}! Are you a recruiter, potential client, or looking to collaborate?"
+    "niceMeet": "Nice to meet you, {name}! Are you a recruiter, potential client, or looking to collaborate?"
   },
   "chatCategories": {
     "recruiter": "For Hiring 💼",
@@ -139,7 +139,7 @@
       "title": "Blog & Insights",
       "subtitle": "Thoughts on design, development, and technology",
       "readMore": "Read More",
-      "readTime": "{{minutes}} min read",
+      "readTime": "{minutes} min read",
       "items": [
         {
           "title": "Building Scalable Design Systems",
@@ -303,7 +303,7 @@
 
  
   "progress": {
-    "explored": "{{count}} of {{total}} explored"
+    "explored": "{count} of {total} explored"
   },
   "faq": {
     "recruiter": [
