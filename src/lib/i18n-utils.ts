@@ -1,34 +1,35 @@
-import { useTranslation } from "react-i18next"
-import type { SupportedLanguage } from "./i18n"
+import { useTranslations, useLocale } from "next-intl"
+
+export type SupportedLanguage = "en" | "ar"
 
 // Custom hook for better TypeScript support
 export const useI18n = () => {
-  const { t, i18n } = useTranslation()
+  const t = useTranslations()
+  const locale = useLocale()
 
   return {
     t,
-    i18n,
-    currentLanguage: i18n.language as SupportedLanguage,
-    isRTL: i18n.language === "ar",
+    currentLanguage: locale as SupportedLanguage,
+    isRTL: locale === "ar",
   }
 }
 
-// Server-side translation helper (for future use with Next.js App Router)
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-export const getServerTranslation = async (_locale: SupportedLanguage, _namespace = "translation") => {
-  // This would be used with Next.js App Router i18n in the future
-  // For now, we'll use client-side only
-  return null
+// Server-side translation helper
+export const getServerTranslation = async (locale: SupportedLanguage) => {
+  return {
+    locale,
+    isRTL: locale === "ar",
+  }
 }
 
 // Translation key validation helper
 export const validateTranslationKey = (key: string, translations: Record<string, unknown>): boolean => {
   const keys = key.split(".")
-  let current: any = translations
+  let current: unknown = translations
 
   for (const k of keys) {
-    if (current && typeof current === "object" && k in current) {
-      current = current[k]
+    if (current && typeof current === "object" && k in (current as Record<string, unknown>)) {
+      current = (current as Record<string, unknown>)[k]
     } else {
       return false
     }

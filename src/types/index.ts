@@ -18,6 +18,7 @@ export interface ProjectCardProps {
     autoSlide?: boolean
     slideInterval?: number
     details?: ProjectDetails
+    isComingSoon?: boolean
 }
 
 export type ChatStage = "name" | "category" | "question-select" | "answer" | "complete"

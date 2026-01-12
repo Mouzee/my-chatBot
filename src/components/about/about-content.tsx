@@ -3,11 +3,11 @@
 import type React from "react"
 import { motion } from "framer-motion"
 import { Award, Target, Heart } from "lucide-react"
-import { useTranslation } from "react-i18next"
+import { useI18n } from "@/lib/i18n-utils"
 import { AnimatedCounter } from "@/components/ui/animated-counter"
 
 export function AboutContent() {
-    const { t } = useTranslation()
+    const { t } = useI18n()
 
     return (
         <section className="min-h-screen flex items-center px-4 py-20">
@@ -29,19 +29,19 @@ export function AboutContent() {
                     {/* Info Cards */}
                     <div className="grid md:grid-cols-3 gap-6 mt-12">
                         <AboutCard
-                            icon={<Award className="w-8 h-8 text-primary" />}
+                            icon={<Award className="w-8 h-8 text-accent" />}
                             title={t("pages.about.experience.title")}
                             description={t("pages.about.experience.description")}
                             delay={0.1}
                         />
                         <AboutCard
-                            icon={<Target className="w-8 h-8 text-primary" />}
+                            icon={<Target className="w-8 h-8 text-accent" />}
                             title={t("pages.about.mission.title")}
                             description={t("pages.about.mission.description")}
                             delay={0.2}
                         />
                         <AboutCard
-                            icon={<Heart className="w-8 h-8 text-primary" />}
+                            icon={<Heart className="w-8 h-8 text-accent" />}
                             title={t("pages.about.passion.title")}
                             description={t("pages.about.passion.description")}
                             delay={0.3}
@@ -61,17 +61,9 @@ export function AboutContent() {
                         {t("pages.about.longDescription1")}
                     </p>
 
-                    <div className="grid grid-cols-3 gap-6 text-left ">
-                        <p className="text-muted-foreground leading-relaxed justify-center">
-                            {t("pages.about.longDescription2")}
-                        </p>
-                        <p className="text-muted-foreground leading-relaxed justify-center">
-                            {t("pages.about.longDescription3")}
-                        </p>
-                        <p className="text-muted-foreground leading-relaxed justify-left">
-                            {t("pages.about.longDescription4")}
-                        </p>
-                    </div>
+                    <p className="text-muted-foreground leading-relaxed">
+                        {t("pages.about.longDescription2")}
+                    </p>
 
                 </motion.div>
 
@@ -79,7 +71,7 @@ export function AboutContent() {
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 mt-12">
                     <Stat label={t("pages.about.stats.experience")} value={12} suffix="+" />
                     <Stat label={t("pages.about.stats.projects")} value={50} suffix="+" />
-                    <Stat label={t("pages.about.stats.startupProjects")} value={10} suffix="+" />
+                    <Stat label={t("pages.about.stats.awards")} value={10} suffix="+" />
                     <Stat label={t("pages.about.stats.clients")} value={30} suffix="+" />
                 </div>
             </div>
@@ -115,7 +107,7 @@ function AboutCard({
 function Stat({ label, value, suffix }: { label: string; value: number; suffix?: string }) {
     return (
         <div className="text-center">
-            <h4 className="text-3xl font-bold text-primary mb-2">
+            <h4 className="text-3xl font-bold text-accent mb-2">
                 <AnimatedCounter from={0} to={value} duration={2} />
                 {suffix}
             </h4>

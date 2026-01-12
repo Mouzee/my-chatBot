@@ -5,12 +5,12 @@ import { useTheme } from "next-themes"
 import { Button } from "@/components/ui/button"
 import { motion } from "framer-motion"
 import { useEffect, useState } from "react"
-import { useTranslation } from "react-i18next"
+import { useI18n } from "@/lib/i18n-utils"
 
 export function ThemeSwitcher() {
   const { theme, setTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
-  const { t } = useTranslation()
+  const { t } = useI18n()
 
   useEffect(() => {
     setMounted(true)

@@ -4,7 +4,7 @@ import { AnimatedBackground } from "@/components/ui/animated-background"
 import { PageNavigation } from "@/components/layout/page-navigation"
 import { motion } from "framer-motion"
 import { Code, Palette, Layout, Terminal, Figma, Sparkles, CodeXml, LassoSelect, WandSparkles, type LucideIcon } from "lucide-react"
-import { useTranslation } from "react-i18next"
+import { useI18n } from "@/lib/i18n-utils"
 
 interface Skill {
   icon: LucideIcon
@@ -25,7 +25,7 @@ interface SkillCategory {
  * Shows frontend, design, backend, and AI skills with progress indicators
  */
 export default function SkillsPage() {
-  const { t } = useTranslation()
+  const { t } = useI18n()
 
   // Skills data now pulls all labels and experience via t(), using fallback for missing keys
   const skillsData: SkillCategory[] = [
@@ -35,10 +35,10 @@ export default function SkillsPage() {
       color: "text-purple-500",
       description: t("skills.descriptions.design"),
       skills: [
-        { icon: Figma, name: t("skills.items.figma.name", "Figma"), experience: t("skills.items.figma.experience", "") },
-        { icon: Palette, name: t("skills.items.sketch.name", "Sketch"), experience: t("skills.items.sketch.experience", "") },
-        { icon: LassoSelect, name: t("skills.items.adobe.name", "Adobe Creative Suite"), experience: t("skills.items.adobe.experience", "") },
-        { icon: LassoSelect, name: t("skills.items.miro.name", "Miro"), experience: t("skills.items.miro.experience", "") },
+        { icon: Figma, name: t("skills.items.figma.name"), experience: t("skills.items.figma.experience") },
+        { icon: Palette, name: t("skills.items.sketch.name"), experience: t("skills.items.sketch.experience") },
+        { icon: LassoSelect, name: t("skills.items.adobe.name"), experience: t("skills.items.adobe.experience") },
+        { icon: LassoSelect, name: t("skills.items.miro.name"), experience: t("skills.items.miro.experience") },
       ],
     },
     {
@@ -47,8 +47,8 @@ export default function SkillsPage() {
       color: "text-amber-500",
       description: t("skills.descriptions.creative"),
       skills: [
-        { icon: Sparkles, name: t("skills.items.framer.name", "Framer Motion"), experience: t("skills.items.framer.experience", "") },
-        { icon: Sparkles, name: t("skills.items.gsap.name", "GSAP"), experience: t("skills.items.gsap.experience", "") },
+        { icon: Sparkles, name: t("skills.items.framer.name"), experience: t("skills.items.framer.experience") },
+        { icon: Sparkles, name: t("skills.items.gsap.name"), experience: t("skills.items.gsap.experience") },
       ]
     },
     {
@@ -57,22 +57,22 @@ export default function SkillsPage() {
       color: "text-cyan-500",
       description: t("skills.descriptions.frontend"),
       skills: [
-        { icon: Code, name: t("skills.items.uiux.name", "UI/UX Design"), experience: t("skills.items.uiux.experience", "") },
-        { icon: Code, name: t("skills.items.frontend.name", "Frontend Development"), experience: t("skills.items.frontend.experience", "") },
-        { icon: Palette, name: t("skills.items.bootstrap.name", "Bootstrap"), experience: t("skills.items.bootstrap.experience", "") },
-        { icon: Code, name: t("skills.items.react.name", "React.js"), experience: t("skills.items.react.experience", "") },
-        { icon: Code, name: t("skills.items.typescript.name", "TypeScript"), experience: t("skills.items.typescript.experience", "") },
-        { icon: Palette, name: t("skills.items.tailwind.name", "Tailwind CSS"), experience: t("skills.items.tailwind.experience", "") },
-        { icon: Palette, name: t("skills.items.shadcn.name", "Shadcn UI"), experience: t("skills.items.shadcn.experience", "") },
-        { icon: Code, name: t("skills.items.angular.name", "Angular"), experience: t("skills.items.angular.experience", "") },
-        { icon: Code, name: t("skills.items.vuejs.name", "Vue.js"), experience: t("skills.items.vuejs.experience", "") },
-        { icon: Code, name: t("skills.items.redux.name", "Redux"), experience: t("skills.items.redux.experience", "") },
-        { icon: Code, name: t("skills.items.zustand.name", "Zustand"), experience: t("skills.items.zustand.experience", "") },
-        { icon: Code, name: t("skills.items.sass.name", "SASS"), experience: t("skills.items.sass.experience", "") },
-        { icon: Code, name: t("skills.items.htmlcss.name", "HTML & CSS"), experience: t("skills.items.htmlcss.experience", "") },
-        { icon: Sparkles, name: t("skills.items.motion.name", "Framer Motion"), experience: t("skills.items.motion.experience", "") },
-        { icon: Sparkles, name: t("skills.items.responsive.name", "Responsive Design"), experience: t("skills.items.responsive.experience", "") },
-        { icon: Sparkles, name: t("skills.items.prototyping.name", "Prototyping"), experience: t("skills.items.prototyping.experience", "") },
+        { icon: Code, name: t("skills.items.uiux.name"), experience: t("skills.items.uiux.experience") },
+        { icon: Code, name: t("skills.items.frontend.name"), experience: t("skills.items.frontend.experience") },
+        { icon: Palette, name: t("skills.items.bootstrap.name"), experience: t("skills.items.bootstrap.experience") },
+        { icon: Code, name: t("skills.items.react.name"), experience: t("skills.items.react.experience") },
+        { icon: Code, name: t("skills.items.typescript.name"), experience: t("skills.items.typescript.experience") },
+        { icon: Palette, name: t("skills.items.tailwind.name"), experience: t("skills.items.tailwind.experience") },
+        { icon: Palette, name: t("skills.items.shadcn.name"), experience: t("skills.items.shadcn.experience") },
+        { icon: Code, name: t("skills.items.angular.name"), experience: t("skills.items.angular.experience") },
+        { icon: Code, name: t("skills.items.vuejs.name"), experience: t("skills.items.vuejs.experience") },
+        { icon: Code, name: t("skills.items.redux.name"), experience: t("skills.items.redux.experience") },
+        { icon: Code, name: t("skills.items.zustand.name"), experience: t("skills.items.zustand.experience") },
+        { icon: Code, name: t("skills.items.sass.name"), experience: t("skills.items.sass.experience") },
+        { icon: Code, name: t("skills.items.htmlcss.name"), experience: t("skills.items.htmlcss.experience") },
+        { icon: Sparkles, name: t("skills.items.motion.name"), experience: t("skills.items.motion.experience") },
+        { icon: Sparkles, name: t("skills.items.responsive.name"), experience: t("skills.items.responsive.experience") },
+        { icon: Sparkles, name: t("skills.items.prototyping.name"), experience: t("skills.items.prototyping.experience") },
       ],
     },
     {
@@ -81,13 +81,13 @@ export default function SkillsPage() {
       color: "text-green-500",
       description: t("skills.descriptions.backend"),
       skills: [
-        { icon: Terminal, name: t("skills.items.nodejs.name", "Node.js"), experience: t("skills.items.nodejs.experience", "") },
-        { icon: Code, name: t("skills.items.php.name", "PHP"), experience: t("skills.items.php.experience", "") },
-        { icon: Code, name: t("skills.items.dotnet.name", ".NET"), experience: t("skills.items.dotnet.experience", "") },
-        { icon: Code, name: t("skills.items.restapi.name", "REST API"), experience: t("skills.items.restapi.experience", "") },
-        { icon: Code, name: t("skills.items.vite.name", "Vite"), experience: t("skills.items.vite.experience", "") },
-        { icon: Code, name: t("skills.items.storybook.name", "Storybook"), experience: t("skills.items.storybook.experience", "") },
-        { icon: Code, name: t("skills.items.jest.name", "Jest"), experience: t("skills.items.jest.experience", "") },
+        { icon: Terminal, name: t("skills.items.nodejs.name"), experience: t("skills.items.nodejs.experience") },
+        { icon: Code, name: t("skills.items.php.name"), experience: t("skills.items.php.experience") },
+        { icon: Code, name: t("skills.items.dotnet.name"), experience: t("skills.items.dotnet.experience") },
+        { icon: Code, name: t("skills.items.restapi.name"), experience: t("skills.items.restapi.experience") },
+        { icon: Code, name: t("skills.items.vite.name"), experience: t("skills.items.vite.experience") },
+        { icon: Code, name: t("skills.items.storybook.name"), experience: t("skills.items.storybook.experience") },
+        { icon: Code, name: t("skills.items.jest.name"), experience: t("skills.items.jest.experience") },
       ],
     },
     {
@@ -96,10 +96,12 @@ export default function SkillsPage() {
       color: "text-yellow-500",
       description: t("skills.descriptions.ai"),
       skills: [
-        { icon: Sparkles, name: t("skills.items.prompt.name", "Prompt Engineering"), experience: t("skills.items.prompt.experience", "") },
-        { icon: WandSparkles, name: t("skills.items.ai.name", "AI Tools (ChatGPT, Midjourney)"), experience: t("skills.items.ai.experience", "") },
-        { icon: WandSparkles, name: t("skills.items.v0dev.name", "v0.dev"), experience: t("skills.items.v0dev.experience", "") },
-        { icon: Sparkles, name: t("skills.items.cursor.name", "Cursor"), experience: t("skills.items.cursor.experience", "") },
+        { icon: Sparkles, name: t("skills.items.vibe.name"), experience: t("skills.items.vibe.experience") },
+        { icon: Sparkles, name: t("skills.items.prompt.name"), experience: t("skills.items.prompt.experience") },
+        { icon: WandSparkles, name: t("skills.items.ai.name"), experience: t("skills.items.ai.experience") },
+        { icon: Sparkles, name: t("skills.items.cursor.name"), experience: t("skills.items.cursor.experience") },
+        { icon: Sparkles, name: t("skills.items.antigravity.name"), experience: t("skills.items.antigravity.experience") },
+        { icon: WandSparkles, name: t("skills.items.v0dev.name"), experience: t("skills.items.v0dev.experience") },
       ]
     },
     {
@@ -108,9 +110,9 @@ export default function SkillsPage() {
       color: "text-pink-500",
       description: t("skills.descriptions.devops"),
       skills: [
-        { icon: Code, name: t("skills.items.git.name", "Git"), experience: t("skills.items.git.experience", "") },
-        { icon: Code, name: t("skills.items.jira.name", "Jira"), experience: t("skills.items.jira.experience", "") },
-        { icon: Code, name: t("skills.items.firebase.name", "Firebase"), experience: t("skills.items.firebase.experience", "") },
+        { icon: Code, name: t("skills.items.git.name"), experience: t("skills.items.git.experience") },
+        { icon: Code, name: t("skills.items.jira.name"), experience: t("skills.items.jira.experience") },
+        { icon: Code, name: t("skills.items.firebase.name"), experience: t("skills.items.firebase.experience") },
       ]
     },
     {
@@ -119,7 +121,7 @@ export default function SkillsPage() {
       color: "text-blue-500",
       description: t("skills.descriptions.accessibility"),
       skills: [
-        { icon: Sparkles, name: t("skills.items.accessibility.name", "Accessibility (WCAG)"), experience: t("skills.items.accessibility.experience", "") },
+        { icon: Sparkles, name: t("skills.items.accessibility.name"), experience: t("skills.items.accessibility.experience") },
       ],
     },
   ]

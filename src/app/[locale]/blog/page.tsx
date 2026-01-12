@@ -5,10 +5,10 @@ import { PageNavigation } from "@/components/layout/page-navigation"
 import { ExpandableTabs } from "@/components/ui/expandable-tabs"
 import { motion } from "framer-motion"
 import { User, Briefcase, Code, Mail, BookOpen, Calendar, Clock } from "lucide-react"
-import { useTranslation } from "react-i18next"
+import { useI18n } from "@/lib/i18n-utils"
 
 export default function BlogPage() {
-  const { t } = useTranslation()
+  const { t } = useI18n()
 
   const navigationTabs = [
     { title: t("navigation.home"), icon: User, href: "/" },
