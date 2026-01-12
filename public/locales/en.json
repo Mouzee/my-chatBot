@@ -5,10 +5,10 @@
     "nameError": "Please enter at least 2 characters",
     "niceMeet": "Nice to meet you, {{name}}! Are you a recruiter, potential client, or looking to collaborate?"
   },
-  "categories": {
-    "recruiter": "Recruiter / Employer 💼",
-    "client": "Client / Business 💼",
-    "collaborator": "Collaborator / Partner 🤝",
+  "chatCategories": {
+    "recruiter": "For Hiring 💼",
+    "client": "For Business 💼",
+    "collaborator": "For Collaborator 🤝",
     "selectPrompt": "Great! Here are some questions you might have. Feel free to explore any that interest you:"
   },
   "actions": {
@@ -37,29 +37,47 @@
     "feature1": "12+ Years Experience",
     "feature2": "UI/UX Excellence & Enthusiasm",
     "feature3": "Creative Problem Solver",
-    "feature4": "Modern Framework Specialist",  
-    "feature5": "Consistent Brand Storytelling", 
+    "feature4": "Modern Framework Specialist",
+    "feature5": "Consistent Brand Storytelling",
     "feature6": "Front-End Innovation",
-    "feature7": "Pixel-Perfect Precision", 
+    "feature7": "Pixel-Perfect Precision",
     "feature8": "AI-Driven Design Thinking"
   },
+  "ui": {
+    "chat": {
+      "yourName": "Your Name"
+    },
+    "language": {
+      "change": "Change Language",
+      "english": "English",
+      "arabic": "Arabic"
+    },
+    "theme": {
+      "change": "Change Theme",
+      "toggle": "Toggle theme",
+      "light": "Light",
+      "dark": "Dark",
+      "system": "System"
+    }
+  },
+
   "navigation": {
     "home": "Home",
     "about": "About",
     "projects": "Projects",
     "skills": "Skills",
-    "contact": "Contact",
-    "experience": "Experience"
+    "experience": "Experience",
+    "contact": "Contact"
   },
   "pages": {
     
 
         "about": {
           "title": "About Me",
-          "subtitle": "Passionate designer and developer creating meaningful digital experiences.",
+          "subtitle": "Experienced UI/UX Designer and Front-End Developer Crafting High-Impact Digital Experiences",
           "experience": {
             "title": "12+ Years Experience",
-            "description": "Working across healthcare, banking, government, and e-commerce sectors with diverse teams and technologies."
+            "description": "Working across Healthcare, Military domains, Banking, Education, Social Apps, and e-commerce sectors with diverse teams and technologies."
           },
           "mission": {
             "title": "My Mission",
@@ -69,17 +87,29 @@
             "title": "What I Love",
             "description": "Exploring new technologies, solving complex problems, and bringing creative ideas to life through code."
           },
-          "longDescription1": "With over 12 years of experience in web design and front-end development, I've worked on projects ranging from small business websites to large-scale enterprise applications. My approach blends technical precision with creative problem-solving, delivering solutions that are visually compelling, high-performing, and user-centered.",
-          "longDescription2": "I specialize in UI/UX design and front-end development, with hands-on expertise in Next.js, Vite, Angular, React, Vue.js, Shadcn UI, TailwindCSS, Bootstrap, HTML5, CSS3, and jQuery. I also work extensively with Figma, Sketch, Adobe Suite, and AI prompting tools, alongside version control systems like Git and SVN. I'm passionate about crafting accessible, responsive, and intuitive interfaces that ensure seamless experiences across devices. Outside of work, I love exploring new design trends, contributing to open-source projects, and experimenting with emerging technologies to stay ahead in the ever-evolving digital landscape.",
-          "stats": {
-            "experience": "Years Experience",
-            "projects": "Projects Completed",
-            "clients": "Happy Clients",
-            "awards": "Awards Won"
-          }
+      "longDescription1": "With over 12 years of experience in web design and front-end development, I have contributed to projects ranging from small business websites to large-scale enterprise applications. My approach blends technical precision with creative problem-solving, ensuring that every solution is visually compelling, high-performing, and driven by user needs.",
+      "longDescription2": "I specialize in UI/UX design with deep expertise in UX strategy, user research, journey mapping, wireframing, prototyping, usability testing, and design system development. I work extensively with Figma, Sketch, and the Adobe Creative Suite, leveraging AI-driven design and productivity tools to accelerate delivery and enhance creativity.",
+      "stats": {
+        "experience": "Years Experience",
+        "projects": "Projects Completed",
+        "clients": "Happy Clients",
+        "awards": "Awards"
+      }
         },
 
-    "projects": [ ],
+    "projects": {
+      "title": "All",
+      "titleHighlight": "Projects",
+      "subtitle": "A comprehensive showcase of my work across various technologies and design disciplines.",
+      "filters": {
+        "all": "All Projects",
+        "web": "Web Development",
+        "ui": "UI/UX Design",
+        "mobile": "Mobile Apps",
+        "branding": "Branding"
+      },
+      "noResults": "No projects found in this category."
+    },
     "contact": {
       "title": "Get In Touch",
       "subtitle": "Let's discuss your next project or collaboration opportunity",
@@ -140,21 +170,24 @@
       "badge": "Career Timeline",
       "timeline": [
         {
-          "title": "Senior UI/UX Designer & Frontend Developer",
-          "company": "Mouzee.Tech Startup",
-          "period": "2023 - Present",
-          "description": "Leading design and development initiatives for innovative digital products, focusing on user-centered design and modern web technologies.",
+          "title": "UX/UI Designer",
+          "company": "Core42 / Injazat Data System LLC",
+          "period": "2023 November - Present",
+          "description": "Driving end-to-end design and development of innovative digital products, emphasizing user-centered experiences and modern web technologies.",
           "achievements": [
-            "Built 15+ production-ready web applications using Next.js and React",
-            "Established design system and component library used across multiple projects",
-            "Mentored junior designers and developers in best practices"
-          ],
-          "tags": ["Next.js", "React", "Figma", "Leadership", "Design Systems"]
+            "Working on a military client location, contributing to delivering secure, enterprise-grade digital solutions.",
+            "Contributed to military domain platforms, handling CR enhancements and feature upgrades for mission-critical systems.",
+            "Developed and maintained Angular + .NET and Angular + Java applications, managing UI/UX design and front-end implementation end-to-end.",
+            "Collaborated closely with Business Analysts (BA) and MDE stakeholders, translating requirements into intuitive UI/UX solutions aligned with stakeholder expectations.",
+            "Built 10+ production-ready web applications using React and Next.js.",
+            "Established a scalable design system and reusable component library, adopted across multiple projects to ensure consistency and faster delivery."
+                    ],
+          "tags": ["Angular", "Bootstrap", "Tailwind", "TypeScript", "JavaScript", "HTML", "CSS", "Figma","Adobe Suite", "UI Design", "Design Systems"]
         },
         {
-          "title": "UI/UX Designer & Frontend Developer",
-          "company": "Government Digital Services",
-          "period": "2021 - 2023",
+          "title": "Team Lead UI/UX & Senior Frontend Developer",
+          "company": "NANO HealthSuite @ Winsoft Solutions",
+          "period": "2021 - 2023 November",
           "description": "Designed and developed critical government portals including healthcare regulatory systems, military solutions, and attendance management platforms.",
           "achievements": [
             "Delivered healthcare regulatory portal serving 500+ facilities",
@@ -201,37 +234,74 @@
         }
       ]
     }
-  },
+  }, 
   "skills": {
-    "title": "My Skills",
-    "subtitle": "Technologies and tools I work with",
+    "title": "My Skills & Expertise",
+    "subtitle": "A blend of creativity, design, and development — focused on crafting exceptional digital experiences.",
     "categories": {
-      "frontend": "Frontend Development",
-      "design": "UI/UX Design",
-      "backend": "Backend & Tools",
+      "design": "Design Systems",
       "creative": "Creative Tools",
-      "ai": "AI & Prompt Engineering"
+      "frontend": "Frontend Development",
+      "backend": "Backend & Tools",
+      "ai": "AI & Automation",
+      "devops": "DevOps & Collaboration",
+      "accessibility": "Accessibility"
+    },
+    "descriptions": {
+      "design": "Visual storytelling with systems, prototypes, and polished UI.",
+      "creative": "Exploring motion and creative tools to craft delightful experiences.",
+      "frontend": "Building performant, accessible interfaces with modern frameworks.",
+      "backend": "APIs, tooling, and workflows that power products behind the scenes.",
+      "ai": "Prompting and AI tools to accelerate design and development.",
+      "devops": "Collaboration, versioning, and delivery pipelines to ship reliably.",
+      "accessibility": "Inclusive experiences following WCAG and usability best practices."
     },
     "items": {
-      "bootstrap": { "name": "Bootstrap", "experience": "7+ years" },
-      "react": { "name": "React & Next.js", "experience": "3+ years" },
-      "typescript": { "name": "TypeScript", "experience": "2+ years" },
-      "tailwind": { "name": "Tailwind CSS", "experience": "3+ years" },
-      "figma": { "name": "Figma", "experience": "6+ years" },
-      "angular": { "name": "Angular", "experience": "2+ years" },
-      "nodejs": { "name": "Node.js", "experience": "1+ years" },
-      "git": { "name": "Git & GitHub", "experience": "5+ years" },
-      "adobe": { "name": "Adobe Suite", "experience": "12+ years" },
-      "shadcn": { "name": "Shadcn UI", "experience": "1+ year" },
-      "framer": { "name": "Framer Motion", "experience": "1+ years" },
-      "sketch": { "name": "Miro", "experience": "2+ years" },
-      "php": { "name": "PHP", "experience": "4+ year" },
-      "dotnet": { "name": ".Net", "experience": "4+ year" },
-      "prompt": { "name": "Prompt Engineering", "experience": "2+ years" },
-      "v0dev": { "name": "v0.dev", "experience": "1+ year" },
-      "cursor": { "name": "Cursor", "experience": "1+ year" }
+      "figma": { "name": "Figma", "experience": "6+ yrs" },
+      "xd": { "name": "Adobe XD", "experience": "6+ yrs" },
+      "sketch": { "name": "Sketch", "experience": "2+ yrs" },
+      "adobe": { "name": "Adobe Creative Suite", "experience": "10+ yrs" },
+      "miro": { "name": "Miro", "experience": "3+ yrs" },
+      "framer": { "name": "Framer Motion", "experience": "3+ yrs" },
+      "gsap": { "name": "GSAP", "experience": "1.5 yrs" },
+      "uiux": { "name": "UI/UX Design", "experience": "3+ yrs" },
+      "frontend": { "name": "Frontend Development", "experience": "3+ yrs" },
+      "bootstrap": { "name": "Bootstrap", "experience": "3 yrs" },
+      "react": { "name": "React.js", "experience": "3 yrs" },
+      "typescript": { "name": "TypeScript", "experience": "2 yrs" },
+      "tailwind": { "name": "Tailwind CSS", "experience": "2 yrs" },
+      "shadcn": { "name": "Shadcn UI", "experience": "1.5 yrs" },
+      "angular": { "name": "Angular", "experience": "1.5 yrs" },
+      "vuejs": { "name": "Vue.js", "experience": "1 yr" },
+      "redux": { "name": "Redux", "experience": "2 yrs" },
+      "zustand": { "name": "Zustand", "experience": "1 yr" },
+      "sass": { "name": "SASS", "experience": "3 yrs" },
+      "htmlcss": { "name": "HTML5 & CSS3", "experience": "4 yrs" },
+      "motion": { "name": "Framer Motion", "experience": "2 yrs" },
+      "responsive": { "name": "Responsive Design", "experience": "4 yrs" },
+      "prototyping": { "name": "Prototyping", "experience": "3 yrs" },
+      "nodejs": { "name": "Node.js", "experience": "2 yrs" },
+      "php": { "name": "PHP", "experience": "3 yrs" },
+      "dotnet": { "name": ".NET", "experience": "2 yrs" },
+      "restapi": { "name": "REST API", "experience": "2 yrs" },
+      "firebase": { "name": "Firebase", "experience": "2 yrs" },
+      "git": { "name": "Git", "experience": "3 yrs" },
+      "jira": { "name": "Jira", "experience": "2 yrs" },
+      "vite": { "name": "Vite", "experience": "1 yr" },
+      "storybook": { "name": "Storybook", "experience": "1 yr" },
+      "jest": { "name": "Jest", "experience": "1 yr" },
+      "vibe": { "name": "Vibe Coding", "experience": "1 yr" },
+      "prompt": { "name": "Prompt Engineering", "experience": "1 yr" },
+      "ai": { "name": "AI Tools (ChatGPT, Midjourney)", "experience": "2 yrs" },
+      "v0dev": { "name": "v0.dev", "experience": "1 yr" },
+      "cursor": { "name": "Cursor AI", "experience": "1 yr" },
+      "antigravity": { "name": "Antigravity AI", "experience": "1 yr" },
+      "bolt": { "name": "Bolt.dev", "experience": "1 yr" },
+      "accessibility": { "name": "Accessibility Auditing", "experience": "1 yr" }
     }
   },
+
+ 
   "progress": {
     "explored": "{{count}} of {{total}} explored"
   },
