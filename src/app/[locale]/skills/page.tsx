@@ -35,10 +35,16 @@ export default function SkillsPage() {
       color: "text-purple-500",
       description: t("skills.descriptions.design"),
       skills: [
-        { icon: Figma, name: t("skills.items.figma.name"), experience: t("skills.items.figma.experience") },
-        { icon: Palette, name: t("skills.items.sketch.name"), experience: t("skills.items.sketch.experience") },
-        { icon: LassoSelect, name: t("skills.items.adobe.name"), experience: t("skills.items.adobe.experience") },
-        { icon: LassoSelect, name: t("skills.items.miro.name"), experience: t("skills.items.miro.experience") },
+        { icon: Code, name: t("skills.items.uiux.name"), experience: t("skills.items.uiux.experience") },
+        { icon: Palette, name: t("skills.items.branding.name"), experience: t("skills.items.branding.experience") },
+        { icon: Palette, name: t("skills.items.documentation.name"), experience: t("skills.items.documentation.experience") },
+        { icon: Palette, name: t("skills.items.patterns.name"), experience: t("skills.items.patterns.experience") },
+        { icon: Palette, name: t("skills.items.typography.name"), experience: t("skills.items.typography.experience") },
+        { icon: Palette, name: t("skills.items.accessibility.name"), experience: t("skills.items.accessibility.experience") },
+        { icon: Palette, name: t("skills.items.components.name"), experience: t("skills.items.components.experience") },
+        { icon: Palette, name: t("skills.items.miro.name"), experience: t("skills.items.miro.experience") },
+        { icon: Palette, name: t("skills.items.notion.name"), experience: t("skills.items.notion.experience") },
+        { icon: Palette, name: t("skills.items.figmaJam.name"), experience: t("skills.items.figmaJam.experience") },
       ],
     },
     {
@@ -47,7 +53,13 @@ export default function SkillsPage() {
       color: "text-amber-500",
       description: t("skills.descriptions.creative"),
       skills: [
-        { icon: Sparkles, name: t("skills.items.framer.name"), experience: t("skills.items.framer.experience") },
+
+        { icon: Figma, name: t("skills.items.figma.name"), experience: t("skills.items.figma.experience") },
+        { icon: Palette, name: t("skills.items.sketch.name"), experience: t("skills.items.sketch.experience") },
+        { icon: LassoSelect, name: t("skills.items.adobe.name"), experience: t("skills.items.adobe.experience") },
+        { icon: LassoSelect, name: t("skills.items.miro.name"), experience: t("skills.items.miro.experience") },
+
+        { icon: Sparkles, name: t("skills.items.adobe.name"), experience: t("skills.items.adobe.experience") },
         { icon: Sparkles, name: t("skills.items.gsap.name"), experience: t("skills.items.gsap.experience") },
       ]
     },
@@ -57,7 +69,6 @@ export default function SkillsPage() {
       color: "text-cyan-500",
       description: t("skills.descriptions.frontend"),
       skills: [
-        { icon: Code, name: t("skills.items.uiux.name"), experience: t("skills.items.uiux.experience") },
         { icon: Code, name: t("skills.items.frontend.name"), experience: t("skills.items.frontend.experience") },
         { icon: Palette, name: t("skills.items.bootstrap.name"), experience: t("skills.items.bootstrap.experience") },
         { icon: Code, name: t("skills.items.react.name"), experience: t("skills.items.react.experience") },
@@ -73,6 +84,9 @@ export default function SkillsPage() {
         { icon: Sparkles, name: t("skills.items.motion.name"), experience: t("skills.items.motion.experience") },
         { icon: Sparkles, name: t("skills.items.responsive.name"), experience: t("skills.items.responsive.experience") },
         { icon: Sparkles, name: t("skills.items.prototyping.name"), experience: t("skills.items.prototyping.experience") },
+
+        { icon: Code, name: t("skills.items.vite.name"), experience: t("skills.items.vite.experience") },
+        { icon: Sparkles, name: t("skills.items.framer.name"), experience: t("skills.items.framer.experience") },
       ],
     },
     {
@@ -85,7 +99,6 @@ export default function SkillsPage() {
         { icon: Code, name: t("skills.items.php.name"), experience: t("skills.items.php.experience") },
         { icon: Code, name: t("skills.items.dotnet.name"), experience: t("skills.items.dotnet.experience") },
         { icon: Code, name: t("skills.items.restapi.name"), experience: t("skills.items.restapi.experience") },
-        { icon: Code, name: t("skills.items.vite.name"), experience: t("skills.items.vite.experience") },
         { icon: Code, name: t("skills.items.storybook.name"), experience: t("skills.items.storybook.experience") },
         { icon: Code, name: t("skills.items.jest.name"), experience: t("skills.items.jest.experience") },
       ],
@@ -110,18 +123,22 @@ export default function SkillsPage() {
       color: "text-pink-500",
       description: t("skills.descriptions.devops"),
       skills: [
-        { icon: Code, name: t("skills.items.git.name"), experience: t("skills.items.git.experience") },
-        { icon: Code, name: t("skills.items.jira.name"), experience: t("skills.items.jira.experience") },
-        { icon: Code, name: t("skills.items.firebase.name"), experience: t("skills.items.firebase.experience") },
+        { icon: WandSparkles, name: t("skills.items.git.name"), experience: t("skills.items.git.experience") },
+        { icon: WandSparkles, name: t("skills.items.jira.name"), experience: t("skills.items.jira.experience") },
+        { icon: WandSparkles, name: t("skills.items.svn.name"), experience: t("skills.items.svn.experience") },
+        { icon: WandSparkles, name: t("skills.items.gitbucket.name"), experience: t("skills.items.gitbucket.experience") },
+        { icon: WandSparkles, name: t("skills.items.devops.name"), experience: t("skills.items.devops.experience") },
       ]
     },
     {
-      category: t("skills.categories.accessibility"),
+      category: t("skills.categories.other"),
       icon: Sparkles,
       color: "text-blue-500",
-      description: t("skills.descriptions.accessibility"),
+      description: t("skills.descriptions.other"),
       skills: [
-        { icon: Sparkles, name: t("skills.items.accessibility.name"), experience: t("skills.items.accessibility.experience") },
+        { icon: Sparkles, name: t("skills.items.autodeskmax.name"), experience: t("skills.items.autodeskmax.experience") },
+        { icon: Sparkles, name: t("skills.items.capcut.name"), experience: t("skills.items.capcut.experience") },
+        { icon: Sparkles, name: t("skills.items.blender3d.name"), experience: t("skills.items.blender3d.experience") },
       ],
     },
   ]
