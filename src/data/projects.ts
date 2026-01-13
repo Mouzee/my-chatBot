@@ -22,10 +22,36 @@ export const projects = [
     ],
     link: "#",
     githubLink: "https://github.com/#",
-    category: "web",
+    category: "ui, web",
+  },
+   {
+    id: 2,
+    title: "DHA Integrated Healthcare Portal",
+    description: "A comprehensive healthcare ecosystem that provides medical records and health information to end users, along with a high-performance regulatory dashboard for healthcare professionals.",
+    tags: ["UI/UX", "Digital Dubai Design System", "Prototyping", "Figma", "E-Claim Engine"], 
+    imageSrc: [
+      "/projects/pr-5-a.jpg",
+      "/projects/pr-5-b.jpg",
+      "/projects/pr-5-c.jpg"
+    ],
+    link: "https://example.com/marketing",
+    githubLink: "https://github.com/username/marketing",
+    category: "ui",
+  }, 
+  {
+    id: 3,
+    title: "Smart Education & Wellbeing App",
+    description: "A child-friendly education and wellbeing application featuring personalized learning, wellness activities, and an AI-powered avatar for guided engagement.",
+    tags: ["UI/UX", "Figma", "React Native", "TypeScript", "Design System", "AI Chatbot"],
+    imageSrc: [
+      "/projects/pr-11-a.jpg",
+      "/projects/pr-11-b.jpg",
+      "/projects/pr-11-c.jpg"
+    ],
+    category: "ui, app",
   },
   {
-    id: 2,
+    id: 4,
     title: "Qatar Airways Destinations",
     description: "Explore Qatar Airways destinations across the globe with immersive city guides, curated travel experiences, and seamless navigation designed to inspire your next journey.",
     tags: ["UI/UX", "UI Style Guide", "Figma", "SEO", "Qatar Airways", "City Guides"],
@@ -36,13 +62,27 @@ export const projects = [
     ],
     link: "https://example.com/portfolio",
     githubLink: "https://github.com/username/portfolio",
-    category: "web",
+    category: "ui",
   },
   {
-    id: 3,
-    title: "Dashboard UI",
-    description: "An intuitive admin dashboard with data visualization, dark mode, and responsive design.",
-    tags: ["Next.js", "Chart.js", "Tailwind CSS"],
+    id: 5,
+    title: "Social Media App UI",
+    description: "UI/UX design and interactive prototype for a social media mobile application featuring friend-circle challenges, engagement-driven interactions, and smooth animations.",
+    tags: ["UI/UX", "Adobe XD", "ProtoPie","IOS", "Android", "Branding","Creative Design"],
+    imageSrc: [
+      "/projects/pr-4-a.jpg",
+      "/projects/pr-4-b.jpg" 
+    ],
+    link: "https://example.com/fitness-app",
+    githubLink: "https://github.com/username/social-media-app",
+    category: "mobile, ui, branding",
+  },
+ 
+  {
+    id: 6,
+    title: "Military Employee Portal",
+    description: "A secure and role-based military dashboard portal featuring employee attendance tracking, leave policy management, operational insights, and modular components tailored for a regulated military work environment.",
+    tags: [ "React", "Next.js", "Shadcn", "Tailwind CSS", "FramerMotion", "i18n"],
     imageSrc: [
       "/projects/pr-3-a.jpg",
       "/projects/pr-3-b.jpg",
@@ -50,40 +90,13 @@ export const projects = [
     ],
     link: "https://example.com/dashboard",
     githubLink: "https://github.com/username/dashboard",
-    category: "ui",
+    category: "ui, web",
   },
   {
-    id: 4,
-    title: "Mobile App UI",
-    description: "UI/UX design and prototype for a fitness tracking mobile application with animations.",
-    tags: ["Figma", "Prototyping", "UI/UX"],
-    imageSrc: [
-      "/projects/pr-4-a.jpg",
-      "/projects/pr-4-b.jpg",
-      "/projects/pr-4-c.jpg"
-    ],
-    link: "https://example.com/fitness-app",
-    category: "mobile",
-  },
-  {
-    id: 5,
-    title: "Marketing Website",
-    description: "A high-converting landing page with interactive elements and optimized performance.",
-    tags: ["HTML", "CSS", "JavaScript", "GSAP"],
-    imageSrc: [
-      "/projects/pr-5-a.jpg",
-      "/projects/pr-5-b.jpg",
-      "/projects/pr-5-c.jpg"
-    ],
-    link: "https://example.com/marketing",
-    githubLink: "https://github.com/username/marketing",
-    category: "web",
-  },
-  {
-    id: 6,
-    title: "Web Application",
-    description: "A full-featured web application with authentication, real-time updates, and animations.",
-    tags: ["React", "Firebase", "Tailwind CSS", "Framer Motion"],
+    id: 7,
+    title: "4Marry Web Application",
+    description: "A culturally focused matrimonial web application designed for the Indian community, featuring secure authentication, profile matching, real-time interactions, and a respectful, privacy-first user experience.",
+    tags: ["UI/UX", "Design System", "Bootstrap", "SAAS", "Front-end"],
     imageSrc: [
       "/projects/pr-6-a.jpg",
       "/projects/pr-6-b.jpg",
@@ -91,46 +104,59 @@ export const projects = [
     ],
     link: "https://example.com/webapp",
     githubLink: "https://github.com/username/webapp",
-    category: "web",
+    category: "web, ui",
   },
   {
-    id: 7,
-    title: "Eco-Friendly Brand Identity",
-    description: "Complete visual identity system for a sustainable tech company, including logo, color palette, and typography.",
-    tags: ["Branding", "Logo Design", "Style Guide"],
+    id: 8,
+    title: "Wild Leaves Restaurant Platform",
+    description: "Restaurant branding and website with digital menu, customer reviews, and an online table booking system.",
+    tags: ["Branding", "UI/UX", "Menu Management", "Booking System"],
     imageSrc: [
       "/projects/pr-7-a.jpg",
       "/projects/pr-7-b.jpg",
       "/projects/pr-7-c.jpg"
     ],
-    category: "branding",
+    category: "branding, ui",
   },
   {
-    id: 8,
-    title: "Urban Fashion Label",
-    description: "Modern branding for a street-wear label focusing on urban culture and minimalist aesthetics.",
-    tags: ["Branding", "Visual Identity", "Fashion"],
+    id: 9,
+    title: "Restaurant Billing & KOT System",
+    description: "A streamlined restaurant billing and Kitchen Order Ticket (KOT) system with modular POS features designed for fast-paced food service operations.",
+    tags: ["UI/UX", "Branding", "Restaurant Billing", "KOT System", "POS Features"],
     imageSrc: [
       "/projects/pr-8-a.jpg",
       "/projects/pr-8-b.jpg",
       "/projects/pr-8-c.jpg"
     ],
-    category: "branding",
+    category: "ui, web",
   },
   {
-    id: 9,
-    title: "Artisan Coffee Roasters",
-    description: "A warm and inviting brand experience for a local coffee roastery, from logo to packaging.",
-    tags: ["Branding", "Packaging", "Print"],
+    id: 10,
+    title: "E-Commerce for Luxury Watch ",
+    description: "A premium brand identity and e-commerce experience for a luxury watch brand, combining refined visuals with a secure, high-end online shopping experience.",
+    tags: ["UI/UX", "Design System", "E-Commerce", "comerceapp", "Front-end"],
     imageSrc: [
       "/projects/pr-9-a.jpg",
       "/projects/pr-9-b.jpg",
       "/projects/pr-9-c.jpg"
     ],
-    category: "branding",
+    category: "ui",
   },
+{
+    id: 11,
+    title: "Healthcare Chatbot UI",
+    description: "A secure and intuitive chatbot interface designed for healthcare professionals, enabling fast access to clinical information, regulatory guidance, and operational support.",
+    tags: ["UI/UX", "Angular", "ABP framework", "Chatbot Engine", "AI Assistant"],
+    imageSrc: [
+      "/projects/pr-14-a.jpg",
+      "/projects/pr-14-b.jpg",  
+      "/projects/pr-14-c.jpg"
+    ],
+    category: "ui, web",
+  },
+
   {
-    id: 10,
+    id: 12,
     title: "Global Logistics Redesign",
     description: "Corporate rebranding for an international logistics company to reflect speed and reliability.",
     tags: ["Branding", "Corporate Identity", "Logo"],
@@ -142,22 +168,10 @@ export const projects = [
     category: "branding",
   },
   {
-    id: 11,
-    title: "Smart Travel App UI",
-    description: "An intuitive mobile experience for multi-modal travel planning and ticket booking.",
-    tags: ["UI/UX", "Mobile Design", "Figma"],
-    imageSrc: [
-      "/projects/pr-11-a.jpg",
-      "/projects/pr-11-b.jpg",
-      "/projects/pr-11-c.jpg"
-    ],
-    category: "ui",
-  },
-  {
-    id: 12,
-    title: "Health Monitor Dashboard",
-    description: "Data-heavy dashboard for healthcare professionals to track patient vitals in real-time.",
-    tags: ["UI Design", "Data Viz", "Healthcare"],
+    id: 13,
+    title: "AlYami Lawyers Group Website",
+    description: "SEO-optimized marketing and landing website for a legal services group, designed to strengthen brand presence, improve search visibility, and drive client inquiries.",
+    tags: ["UI/UX", "SEO", "Marketing Landing Page", "Bootstrap", "Legal Website"], 
     imageSrc: [
       "/projects/pr-12-a.jpg",
       "/projects/pr-12-b.jpg",
@@ -166,10 +180,10 @@ export const projects = [
     category: "ui",
   },
   {
-    id: 13,
-    title: "Crypto Wallet Interface",
-    description: "Modern and secure UI for a mobile cryptocurrency wallet with advanced security features.",
-    tags: ["UI/UX", "Fintech", "Mobile App"],
+    id: 14,
+    title: "Supermarket Group Branding",
+    description: "Comprehensive brand identity development for a supermarket group, including visual branding, brand guidelines, and cohesive stationery and print materials.",
+    tags: ["Branding", "Brand Guidelines", "Stationery Design", "Print Materials"], 
     imageSrc: [
       "/projects/pr-13-a.jpg",
       "/projects/pr-13-b.jpg",
@@ -177,23 +191,12 @@ export const projects = [
     ],
     category: "ui",
   },
-  {
-    id: 14,
-    title: "Smart Home Controller App",
-    description: "Seamless UI design for controlling multiple IoT devices across a smart home environment.",
-    tags: ["UI/UX", "IoT", "Mobile App"],
-    imageSrc: [
-      "/projects/pr-14-a.jpg",
-      "/projects/pr-14-b.jpg",
-      "/projects/pr-14-c.jpg"
-    ],
-    category: "ui",
-  },
-  {
+  
+  {     
     id: 15,
-    title: "E-Learning UX Research",
-    description: "Comprehensive UX audit and redesign for an online learning platform to improve retention.",
-    tags: ["UX Research", "Audit", "Education"],
+    title: "QC Specialist Branding",
+    description: "Professional brand identity design for a quality control specialist, including branding guidelines and stationery print materials.",
+    tags: ["Branding", "Brand Guidelines", "Stationery Design", "Print Materials"], 
     imageSrc: [
       "/projects/pr-15-a.jpg",
       "/projects/pr-15-b.jpg",
@@ -203,15 +206,15 @@ export const projects = [
   },
   {
     id: 16,
-    title: "Luxe Hotel Branding",
-    description: "Sophisticated branding for a 5-star resort, including premium collateral and digital presence.",
-    tags: ["Branding", "Luxury", "Hospitality"],
+    title: "IEAG Construction Management",
+    description: "Construction management platform, enabling project tracking, workforce coordination, and operational reporting.",
+    tags: ["UI/UX", "PHP Symfony", "MySQL", "Front-End"],
     imageSrc: [
       "/projects/pr-16-a.jpg",
       "/projects/pr-16-b.jpg",
       "/projects/pr-16-c.jpg"
     ],
-    category: "branding",
+    category: "ui, web",
   },
   {
     id: 17,
