@@ -256,7 +256,7 @@
       "backend": "Backend & Tools",
       "ai": "AI & Automation",
       "devops": "DevOps & Collaboration",
-      "accessibility": "Accessibility"
+      "other": "Other Tools"
     },
     "descriptions": {
       "design": "Visual storytelling with systems, prototypes, and polished UI.",
@@ -265,17 +265,35 @@
       "backend": "APIs, tooling, and workflows that power products behind the scenes.",
       "ai": "Prompting and AI tools to accelerate design and development.",
       "devops": "Collaboration, versioning, and delivery pipelines to ship reliably.",
-      "accessibility": "Inclusive experiences following WCAG and usability best practices."
+      "other": "Other tools and technologies."
     },
     "items": {
       "figma": { "name": "Figma", "experience": "6+ yrs" },
       "xd": { "name": "Adobe XD", "experience": "6+ yrs" },
       "sketch": { "name": "Sketch", "experience": "2+ yrs" },
-      "adobe": { "name": "Adobe Creative Suite", "experience": "10+ yrs" },
+      "invision": { "name": "InVision", "experience": "2+ yrs" },
+      "adobe": { "name": "Adobe Creative Suite", "experience": "12+ yrs" },
+      "canva": { "name": "Canva", "experience": "6+ yrs" },
+
       "miro": { "name": "Miro", "experience": "3+ yrs" },
+      "notion": { "name": "Notion", "experience": "3+ yrs" },
+      "figmaJam": { "name": "Figma Jam", "experience": "6+ yrs" },
+
+
+      "figmaMake": { "name": "Figma Make", "experience": "1+ yrs" },
+
+      "graphicDesigning": { "name": "Graphic Designing", "experience": "10+ yrs" },
+      "branding": { "name": "Branding / Visual Identity", "experience": "11+ yrs" },      
+      "components": { "name": "Components / UI Elements", "experience": "10+ yrs" },
+      "accessibility": { "name": "Accessibility", "experience": "6+ yrs" },
+      "documentation": { "name": "UX Research", "experience": "6+ yrs" },
+      "patterns": { "name": "Patterns / Interaction", "experience": "7+ yrs" },   
+      "typography": { "name": "Typography", "experience": "10+ yrs" },      
+      "prototyping": { "name": "Prototyping", "experience": "3 yrs" },
       "framer": { "name": "Framer Motion", "experience": "3+ yrs" },
       "gsap": { "name": "GSAP", "experience": "1.5 yrs" },
-      "uiux": { "name": "UI/UX Design", "experience": "3+ yrs" },
+      
+      "uiux": { "name": "UI/UX Design", "experience": "12+ yrs" },
       "frontend": { "name": "Frontend Development", "experience": "3+ yrs" },
       "bootstrap": { "name": "Bootstrap", "experience": "3 yrs" },
       "react": { "name": "React.js", "experience": "3 yrs" },
@@ -290,14 +308,18 @@
       "htmlcss": { "name": "HTML5 & CSS3", "experience": "4 yrs" },
       "motion": { "name": "Framer Motion", "experience": "2 yrs" },
       "responsive": { "name": "Responsive Design", "experience": "4 yrs" },
-      "prototyping": { "name": "Prototyping", "experience": "3 yrs" },
+
       "nodejs": { "name": "Node.js", "experience": "2 yrs" },
       "php": { "name": "PHP", "experience": "3 yrs" },
       "dotnet": { "name": ".NET", "experience": "2 yrs" },
       "restapi": { "name": "REST API", "experience": "2 yrs" },
-      "firebase": { "name": "Firebase", "experience": "2 yrs" },
-      "git": { "name": "Git", "experience": "3 yrs" },
-      "jira": { "name": "Jira", "experience": "2 yrs" },
+      "firebase": { "name": "Firebase", "experience": "3 yrs" },
+      "git": { "name": "Git", "experience": "6 yrs" },
+      "jira": { "name": "Jira", "experience": "7 yrs" },
+      "svn": { "name": "SVN Tortoise", "experience": "7 yrs" },
+      "gitbucket": { "name": "Git Bucket", "experience": "3 yrs" },
+      "devops": { "name": "DevOps", "experience": "3 yrs" },
+
       "vite": { "name": "Vite", "experience": "1 yr" },
       "storybook": { "name": "Storybook", "experience": "1 yr" },
       "jest": { "name": "Jest", "experience": "1 yr" },
@@ -308,7 +330,10 @@
       "cursor": { "name": "Cursor AI", "experience": "1 yr" },
       "antigravity": { "name": "Antigravity AI", "experience": "1 yr" },
       "bolt": { "name": "Bolt.dev", "experience": "1 yr" },
-      "accessibility": { "name": "Accessibility Auditing", "experience": "1 yr" }
+
+      "autodeskmax": { "name": "Autodesk 3D Max", "experience": "2 yr" },
+      "capcut": { "name": "Cap Cut", "experience": "2 yr" },
+      "blender3d": { "name": "Blender 3D", "experience": "1 yr" }
     }
   },
 
