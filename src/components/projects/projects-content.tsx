@@ -28,7 +28,10 @@ export function ProjectsContent() {
         if (activeFilter === "all") {
             return projects
         }
-        return projects.filter((project) => project.category === activeFilter)
+        return projects.filter((project) => {
+            const categories = project.category.split(',').map(c => c.trim())
+            return categories.includes(activeFilter)
+        })
     }, [activeFilter])
 
     return (
