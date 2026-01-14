@@ -11,7 +11,7 @@ export default function ExperiencePage() {
   const { t } = useI18n()
 
   // Get timeline items from translations
-  const timelineItems = Array.from({ length: 5 }, (_, i) => ({
+  const timelineItems = Array.from({ length: 6 }, (_, i) => ({
     title: t(`pages.experience.timeline.${i}.title`),
     company: t(`pages.experience.timeline.${i}.company`),
     period: t(`pages.experience.timeline.${i}.period`),
@@ -22,7 +22,8 @@ export default function ExperiencePage() {
       t(`pages.experience.timeline.${i}.achievements.2`),
       t(`pages.experience.timeline.${i}.achievements.3`),
       t(`pages.experience.timeline.${i}.achievements.4`),
-      t(`pages.experience.timeline.${i}.achievements.5`)
+      t(`pages.experience.timeline.${i}.achievements.5`),
+      t(`pages.experience.timeline.${i}.achievements.6`)
     ].filter(Boolean),
     tags: t.raw(`pages.experience.timeline.${i}.tags`) as string[],
   }))
