@@ -101,8 +101,8 @@ export const CONTACT_FORM = {
     MIN_MESSAGE_LENGTH: 10,
   },
   SUBMISSION_DELAY: 1500,
-  CV_PATH: "/files/Shafeek_Ali_CV.pdf",
-  CV_FILENAME: "Shafeek_Ali_CV.pdf",
+  CV_PATH: "/files/cv_sali.pdf",
+  CV_FILENAME: "cv_sali.pdf",
 } as const
 
 // Skills expertise calculation

@@ -28,24 +28,24 @@ export function ChatMessages({ messages }: ChatMessagesProps) {
     }, [messages])
 
     return (
-        <Card className="flex w-full gap-0 max-w-2xl flex-col overflow-hidden glass-card py-0 border-glass-border shadow-2xl transition-all duration-300 hover:shadow-primary/10 hover:border-glass-highlight leading-4 h-[70vh] max-h-[600px] min-h-[400px]">
+        <Card className="flex w-full gap-0 max-w-2xl flex-col overflow-hidden glass-card py-0 border-glass-border shadow-2xl transition-all duration-300 hover:shadow-primary/10 hover:border-glass-highlight leading-4 h-[44vh] md:h-[70vh] lg:max-h-[600px] lg:min-h-[400px]">
 
             {/* Header */}
             <motion.div
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="sticky top-0 z-10 border-b border-glass-border glass-surface bg-glass-bg/50 px-6 py-4"
+                className="sticky top-0 z-10 border-b border-glass-border glass-surface bg-glass-bg/50 md:px-6 px-4 py-2"
             >
                 <div className="flex items-center gap-4">
                     <motion.div
                         animate={{ rotate: [0, 360] }}
                         transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
-                        className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 ring-1 ring-primary/50 shadow-[0_0_15px_rgba(124,124,255,0.3)]"
+                        className="flex h-8 md:h-10 w-8 md:w-10 items-center justify-center rounded-full bg-primary/10 ring-1 ring-primary/50 shadow-[0_0_15px_rgba(124,124,255,0.3)]"
                     >
-                        <Sparkles className="h-5 w-5 text-primary" />
+                        <Sparkles className="h-4 w-4 md:h-5 md:w-5 text-primary" />
                     </motion.div>
                     <div>
-                        <h2 className="text-lg font-semibold text-foreground tracking-tight">{t("header.title")}</h2>
+                        <h2 className="text-sm md:text-lg md:font-semibold text-foreground tracking-tight ">{t("header.title")}</h2>
                         <p className="text-xs text-muted-foreground">{t("header.subtitle")}</p>
                     </div>
                 </div>
