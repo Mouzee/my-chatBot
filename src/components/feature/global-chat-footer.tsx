@@ -171,7 +171,7 @@ export function GlobalChatFooter({
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: 20 }}
-                            className="glass-surface rounded-2xl border border-glass-border shadow-2xl backdrop-blur-xl bg-glass-bg/80 p-4 space-y-3"
+                            className="glass-surface rounded-2xl border border-glass-border shadow-2xl backdrop-blur-xl bg-glass-bg/80 p-2 space-y-2"
                         >
                             <ScrollArea className="w-full">
                                 <div className="flex items-center gap-2 px-2 py-2">
@@ -232,7 +232,7 @@ export function GlobalChatFooter({
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: 20 }}
-                            className="glass-surface rounded-2xl border border-glass-border shadow-2xl backdrop-blur-xl bg-glass-bg/80 p-4 space-y-3"
+                            className="glass-surface rounded-2xl border border-glass-border shadow-2xl backdrop-blur-xl bg-glass-bg/80 p-0 space-y-2"
                         >
                             {selectedCategory && (
                                 <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>

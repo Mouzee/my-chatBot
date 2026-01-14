@@ -203,45 +203,70 @@
           "achievements": [
             "Delivered healthcare regulatory portal serving 500+ facilities",
             "Implemented biometric attendance system for 10,000+ government employees",
-            "Achieved 98% user satisfaction rating on military digital solutions"
+            "Achieved 98% user satisfaction rating on military digital solutions",
+            "Digitized manual workflow processes reducing administrative overhead by 60%",
+            "Orchestrated secure data exchange protocols complying with national health data standards",
+            "Mentored junior developers in UI/UX best practices and modern frontend architectures"
           ],
           "tags": ["Angular", "Bootstrap", "Government", "Security", "Accessibility"]
         },
         {
-          "title": "Frontend Developer",
-          "company": "Banking & FinTech Solutions",
-          "period": "2020 - 2021",
-          "description": "Developed secure banking applications and financial dashboards with focus on performance, security, and user experience.",
+          "title": "Product Designer, UI/UX Developer ",
+          "company": "Meem Technologies",
+          "period": "2019 - 2021",
+          "description": "Designed and developed a scalable social media platform, bridging the gap between product vision and technical implementation.",
           "achievements": [
-            "Built mobile banking app with 50,000+ active users",
-            "Reduced page load time by 60% through optimization",
-            "Implemented secure authentication with biometric integration"
+            "Built Social media app with 50,000+ active users",
+            "Led product design lifecycle from user research and wireframing to high-fidelity UI",
+            "Reduced page load time by 60% through front-end performance optimization",
+            "Implemented secure authentication and real-time social features",
+            "Collaborated with backend teams to optimize data fetching strategies for rich media content",
+            "Established a unified design system reducing UI development time by 40%"
           ],
-          "tags": ["React Native", "Security", "Performance", "Mobile", "FinTech"]
+          "tags": ["React Native", "Product Design", "Social Media", "Mobile", "Performance"]
         },
         {
-          "title": "UI/UX Designer",
-          "company": "Creative Design Agency",
-          "period": "2019 - 2020",
-          "description": "Created compelling brand identities and user interfaces for diverse clients across e-commerce, healthcare, and service industries.",
+          "title": "Sr. UI/UX Designer, UI Developer",
+          "company": "IEAG LLC FZ",
+          "period": "2016 - 2019",
+          "description": "Led the UI/UX design and frontend development for a comprehensive construction management platform, streamlining complex architectural workflows.",
           "achievements": [
-            "Designed 30+ brand identities and style guides",
-            "Increased client conversion rates by average of 40%",
-            "Won 'Best UI Design' award at regional design competition"
+            "Designed and developed a centralized construction management dashboard for monitoring multiple international projects",
+            "Created intuitive interfaces for handling large-scale architectural blueprints and document management systems",
+            "Implemented real-time project tracking features enabling stakeholders to monitor progress and resource allocation",
+            "Standardized the UI component library across the platform, improving development efficiency by 35%",
+            "Conducted user research with architects and project managers to optimize critical workflows and reduce error rates",
+            "Integrated complex data visualization tools for financial reporting and timeline estimation"
           ],
-          "tags": ["Figma", "Adobe Suite", "Branding", "UI Design", "Prototyping"]
+          "tags": ["React", "UI/UX", "Enterprise", "Dashboard", "Construction Tech"]
         },
         {
-          "title": "Junior Designer & Developer",
-          "company": "Freelance & Learning",
-          "period": "2018 - 2019",
-          "description": "Started my journey in web design and development, building websites for small businesses and continuously learning new technologies.",
+          "title": "UI/UX Designer, UI Developer",
+          "company": "Dynapix LLC",
+          "period": "2014 - 2016",
+          "description": "Collaborated with cross-functional teams to deliver dynamic web solutions, enhancing user engagement and brand visibility for SMB clients.",
           "achievements": [
-            "Completed 20+ freelance projects successfully",
-            "Mastered HTML, CSS, JavaScript, and responsive design",
-            "Built personal portfolio that attracted first agency job"
+            "Developed fully responsive websites for 15+ clients using Bootstrap and custom CSS frameworks",
+            "Revamped legacy UIs to modern, mobile-first standards, increasing mobile traffic participation by 50%",
+            "Worked closely with backend developers to integrate PHP-based CMS solutions",
+            "Designed and implemented interactive UI elements using jQuery and vanilla JavaScript",
+            "Maintained 100% on-time delivery record for client projects"
           ],
-          "tags": ["HTML", "CSS", "JavaScript", "WordPress", "Freelance"]
+          "tags": ["HTML5/CSS3", "JavaScript", "Bootstrap", "WordPress", "PHP"]
+        },
+        {
+          "title": "UI Designer, UI Developer",
+          "company": "Sesame Software - Technologies",
+          "period": "2012 - 2014",
+          "description": "Kickstarted professional career by transforming static designs into functional, standards-compliant web interfaces.",
+          "achievements": [
+            "Translated PSD designs into pixel-perfect, W3C compliant HTML/CSS templates",
+            "Optimized frontend assets for faster load times across various browsers (including IE compatibility)",
+            "Assisted senior developers in debugging and maintaining large-scale web applications",
+            "Gained deep understanding of the software development lifecycle and version control",
+            "Contributed to the company's internal library of reusable UI widgets"
+          ],
+          "tags": ["HTML", "CSS", "jQuery", "Photoshop", "Web Standards"]
         }
       ]
     }
