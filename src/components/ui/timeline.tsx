@@ -2,6 +2,8 @@
 
 import { motion, useScroll, useTransform } from "framer-motion"
 import { useRef } from "react"
+import { useI18n } from "@/lib/i18n-utils"
+
 
 interface TimelineItem {
   title: string
@@ -46,7 +48,9 @@ export function Timeline({ items }: TimelineProps) {
 }
 
 function TimelineItem({ item, index }: { item: TimelineItem; index: number }) {
+  const { t } = useI18n()
   return (
+
     <motion.div
       initial={{ opacity: 0, x: -50 }}
       whileInView={{ opacity: 1, x: 0 }}
@@ -78,7 +82,7 @@ function TimelineItem({ item, index }: { item: TimelineItem; index: number }) {
 
         {item.achievements && item.achievements.length > 0 && (
           <div className="space-y-2">
-            <h4 className="text-sm font-semibold text-foreground">Key Achievements:</h4>
+            <h4 className="text-sm font-semibold text-foreground">{t("pages.experience.achievementsTitle")}</h4>
             <ul className="space-y-1">
               {item.achievements.map((achievement, i) => (
                 <li key={i} className="text-sm text-muted-foreground flex items-start gap-2">

@@ -21,26 +21,15 @@ export default function BlogPage() {
     { title: t("navigation.blog"), icon: BookOpen, href: "/blog" },
   ]
 
-  const blogPosts = [
-    {
-      title: t("pages.blog.posts.0.title"),
-      excerpt: t("pages.blog.posts.0.excerpt"),
-      date: "2024-01-15",
-      readTime: "5 min",
-    },
-    {
-      title: t("pages.blog.posts.1.title"),
-      excerpt: t("pages.blog.posts.1.excerpt"),
-      date: "2024-01-10",
-      readTime: "7 min",
-    },
-    {
-      title: t("pages.blog.posts.2.title"),
-      excerpt: t("pages.blog.posts.2.excerpt"),
-      date: "2024-01-05",
-      readTime: "6 min",
-    },
-  ]
+  const blogsRaw = t.raw("pages.blog.items")
+  const blogsArray = Array.isArray(blogsRaw) ? blogsRaw : []
+
+  const blogPosts = blogsArray.map((item: any, i: number) => ({
+    title: t(`pages.blog.items.${i}.title`),
+    excerpt: t(`pages.blog.items.${i}.excerpt`),
+    date: t(`pages.blog.items.${i}.date`),
+    readTime: t("pages.blog.readTime", { minutes: item.readTime }),
+  }))
 
   return (
     <>
