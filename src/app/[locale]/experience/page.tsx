@@ -11,21 +11,20 @@ export default function ExperiencePage() {
   const { t } = useI18n()
 
   // Get timeline items from translations
-  const timelineItems = Array.from({ length: 6 }, (_, i) => ({
+  const timelineRaw = t.raw("pages.experience.timeline")
+  const timelineArray = Array.isArray(timelineRaw) ? timelineRaw : []
+
+  const timelineItems = timelineArray.map((item: any, i: number) => ({
     title: t(`pages.experience.timeline.${i}.title`),
     company: t(`pages.experience.timeline.${i}.company`),
     period: t(`pages.experience.timeline.${i}.period`),
     description: t(`pages.experience.timeline.${i}.description`),
-    achievements: [
-      t(`pages.experience.timeline.${i}.achievements.0`),
-      t(`pages.experience.timeline.${i}.achievements.1`),
-      t(`pages.experience.timeline.${i}.achievements.2`),
-      t(`pages.experience.timeline.${i}.achievements.3`),
-      t(`pages.experience.timeline.${i}.achievements.4`),
-      t(`pages.experience.timeline.${i}.achievements.5`),
-      t(`pages.experience.timeline.${i}.achievements.6`)
-    ].filter(Boolean),
-    tags: t.raw(`pages.experience.timeline.${i}.tags`) as string[],
+    achievements: Array.isArray(item.achievements)
+      ? item.achievements.map((_: any, j: number) => t(`pages.experience.timeline.${i}.achievements.${j}`))
+      : [],
+    tags: Array.isArray(item.tags)
+      ? item.tags.map((_: any, j: number) => t(`pages.experience.timeline.${i}.tags.${j}`))
+      : [],
   }))
 
   return (
