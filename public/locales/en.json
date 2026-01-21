@@ -146,35 +146,7 @@
         "dribbble": "Dribbble"
       }
     },
-    "blog": {
-      "title": "Blog & Insights",
-      "subtitle": "Thoughts on design, development, and technology",
-      "readMore": "Read More",
-      "readTime": "{minutes} min read",
-      "items": [
-        {
-          "title": "Building Scalable Design Systems",
-          "excerpt": "Learn how to create and maintain design systems that grow with your product and team.",
-          "date": "2024-01-15",
-          "category": "Design",
-          "readTime": 8
-        },
-        {
-          "title": "Next.js 14: What's New",
-          "excerpt": "Exploring the latest features and improvements in Next.js 14 and how they impact development.",
-          "date": "2024-01-10",
-          "category": "Development",
-          "readTime": 6
-        },
-        {
-          "title": "The Future of Web Design",
-          "excerpt": "Trends and predictions for web design in 2024 and beyond, from AI to immersive experiences.",
-          "date": "2024-01-05",
-          "category": "Design",
-          "readTime": 10
-        }
-      ]
-    },
+
     "experience": {
       "title": "Changelog from My Journey",
       "subtitle": "A timeline of my professional growth and key milestones",
